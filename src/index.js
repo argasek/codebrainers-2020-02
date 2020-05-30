@@ -1,5 +1,14 @@
+// 1. Wystaw użytkownikowi adekwatną ocenę jeśli zdecyduje się na opcję "0 pytań" "no questions asked".
+// 2. Przerób poniższy kod w taki sposób, aby jeśli użytkownik nie zdał, zadawał on (kod!) pytania tak długo,
+//    aż użytkownik zda! Podpowiedź: zamiast wyświetlać okno komunikatu "Passed: false", pomiń wyświetlanie tego
+//    okna i zadawaj pytania tak długo, aż stosunek odpowiedzi poprawnych do niepoprawnych będzie 0.6 do 0.4 ;)
+// 3*. Przerób poniższy kod w taki sposób, aby sprawdzał nie tylko znajomość tabliczki mnożenia, ale wszystkich
+//    czterech podstawowych działań, tj. + - / *. (Czyli przy każdym przejściu pętli losował nie tylko 2 liczby,
+//    ale również rodzaj działania jaki ma między nimi zajść).
+// 3a*. Dzielenie może być "trochę problematyczne". Znajdź sposób, jak to "trochę" obejść ;)
+
 function question(a, b) {
-    return `How much is ${a} * ${b}?`;
+    return `How much is ${a} + ${b}?`;
 }
 
 function drawNumber(scale) {
@@ -9,9 +18,9 @@ function drawNumber(scale) {
 let questionCount;
 
 do {
-    questionCount = prompt("How many questions do you want to answer?");
-
-} while (parseInt(questionCount) === NaN);
+    questionCount = parseInt(prompt("How many questions do you want to answer?"));
+    console.log(questionCount);
+} while (isNaN(questionCount) || questionCount < 0);
 
 let correctAnswerCount = 0;
 
@@ -19,20 +28,13 @@ for (let i = 0; i < questionCount; i++) {
     const a = drawNumber(10);
     const b = drawNumber(10);
     const answer = prompt(question(a, b));
-    if (parseInt(answer) === a * b) {
+    if (parseInt(answer) === a + b) {
         correctAnswerCount++;
     } else {
     }
 
     console.log(question(a, b));
 }
-
-// undefined
-console.log(correctAnswerCount); //9
-console.log(questionCount); //10
-console.log(correctAnswerCount / questionCount); //0.9
-console.log(0.6 * questionCount); //6
-
 
 const passed = correctAnswerCount / questionCount >= 0.6;
 
