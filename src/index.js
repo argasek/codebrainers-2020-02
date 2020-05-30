@@ -10,9 +10,9 @@ const questionCount = 5;
 let correctAnswerCount = 0;
 
 for (let i = 0; i < questionCount; i++) {
-  let a = drawNumber(10);
-  let b = drawNumber(10);
-  let answer = prompt(question(a, b));
+  const a = drawNumber(10);
+  const b = drawNumber(10);
+  const answer = prompt(question(a, b));
   if (parseInt(answer) === a * b) {
     correctAnswerCount++;
   } else {
@@ -21,7 +21,6 @@ for (let i = 0; i < questionCount; i++) {
   console.log(question(a, b));
 }
 
-let passed;
 // undefined
 console.log(correctAnswerCount); //9
 console.log(questionCount); //10
@@ -29,11 +28,7 @@ console.log(correctAnswerCount/questionCount); //0.9
 console.log(0.6 * questionCount); //6
 
 
-if (correctAnswerCount/questionCount >= 0.6) {
-  passed = true;
-} else {
-  passed = false;
-}
+const passed = correctAnswerCount / questionCount >= 0.6;
 
 alert('Passed: ' + passed + '\nNumber of correct answers: ' + correctAnswerCount + '/' + questionCount);
 
