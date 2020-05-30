@@ -6,7 +6,7 @@ function drawNumber(scale) {
   return parseInt(Math.random() * scale) + 1;
 }
 
-const questionCount = 4;
+const questionCount = 1;
 let correctAnswerCount = 0;
 
 for (let i = 0; i < questionCount; i++) {
@@ -21,5 +21,13 @@ for (let i = 0; i < questionCount; i++) {
   console.log(question(a, b));
 }
 
-alert('Number of correct answers: ' + correctAnswerCount);
+let passed;
+// undefined
+if (correctAnswerCount/questionCount >= 0.6 * questionCount) {
+  passed = true;
+} else {
+  passed = false;
+}
+
+alert('Passed: ' + passed + '\nNumber of correct answers: ' + correctAnswerCount + '/' + questionCount);
 
