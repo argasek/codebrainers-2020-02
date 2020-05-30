@@ -1,10 +1,5 @@
-// // Statements
-// console.log('Hello world from developers\' console!');
-// let userName = prompt("Hello world! What's your name?");
-// alert(`Nice to meet you, ${userName}!`);
-
 function question(a, b) {
-  return `Jaki jest wynik działania, ${a} * ${b}`;
+  return `How much is ${ a } * ${ b }?`;
 }
 
 function drawNumber(scale) {
@@ -12,22 +7,19 @@ function drawNumber(scale) {
 }
 
 const questionCount = 4;
+let correctAnswerCount = 0;
 
 for (let i = 0; i < questionCount; i++) {
   let a = drawNumber(10);
   let b = drawNumber(10);
+  let answer = prompt(question(a, b));
+  if (parseInt(answer) === a * b) {
+    correctAnswerCount++;
+  } else {
+  }
 
-  const answer = "";
   console.log(question(a, b));
 }
 
-// let answer = prompt(question(a, b));
-// const answer = "";
+alert('Number of correct answers: ' + correctAnswerCount);
 
-// console.log(question(a, b));
-
-// if (parseInt(answer) === a * b) {
-//     alert('Well done');
-// } else {
-//     alert("Wrong answer");
-// }
