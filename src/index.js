@@ -8,9 +8,12 @@ function question(a, b) {
     return `Jaki jest wynik działania, ${a} * ${b}`;
 }
 
-let answer = prompt(question(3, 2));
+let a = 4;
+let b = 3;
 
-if (parseInt(answer) === 6) {
+let answer = prompt(question(a, b));
+
+if (parseInt(answer) === a * b) {
     alert('Well done');
 } else {
     alert("Wrong answer");
