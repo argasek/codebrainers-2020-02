@@ -6,7 +6,7 @@ function drawNumber(scale) {
   return parseInt(Math.random() * scale) + 1;
 }
 
-const questionCount = 5;
+const questionCount = prompt("How many questions do you want to answer?");
 let correctAnswerCount = 0;
 
 for (let i = 0; i < questionCount; i++) {
