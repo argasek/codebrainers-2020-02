@@ -25,4 +25,3 @@ if (parseInt(answer) === 6) {
 } else {
     alert('Wrong!');
 }
-console.log()
