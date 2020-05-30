@@ -8,13 +8,20 @@ function question(a, b) {
     return `Jaki jest wynik działania, ${a} * ${b}`;
 }
 
-let a = parseInt(Math.random());
-let b = Math.random();
-
-let answer = prompt(question(a, b));
-
-if (parseInt(answer) === a * b) {
-    alert('Well done');
-} else {
-    alert("Wrong answer");
+function drawNumber(scale) {
+    return parseInt(Math.random() * scale) + 1;
 }
+
+let a = drawNumber(10);
+let b = drawNumber(10);
+
+// let answer = prompt(question(a, b));
+const answer = "";
+
+console.log(question(a, b));
+
+// if (parseInt(answer) === a * b) {
+//     alert('Well done');
+// } else {
+//     alert("Wrong answer");
+// }
