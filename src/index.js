@@ -8,8 +8,8 @@ function question(a, b) {
     return `Jaki jest wynik działania, ${a} * ${b}`;
 }
 
-let a = 4;
-let b = 3;
+let a = parseInt(Math.random());
+let b = Math.random();
 
 let answer = prompt(question(a, b));
 
