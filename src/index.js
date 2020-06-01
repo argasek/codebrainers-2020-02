@@ -20,7 +20,12 @@ let questionCount;
 do {
     questionCount = parseInt(prompt("How many questions do you want to answer?"));
     console.log(questionCount);
-} while (isNaN(questionCount) || questionCount < 0);
+    if (questionCount == 0) {
+        alert('Chicken!!!');
+    }
+} while (isNaN(questionCount) || questionCount < 0)
+
+
 
 let correctAnswerCount = 0;
 
