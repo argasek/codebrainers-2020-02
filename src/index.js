@@ -7,8 +7,29 @@
 //    ale również rodzaj działania jaki ma między nimi zajść).
 // 3a*. Dzielenie może być "trochę problematyczne". Znajdź sposób, jak to "trochę" obejść ;)
 
-function question(a, b) {
-    return `How much is ${a} + ${b}?`;
+function question(a, b, operator) {
+    let choices = {
+        1: `How much is ${a} + ${b}?`,
+        2: `How much is ${a} - ${b}?`,
+        3: `How much is ${a} * ${b}?`,
+        4: `How much is ${a} / ${b}?`,
+    }
+    return choices[operator]
+}
+function answers(a, b, operator) {
+    let choices = {
+        1: a + b,
+        2: a - b,
+        3: a * b,
+        4: a / b,
+    }
+    return choices[operator]
+}
+
+function round(n, k) {
+    let factor = Math.pow(10, k + 1);
+    n = Math.round(Math.round(n * factor) / 10);
+    return n / (factor / 10);
 }
 
 function drawNumber(scale) {
@@ -19,24 +40,37 @@ let questionCount;
 
 do {
     questionCount = parseInt(prompt("How many questions do you want to answer?"));
-    console.log(questionCount);
 } while (isNaN(questionCount) || questionCount < 0);
 
 let correctAnswerCount = 0;
 
-for (let i = 0; i < questionCount; i++) {
-    const a = drawNumber(10);
-    const b = drawNumber(10);
-    const answer = prompt(question(a, b));
-    if (parseInt(answer) === a + b) {
-        correctAnswerCount++;
-    } else {
-    }
+if (questionCount === 0) {
+    do {
+        correctAnswerCount = parseInt(Math.random() * 100) + 1;
+        questionCount = parseInt(Math.random() * 100) + 1;
+    } while (questionCount <= correctAnswerCount);
 
-    console.log(question(a, b));
+    const passed = correctAnswerCount / questionCount >= 0.6;
+
+    alert('That\'s a smart move! Roll the wheel than and get a random scores ;)');
+    alert(`Passed: ${passed}\nYour score is: ${correctAnswerCount}/${questionCount}!`)
 }
+else {
+    do {
+        for (let i = 0; i < questionCount; i++) {
+            const a = drawNumber(10);
+            const b = drawNumber(10);
+            const operator = 4;
+            const answer = prompt(question(a, b, operator));
+            if (String(answer) === String(round(answers(a, b, operator), 1))) {
+                correctAnswerCount++;
+            } else {
+                questionCount++;
+            }
 
-const passed = correctAnswerCount / questionCount >= 0.6;
+        }
+    } while ((correctAnswerCount / questionCount) <= 0.6);
+    const passed = correctAnswerCount / questionCount >= 0.6;
 
-alert('Passed: ' + passed + '\nNumber of correct answers: ' + correctAnswerCount + '/' + questionCount);
-
+    alert('Passed: ' + passed + '\nNumber of correct answers: ' + correctAnswerCount + '/' + questionCount);
+}
