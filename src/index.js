@@ -25,16 +25,16 @@ function startAskingQuestions() {
     const answer = prompt(question(a, b));
 
     askedQuestionCount++;
+
     if (parseInt(answer) === a + b) {
       correctAnswerCount++;
     }
 
-    if (askedQuestionCount === questionCount) {
-      passed = correctAnswerCount / questionCount >= PASSING_CRITERIA;
-    }
+    const exceededOrMetNumberOfRequiredQuestions = askedQuestionCount >= questionCount;
+    const meetAcceptanceCriteria = correctAnswerCount / askedQuestionCount >= PASSING_CRITERIA;
 
-    if (askedQuestionCount > questionCount) {
-      passed = correctAnswerCount / askedQuestionCount >= PASSING_CRITERIA;
+    if (exceededOrMetNumberOfRequiredQuestions && meetAcceptanceCriteria) {
+      passed = true;
     }
 
   } while (passed === false);
