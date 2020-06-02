@@ -1,4 +1,3 @@
-// 1. Wystaw użytkownikowi adekwatną ocenę jeśli zdecyduje się na opcję "0 pytań" "no questions asked".
 // 2. Przerób poniższy kod w taki sposób, aby jeśli użytkownik nie zdał, zadawał on (kod!) pytania tak długo,
 //    aż użytkownik zda! Podpowiedź: zamiast wyświetlać okno komunikatu "Passed: false", pomiń wyświetlanie tego
 //    okna i zadawaj pytania tak długo, aż stosunek odpowiedzi poprawnych do niepoprawnych będzie 0.6 do 0.4 ;)
@@ -7,36 +6,40 @@
 //    ale również rodzaj działania jaki ma między nimi zajść).
 // 3a*. Dzielenie może być "trochę problematyczne". Znajdź sposób, jak to "trochę" obejść ;)
 
+let questionCount;
+let correctAnswerCount = 0;
+
 function question(a, b) {
-    return `How much is ${a} + ${b}?`;
+  return `How much is ${ a } + ${ b }?`;
 }
 
 function drawNumber(scale) {
-    return parseInt(Math.random() * scale) + 1;
+  return parseInt(Math.random() * scale) + 1;
 }
 
-let questionCount;
-
-do {
-    questionCount = parseInt(prompt("How many questions do you want to answer?"));
-    console.log(questionCount);
-} while (isNaN(questionCount) || questionCount < 0);
-
-let correctAnswerCount = 0;
-
-for (let i = 0; i < questionCount; i++) {
+function startAskingQuestions() {
+  for (let i = 0; i < questionCount; i++) {
     const a = drawNumber(10);
     const b = drawNumber(10);
     const answer = prompt(question(a, b));
     if (parseInt(answer) === a + b) {
-        correctAnswerCount++;
-    } else {
+      correctAnswerCount++;
     }
-
     console.log(question(a, b));
+  }
+
+  const passed = correctAnswerCount / questionCount >= 0.6;
+
+  alert('Passed: ' + passed + '\nNumber of correct answers: ' + correctAnswerCount + '/' + questionCount);
 }
 
-const passed = correctAnswerCount / questionCount >= 0.6;
+do {
+  questionCount = parseInt(prompt("How many questions do you want to answer?"));
+  console.log(questionCount);
+} while (isNaN(questionCount) || questionCount < 0);
 
-alert('Passed: ' + passed + '\nNumber of correct answers: ' + correctAnswerCount + '/' + questionCount);
-
+if (questionCount === 0) {
+  alert('Passed: ' + false + '\nNumber of correct answers: well, no questions were asked anyway! ¯\\_(ツ)_/¯' )
+} else {
+  startAskingQuestions();
+}
