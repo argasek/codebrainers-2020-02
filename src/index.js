@@ -1,10 +1,9 @@
-// 2. Przerób poniższy kod w taki sposób, aby jeśli użytkownik nie zdał, zadawał on (kod!) pytania tak długo,
-//    aż użytkownik zda! Podpowiedź: zamiast wyświetlać okno komunikatu "Passed: false", pomiń wyświetlanie tego
-//    okna i zadawaj pytania tak długo, aż stosunek odpowiedzi poprawnych do niepoprawnych będzie 0.6 do 0.4 ;)
 // 3*. Przerób poniższy kod w taki sposób, aby sprawdzał nie tylko znajomość tabliczki mnożenia, ale wszystkich
 //    czterech podstawowych działań, tj. + - / *. (Czyli przy każdym przejściu pętli losował nie tylko 2 liczby,
 //    ale również rodzaj działania jaki ma między nimi zajść).
 // 3a*. Dzielenie może być "trochę problematyczne". Znajdź sposób, jak to "trochę" obejść ;)
+
+const PASSING_CRITERIA = 0.6;
 
 let questionCount;
 let correctAnswerCount = 0;
@@ -18,19 +17,37 @@ function drawNumber(scale) {
 }
 
 function startAskingQuestions() {
-  for (let i = 0; i < questionCount; i++) {
+  let passed = false;
+  let askedQuestionCount = 0;
+  do {
     const a = drawNumber(10);
     const b = drawNumber(10);
     const answer = prompt(question(a, b));
+
+    askedQuestionCount++;
     if (parseInt(answer) === a + b) {
       correctAnswerCount++;
     }
-    console.log(question(a, b));
-  }
 
-  const passed = correctAnswerCount / questionCount >= 0.6;
+    if (askedQuestionCount === questionCount) {
+      passed = correctAnswerCount / questionCount >= PASSING_CRITERIA;
+    }
 
-  alert('Passed: ' + passed + '\nNumber of correct answers: ' + correctAnswerCount + '/' + questionCount);
+    if (askedQuestionCount > questionCount) {
+      passed = correctAnswerCount / askedQuestionCount >= PASSING_CRITERIA;
+    }
+
+  } while (passed === false);
+
+  alert(
+    'Passed: '
+    + passed
+    + '\nCorrect answers / questions: '
+    + correctAnswerCount + '/'
+    + askedQuestionCount + ' '
+    + 'ratio: '
+    + correctAnswerCount / askedQuestionCount
+  );
 }
 
 do {
@@ -39,7 +56,7 @@ do {
 } while (isNaN(questionCount) || questionCount < 0);
 
 if (questionCount === 0) {
-  alert('Passed: ' + false + '\nNumber of correct answers: well, no questions were asked anyway! ¯\\_(ツ)_/¯' )
+  alert('Passed: ' + false + '\nNumber of correct answers: well, no questions were asked anyway! ¯\\_(ツ)_/¯');
 } else {
   startAskingQuestions();
 }
