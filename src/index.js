@@ -57,9 +57,11 @@ const students = [
 
 function adult(items) {
 
-    for (let i = 0; i < students.length; i++) {
 
-        console.log(items[i].name);
+    for (let i = 0; i < students.length; i++) {
+        if (items[i].age >= 18) {
+            console.log(items[i].name);
+        }
     }
 }
 
