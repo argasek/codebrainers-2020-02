@@ -20,6 +20,8 @@ let questionCount;
 do {
     questionCount = parseInt(prompt("How many questions do you want to answer?"));
     console.log(questionCount);
+        if (questionCount === 0) {
+        alert("Nice try, but NO!");
 } while (isNaN(questionCount) || questionCount < 0);
 
 let correctAnswerCount = 0;
