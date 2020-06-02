@@ -7,7 +7,9 @@
 // Jeżeli nie, dlaczego? Odpowiedź uzasadnij.
 //
 // Zad. 2
-// Napisz algorytm losujący studenta CodeBrainers to odstrzału!
+// Napisz algorytm losujący studenta CodeBrainers to odstrzału! Czyli:
+// treść funkcji soLetMeAskThisPersonToday() która przyjmuje tablicę studentów
+// i losowo wyświetla nazwisko studenta do odpytania wylosowanego z tej przekazanej tablicy.
 
 
 // funkcje -- charakter ogólny, niezwiązany z żadnym obiektem
@@ -32,7 +34,7 @@ for (let i = 0; i < numbers.length; i++) {
 }
 
 // POJO == Plain Old JavaScript Object
-const students = [
+const codeBrainersStudents = [
     {
         name: 'Jakub Argasiński',
         age: 18
@@ -55,14 +57,14 @@ const students = [
     },
 ];
 
-function adult(items) {
-
-
-    for (let i = 0; i < students.length; i++) {
-        if (items[i].age >= 18) {
-            console.log(items[i].name);
-        }
-    }
+function soLetMeAskThisPersonToday(students) {
+    // for (let i = 0; i < students.length; i++) {
+    //     if (students[i].age >= 18) {
+    //         console.log(students[i].name);
+    //     }
+    // }
+    const wylosowanaOfiara = '';
+    return wylosowanaOfiara;
 }
 
-adult(students);
+soLetMeAskThisPersonToday(codeBrainersStudents);
