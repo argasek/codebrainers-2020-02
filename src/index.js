@@ -20,23 +20,26 @@ let questionCount;
 do {
     questionCount = parseInt(prompt("How many questions do you want to answer?"));
     console.log(questionCount);
-} while (isNaN(questionCount) || questionCount < 0);
+    if (questionCount === 0) {
+        alert('Boring')
+    }
+} while (isNaN(questionCount) || questionCount <= 0);
 
 let correctAnswerCount = 0;
 
-for (let i = 0; i < questionCount; i++) {
+do {
     const a = drawNumber(10);
     const b = drawNumber(10);
     const answer = prompt(question(a, b));
     if (parseInt(answer) === a + b) {
         correctAnswerCount++;
-    } else {
     }
-
     console.log(question(a, b));
+
+} while (questionCount !== correctAnswerCount);
+// const passed = correctAnswerCount / questionCount >= 0.6;
+
+
+if (correctAnswerCount === questionCount) {
+    alert('Good job!');
 }
-
-const passed = correctAnswerCount / questionCount >= 0.6;
-
-alert('Passed: ' + passed + '\nNumber of correct answers: ' + correctAnswerCount + '/' + questionCount);
-
