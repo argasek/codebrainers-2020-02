@@ -25,36 +25,42 @@
 
 // POJO == Plain Old JavaScript Object
 
-const numbers = [ 13, 666, 2137 ];
+const numbers = [13, 666, 2137];
 
 for (let i = 0; i < numbers.length; i++) {
-  console.log(numbers[i]);
+    console.log(numbers[i]);
 }
 
 // POJO == Plain Old JavaScript Object
 const students = [
-  {
-    name: 'Jakub Argasiński',
-    age: 18
-  },
-  {
-    name: 'Michał Marchański',
-    age: 13
-  },
-  {
-    name: 'Joanna Lucjanna',
-    age: 24
-  },
-  {
-    name: 'Kaczor Donald',
-    age: 83
-  },
-  {
-    name: 'Grzegorz Lasoń',
-    age: 84
-  },
+    {
+        name: 'Jakub Argasiński',
+        age: 18
+    },
+    {
+        name: 'Michał Marchański',
+        age: 13
+    },
+    {
+        name: 'Joanna Lucjanna',
+        age: 24
+    },
+    {
+        name: 'Kaczor Donald',
+        age: 83
+    },
+    {
+        name: 'Grzegorz Lasoń',
+        age: 84
+    },
 ];
 
-for (let i = 0; i < students.length; i++) {
-  console.log(students[i]);
+function adult(items) {
+
+    for (let i = 0; i < students.length; i++) {
+
+        console.log(items[i].name);
+    }
 }
+
+adult(students);
