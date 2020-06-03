@@ -60,41 +60,58 @@ for (let i = 0; i < numbers.length; i++) {
 
 // POJO == Plain Old JavaScript Object
 const codeBrainersStudents = [
-    {
-        name: 'Grzegorz Lasoń',
-        age: 18
-    },
-    {
-        name: 'Michał Marchański',
-        age: 13
-    },
-    {
-        name: 'Joanna Włoskowicz',
-        age: 24
-    },
-    {
-        name: 'Damian Lipniak',
-        age: 83
-    },
-    {
-        name: 'Kamila Kalisz',
-        age: 84
-    },
-    {
-        name: 'Karolina Bochenek',
-        age: 84
-    },
+    'Grzegorz Lason',
+    'Michał Marchański',
+    'Joanna Włoskowicz',
+    'Damian Lipniak',
+    'Kamila Kalisz',
+    'Karolina Bochenek',
+    'Sabina Dziedzioch',
+    'Michał Marchański',
+    'Maksym Garus',
 ];
+const scale = codeBrainersStudents.length - 1;
+console.log(" dl listy index 0 do " + scale)
 
-function soLetMeAskThisPersonToday(students) {
-    // for (let i = 0; i < students.length; i++) {
-    //     if (students[i].age >= 18) {
-    //         console.log(students[i].name);
-    //     }
-    // }
-    const wylosowanaOfiara = '';
-    return wylosowanaOfiara;
+function drawNumber(scale) {
+    return Math.ceil(Math.random() * scale);
+}
+
+// let studentIndex = drawNumber(scale);
+// console.log('Osoba  indexem ' + studentIndex);
+
+// const wylosowanaOfiara = codeBrainersStudents[studentIndex];
+
+// console.log(wylosowanaOfiara);
+
+
+function soLetMeAskThisPersonToday() {
+    const studentIndex = drawNumber(scale);
+    let wylosowanaOfiara = codeBrainersStudents[studentIndex];
+
+    const new_list = [0];
+
+    for (var i = 0; i < new_list.length; i++) {
+        if (new_list[i] === wylosowanaOfiara) {
+            wylosowanaOfiara;
+            // soLetMeAskThisPersonToday(codeBrainersStudents);
+        }
+        else {
+            new_list[i] = wylosowanaOfiara;
+            return wylosowanaOfiara;
+        }
+    }
+
 
 }
 
-soLetMeAskThisPersonToday(codeBrainersStudents);
+for (var l = 0; l < codeBrainersStudents.length; l++) {
+    let person = soLetMeAskThisPersonToday();
+    console.log('Losujemy osobę nr: ' + (l + 1) + ' do odpowiedzi. Ofiara to...:' + person);
+
+
+
+    // var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+    // for( var i = 0; i < arr.length; i++){ if ( arr[i] === 5) { arr.splice(i, 1); }}
+    // => [1, 2, 3, 4, 6, 7, 8, 9, 0]
+
