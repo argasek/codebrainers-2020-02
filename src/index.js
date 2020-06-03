@@ -5,6 +5,31 @@
 // zastąpić funkcją
 //    Math.ceil(Math.random() * scale)
 // Jeżeli nie, dlaczego? Odpowiedź uzasadnij.
+// const a = Math.ceil(Math.random())+1;
+// console.log(a);
+//
+// 2
+// const a = Math.ceil(Math.random());
+// console.log(a);
+//
+// 1 V 0
+//
+//
+// const a = Math.floor(Math.random());
+// console.log(a);
+//
+// 0
+//
+// const a = Math.floor(Math.random() )+1;
+// console.log(a);
+//
+// 1
+//
+//
+// random integers in the interval [1, 10]:
+// Math.floor(Math.random()*10 + 1)
+// random integers in the interval [0, 10]:
+// Math.ceil(Math.random()*10);g
 //
 // Zad. 2
 // Napisz algorytm losujący studenta CodeBrainers to odstrzału! Czyli:
@@ -36,7 +61,7 @@ for (let i = 0; i < numbers.length; i++) {
 // POJO == Plain Old JavaScript Object
 const codeBrainersStudents = [
     {
-        name: 'Jakub Argasiński',
+        name: 'Grzegorz Lasoń',
         age: 18
     },
     {
@@ -44,15 +69,19 @@ const codeBrainersStudents = [
         age: 13
     },
     {
-        name: 'Joanna Lucjanna',
+        name: 'Joanna Włoskowicz',
         age: 24
     },
     {
-        name: 'Kaczor Donald',
+        name: 'Damian Lipniak',
         age: 83
     },
     {
-        name: 'Grzegorz Lasoń',
+        name: 'Kamila Kalisz',
+        age: 84
+    },
+    {
+        name: 'Karolina Bochenek',
         age: 84
     },
 ];
@@ -65,6 +94,7 @@ function soLetMeAskThisPersonToday(students) {
     // }
     const wylosowanaOfiara = '';
     return wylosowanaOfiara;
+
 }
 
 soLetMeAskThisPersonToday(codeBrainersStudents);
