@@ -27,44 +27,74 @@
 
 // POJO == Plain Old JavaScript Object
 
-const numbers = [13, 666, 2137];
-
-for (let i = 0; i < numbers.length; i++) {
-    console.log(numbers[i]);
-}
+// const numbers = [13, 666, 2137];
+//
+// for (let i = 0; i < numbers.length; i++) {
+//     console.log(numbers[i]);
+// }
 
 // POJO == Plain Old JavaScript Object
 const codeBrainersStudents = [
     {
-        name: 'Jakub Argasiński',
-        age: 18
+        name: 'Michał K.',
+        lp: 1
     },
     {
-        name: 'Michał Marchański',
-        age: 13
+        name: 'Michał M.',
+        lp: 2
     },
     {
-        name: 'Joanna Lucjanna',
-        age: 24
+        name: 'Joanna',
+        lp: 3
     },
     {
-        name: 'Kaczor Donald',
-        age: 83
+        name: 'Karolina',
+        lp: 4
     },
     {
-        name: 'Grzegorz Lasoń',
-        age: 84
+        name: 'Grzegorz',
+        lp: 5
+    },
+    {
+        name: 'Damian',
+        lp: 6
+    },
+        {
+        name: 'Sabina',
+        lp: 7
+    },
+        {
+        name: 'Kamila',
+        lp: 8
+    },
+        {
+        name: 'Maksym',
+        lp: 9
     },
 ];
 
-function soLetMeAskThisPersonToday(students) {
+//function soLetMeAskThisPersonToday(students) {
     // for (let i = 0; i < students.length; i++) {
     //     if (students[i].age >= 18) {
     //         console.log(students[i].name);
     //     }
     // }
-    const wylosowanaOfiara = '';
-    return wylosowanaOfiara;
+ //   const wylosowanaOfiara = '';
+//    return wylosowanaOfiara;
+//}
+
+function soLetMeAskThisPersonToday(codeBrainersStudents) {
+    for (let i = 0; i < codeBrainersStudents.length; i ++ ) {
+        Math.floor((Math.random() * 10) + 1 );
+        console.log(codeBrainersStudents[i].name)
+    }
 }
 
-soLetMeAskThisPersonToday(codeBrainersStudents);
+// return codeBrainersStudents[(Math.random() * codeBrainersStudents.length];
+// //consol.log(codeBrainersStudents[i].name);
+
+// for (let i = 0; i < codeBrainersStudents.length; i++) {
+//     if (codeBrainersStudents[i].lp>= 3) {
+//         console.log(codeBrainersStudents[i].name);
+//     }
+// }
