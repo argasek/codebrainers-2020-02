@@ -1,11 +1,14 @@
 // Zad. 1
 //
 // Sprawdź proszę, czy możemy naszą funkcję do generowania liczb z zakresu 1..scale w postaci
-//    Math.floor(Math.random() * scale) + 1
+//    Math.floor(Math.random() * scale) + 1 // {1,2,3,4,5,6,7,8,9,10}
 // zastąpić funkcją
-//    Math.ceil(Math.random() * scale)
+//    Math.ceil(Math.random() * scale) // {0,1,2,3,4,5,6,7,8,9,10}
 // Jeżeli nie, dlaczego? Odpowiedź uzasadnij.
 //
+// Drugie wyrażenie może zwrócić 0 (z małym pradopodobieństwem, ale zawsze)
+// A 0 chcemy wykluczyć.
+
 // Zad. 2
 // Napisz algorytm losujący studenta CodeBrainers to odstrzału!
 
