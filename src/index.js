@@ -68,3 +68,15 @@ function soLetMeAskThisPersonToday(students) {
 }
 
 console.log(soLetMeAskThisPersonToday(codeBrainersStudents).name);
+
+
+// exercise 1 solution:
+
+let someNumber = Math.random() * 10;
+
+// ceiling number
+console.log(Math.ceil(someNumber));
+// floor number + 1 is the same as ceiling number
+console.log(Math.floor(someNumber) + 1);
+// just to be sure - it can be done
+console.log(Math.floor(someNumber))
