@@ -63,8 +63,8 @@ function soLetMeAskThisPersonToday(students) {
     //         console.log(students[i].name);
     //     }
     // }
-    const wylosowanaOfiara = '';
+    const wylosowanaOfiara = students[Math.floor(Math.random() * students.length)];
     return wylosowanaOfiara;
 }
 
-soLetMeAskThisPersonToday(codeBrainersStudents);
+console.log(soLetMeAskThisPersonToday(codeBrainersStudents).name);
