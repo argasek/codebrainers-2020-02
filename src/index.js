@@ -81,4 +81,53 @@ for (let i = 0; i < 100; i++) {
 }
 
 
+//zad 2
+
+
+const codeBrainersStudents = [
+    {
+        name: 'Maksym',
+    },
+    {
+        name: 'Michał M.',
+    },
+    {
+        name: 'Joanna',
+    },
+    {
+        name: 'Michał K.',
+    },
+    {
+        name: 'Grzegorz',
+    },
+    {
+        name: 'Karolina',
+    },
+    {
+        name: 'Damian',
+    },
+    {
+        name: 'Sabina',
+    },
+    {
+        name: 'Kamila',
+    },
+
+];
+
+function soLetMeAskThisPersonToday(students) {
+    let randomNumber = Math.ceil(Math.random() * 8);
+    return console.log(codeBrainersStudents[randomNumber].name);
+}
+
+soLetMeAskThisPersonToday(codeBrainersStudents);
+
+// for (let i = 0; i < 100; i++) {
+//     let randomNumber = Math.ceil(Math.random() * 8);
+//     if (randomNumber > 8) {
+//         console.log('Thats not working properly')
+//     }
+// }
+
+
 
