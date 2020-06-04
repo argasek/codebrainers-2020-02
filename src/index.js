@@ -1,10 +1,32 @@
 // Homework
 //
-// Task 1 solution: these random number generator function do not work the same.
-// Math.floor(Math.random() * scale) + 1 => [1..scale]
-// Math.ceil(Math.random() * scale) => [0..scale]
+// Task 1
+// Napisz algorytm który będzie kopiował tablicę, która może zawierać tablicę... (Tak aby powstała kopia przez wartość).
+// Skorzystaj z operatora "typeof" i zwróconą przez niego wartość porównaj w instrukcji warunkowej.
 //
-// Task 2 solution:
+// Task 2*
+// Zmodyfikuj powyższe algorytm tak, aby był w stanie skopiować tablicę która może zawierać tablice które mogą zawierać
+// inne tablice, a one inne tablice... itd. itd.
+//
+// Task 3
+// Napisz funkcję, która sprawdzi, czy podane do niej 2 argumenty są równe.
+// Przetestuj tę funkcję z następującymi argumentami:
+//
+// 1)
+// const a = { klucz: 'wartosc' };
+// const b = { klucz: 'wartosc' };
+//
+// 2)
+// const a = { klucz: 'wartosc' };
+// const b = a;
+//
+// Niech Twoja funkcja zwraca wartość boolowską, tj. true jeśli obiekty są równe lub false jeśli są różne.
+// Zastanów się (nie szukaj w internetach!) dlaczego otrzymujesz takie wyniki i pomyśl co zrobić aby funkcja
+// działała spójnie.
+
+
+
+
 
 const codeBrainersStudents = [
     {
@@ -66,7 +88,8 @@ function drawStudentFromArray(students) {
 
 function deleteStudentFromArray(students) {
     const randomIndex = Math.floor(Math.random() * students.length);
-    students.splice(randomIndex, 1);
+    const resultArray = students.splice(randomIndex, 1);
+    return resultArray;
 }
 
 function drawStudent(students) {
@@ -74,34 +97,20 @@ function drawStudent(students) {
 
     const randomStudent = drawStudentFromArray(students);
 
-    deleteStudentFromArray(students);
+    const arrayWithDeletedItem = deleteStudentFromArray(students);
 
     return randomStudent;
 }
 
 
 
-('rozmiar tablicy students: ', students.length);
-// for (let i = 0; i < codeBrainersStudents.length; i++) {
-//     const student = drawStudent(students);
-//     if (student !== undefined) {
-//         console.log(student.name, students.length);
-//     }
-// }
-
-let a = 'Kasia';
-function test(x) {
-    x = 'Basia';
+// console.log('rozmiar tablicy students: ', students.length);
+for (let i = 0; i < codeBrainersStudents.length; i++) {
+    const student = drawStudent(students);
+    if (student !== undefined) {
+        console.log(student.name, students.length);
+    }
 }
-console.log(a);
-test(a);
-console.log(a);
 
 
-let b = [3];
-function test2(x) {
-    x[0] = 5;
-}
-console.log(b);
-test2(b);
-console.log(b);
+
