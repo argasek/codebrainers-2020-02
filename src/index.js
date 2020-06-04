@@ -68,3 +68,12 @@ function soLetMeAskThisPersonToday(list) {
 }
 
 console.log(soLetMeAskThisPersonToday(codeBrainersStudents));
+
+let randomNumber = 0.5;
+console.log(Math.floor(randomNumber) + 1)
+console.log(Math.ceil(randomNumber));
+console.log(Math.floor(randomNumber));
+console.log(randomNumber);
+
+// Zad.1 Odpowiedź
+// Obie funkcje dają ten sam efekt
