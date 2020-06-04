@@ -1,70 +1,66 @@
-// Zad. 1
+// Homework
 //
-// Sprawdź proszę, czy możemy naszą funkcję do generowania liczb z zakresu 1..scale w postaci
-//    Math.floor(Math.random() * scale) + 1
-// zastąpić funkcją
-//    Math.ceil(Math.random() * scale)
-// Jeżeli nie, dlaczego? Odpowiedź uzasadnij.
+// Task 1 solution: these random number generator function do not work the same.
+// Math.floor(Math.random() * scale) + 1 => [1..scale]
+// Math.ceil(Math.random() * scale) => [0..scale]
 //
-// Zad. 2
-// Napisz algorytm losujący studenta CodeBrainers to odstrzału! Czyli:
-// treść funkcji soLetMeAskThisPersonToday() która przyjmuje tablicę studentów
-// i losowo wyświetla nazwisko studenta do odpytania wylosowanego z tej przekazanej tablicy.
+// Task 2 solution:
 
-
-// funkcje -- charakter ogólny, niezwiązany z żadnym obiektem
-// metody = funkcje danego obiektu / klasy
-//
-// zmienne -- charakter ogólny, niezwiązany z żadnym obiektem
-// pola = zmienne danego obiektu / klasy
-
-// const a = [
-//   0: [5, 6],
-//   1: "basia",
-//   2: 3,
-//   3: false,
-// ];
-
-// POJO == Plain Old JavaScript Object
-
-const numbers = [13, 666, 2137];
-
-for (let i = 0; i < numbers.length; i++) {
-    console.log(numbers[i]);
-}
-
-// POJO == Plain Old JavaScript Object
 const codeBrainersStudents = [
     {
-        name: 'Jakub Argasiński',
-        age: 18
+        name: 'Michał K.',
+        coffees: 1
     },
     {
-        name: 'Michał Marchański',
-        age: 13
+        name: 'Michał M.',
+        coffees: 1
     },
     {
-        name: 'Joanna Lucjanna',
-        age: 24
+        name: 'Joanna',
+        coffees: 2
     },
     {
-        name: 'Kaczor Donald',
-        age: 83
+        name: 'Karolina',
+        coffees: 3
     },
     {
-        name: 'Grzegorz Lasoń',
-        age: 84
+        name: 'Grzegorz',
+        coffees: 0
+    },
+    {
+        name: 'Damian',
+        coffees: 1
+    },
+    {
+        name: 'Sabina',
+        coffees: 1
+    },
+    {
+        name: 'Kamila',
+        coffees: 0
+    },
+    {
+        name: 'Maksym',
+        coffees: 2
     },
 ];
 
-function soLetMeAskThisPersonToday(students) {
-    // for (let i = 0; i < students.length; i++) {
-    //     if (students[i].age >= 18) {
-    //         console.log(students[i].name);
-    //     }
-    // }
-    const wylosowanaOfiara = '';
-    return wylosowanaOfiara;
+const students = [];
+
+function drawStudent(students) {
+    if (students.length === 0) {
+        for (let i = 0; i < codeBrainersStudents.length; i++) {
+            const codeBrainersStudent = codeBrainersStudents[i];
+            students.push(codeBrainersStudent);
+        }
+    }
+    const randomIndex = Math.floor(Math.random() * students.length);
+    const randomStudent = students[randomIndex];
+    students.splice(randomIndex, 1);
+    return randomStudent;
 }
 
-soLetMeAskThisPersonToday(codeBrainersStudents);
+for (let i = 0; i < codeBrainersStudents.length; i++) {
+    const student = drawStudent(students);
+    console.log(student.name);
+}
