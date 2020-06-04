@@ -75,9 +75,7 @@ for (let i = 0; i < 100; i++) {
     let a = Math.floor(Math.random() * 10) + 1;
     let b = Math.ceil(Math.random() * 10);
     if (a === 0 || b === 0) console.log('The answer is "no"');
-    else {
-        console.log('The answer is "yes"');
-    }
+
 }
 
 
