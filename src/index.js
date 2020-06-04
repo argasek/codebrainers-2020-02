@@ -81,11 +81,27 @@ function drawStudent(students) {
 
 
 
-console.log('rozmiar tablicy students: ', students.length);
-for (let i = 0; i < codeBrainersStudents.length; i++) {
-    const student = drawStudent(students);
-    if (student !== undefined) {
-        console.log(student.name, students.length);
-    }
-}
+// console.log('rozmiar tablicy students: ', students.length);
+// for (let i = 0; i < codeBrainersStudents.length; i++) {
+//     const student = drawStudent(students);
+//     if (student !== undefined) {
+//         console.log(student.name, students.length);
+//     }
+// }
 
+let a = 3;
+function test(x) {
+    x = 5;
+}
+console.log(a);
+console.log(test(a));
+console.log(a);
+
+
+let b = [3];
+function test2(x) {
+    x[0] = 5;
+}
+console.log(b);
+console.log(test2(b));
+console.log(b);
