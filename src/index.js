@@ -40,7 +40,7 @@ const codeBrainersStudents = [
         coffees: 0
     },
     {
-        name: 'Maksym',
+        // name: 'Maksym',
         coffees: 2
     },
 ];
@@ -61,6 +61,8 @@ function drawStudent(students) {
 }
 
 for (let i = 0; i < codeBrainersStudents.length; i++) {
-    const student = drawStudent(students);
-    console.log(student.name);
+    if (drawStudent(students) !== undefined) {
+        const student = drawStudent(students);
+        console.log(student.name);
+    }
 }
