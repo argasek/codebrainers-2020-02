@@ -70,14 +70,15 @@ const codeBrainersStudents = [
     'Michał Marchański',
     'Maksym Garus',
 ];
+
 const scale = codeBrainersStudents.length - 1;
-console.log(" dl listy index 0 do " + scale)
+console.log(" list length is index 0 do " + scale)
 
 function drawNumber(scale) {
     return Math.ceil(Math.random() * scale);
 }
 
-// let studentIndex = drawNumber(scale);
+
 // console.log('Osoba  indexem ' + studentIndex);
 
 // const wylosowanaOfiara = codeBrainersStudents[studentIndex];
@@ -85,33 +86,43 @@ function drawNumber(scale) {
 // console.log(wylosowanaOfiara);
 
 
-function soLetMeAskThisPersonToday() {
-    const studentIndex = drawNumber(scale);
-    let wylosowanaOfiara = codeBrainersStudents[studentIndex];
+function soLetMeAskThisPersonToday(person_list) {
+    let studentIndex = drawNumber(scale);
+    let wylosowanaOfiara = person_list[studentIndex];
+    let new_list = [];
 
-    const new_list = [0];
-
-    for (var i = 0; i < new_list.length; i++) {
-        if (new_list[i] === wylosowanaOfiara) {
-            wylosowanaOfiara;
-            // soLetMeAskThisPersonToday(codeBrainersStudents);
-        }
-        else {
-            new_list[i] = wylosowanaOfiara;
-            return wylosowanaOfiara;
-        }
+    for (let i in person_list) {
+         let studentIndex = drawNumber(scale);
+    while (new_list.includes(wylosowanaOfiara)) {
+        studentIndex=drawNumber(scale);
+    }
+    new_list[i] = wylosowanaOfiara;
+    return new_list;
     }
 
+  // function shuffle(array) {
+  // var currentIndex = array.length, temporaryValue, randomIndex;
+  //
+  // // While there remain elements to shuffle...
+  // while (0 !== currentIndex) {
+  //
+  //   // Pick a remaining element...
+  //   randomIndex = Math.floor(Math.random() * currentIndex);
+  //   currentIndex -= 1;
+  //
+  //   // And swap it with the current element.
+  //   temporaryValue = array[currentIndex];
+  //   array[currentIndex] = array[randomIndex];
+  //   array[randomIndex] = temporaryValue;
+  // }
+//
+//   return array;
+// }
 
 }
+let listA = soLetMeAskThisPersonToday(codeBrainersStudents);
+let i;
+for (i = 0; i < listA.length; i++) {
 
-for (var l = 0; l < codeBrainersStudents.length; l++) {
-    let person = soLetMeAskThisPersonToday();
-    console.log('Losujemy osobę nr: ' + (l + 1) + ' do odpowiedzi. Ofiara to...:' + person);
-
-
-
-    // var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-    // for( var i = 0; i < arr.length; i++){ if ( arr[i] === 5) { arr.splice(i, 1); }}
-    // => [1, 2, 3, 4, 6, 7, 8, 9, 0]
+    console.log('Losujemy osobę nr: ' + i + 1 + ' do odpowiedzi. Ofiara to...:' + listA[i]);}
 
