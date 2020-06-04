@@ -48,25 +48,43 @@ const codeBrainersStudents = [
 
 const students = [];
 
-function drawStudent(students) {
+
+function getStudentArray(students) {
     if (students.length === 0) {
         for (let i = 0; i < codeBrainersStudents.length; i++) {
             const codeBrainersStudent = codeBrainersStudents[i];
             students.push(codeBrainersStudent);
         }
     }
+}
 
+function drawStudentFromArray(students) {
     const randomIndex = Math.floor(Math.random() * students.length);
-    const randomStudent = students[randomIndex];
 
+    return students[randomIndex];
+}
+
+function deleteStudentFromArray(students) {
+    const randomIndex = Math.floor(Math.random() * students.length);
     students.splice(randomIndex, 1);
+}
+
+function drawStudent(students) {
+    getStudentArray(students);
+
+    const randomStudent = drawStudentFromArray(students);
+
+    deleteStudentFromArray(students);
 
     return randomStudent;
 }
+
+
+
 console.log('rozmiar tablicy students: ', students.length);
 for (let i = 0; i < codeBrainersStudents.length; i++) {
-    if (drawStudent(students) !== undefined) {
-        const student = drawStudent(students);
+    const student = drawStudent(students);
+    if (student !== undefined) {
         console.log(student.name, students.length);
     }
 }
