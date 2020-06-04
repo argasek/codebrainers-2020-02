@@ -81,7 +81,7 @@ function drawStudent(students) {
 
 
 
-// console.log('rozmiar tablicy students: ', students.length);
+('rozmiar tablicy students: ', students.length);
 // for (let i = 0; i < codeBrainersStudents.length; i++) {
 //     const student = drawStudent(students);
 //     if (student !== undefined) {
@@ -89,12 +89,12 @@ function drawStudent(students) {
 //     }
 // }
 
-let a = 3;
+let a = 'Kasia';
 function test(x) {
-    x = 5;
+    x = 'Basia';
 }
 console.log(a);
-console.log(test(a));
+test(a);
 console.log(a);
 
 
@@ -103,5 +103,5 @@ function test2(x) {
     x[0] = 5;
 }
 console.log(b);
-console.log(test2(b));
+test2(b);
 console.log(b);
