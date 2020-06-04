@@ -34,6 +34,7 @@
 // }
 
 // POJO == Plain Old JavaScript Object
+
 const codeBrainersStudents = [
     {
         name: 'Michał K.',
@@ -84,11 +85,14 @@ const codeBrainersStudents = [
 //}
 
 function soLetMeAskThisPersonToday(codeBrainersStudents) {
-    for (let i = 0; i < codeBrainersStudents.length; i ++ ) {
-        Math.floor((Math.random() * 10) + 1 );
-        console.log(codeBrainersStudents[i].name)
+    let i = Math.floor((Math.random() * 10) + 1 ) //; i < codeBrainersStudents.length; i++;
+        return codeBrainersStudents[i].name;
     }
-}
+
+
+alert(`And the Oscar goes to: ${soLetMeAskThisPersonToday(codeBrainersStudents)}`);
+
+
 
 // return codeBrainersStudents[(Math.random() * codeBrainersStudents.length];
 // //consol.log(codeBrainersStudents[i].name);
@@ -98,3 +102,4 @@ function soLetMeAskThisPersonToday(codeBrainersStudents) {
 //         console.log(codeBrainersStudents[i].name);
 //     }
 // }
+
