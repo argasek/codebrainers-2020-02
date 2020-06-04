@@ -57,14 +57,14 @@ const codeBrainersStudents = [
     },
 ];
 
-function soLetMeAskThisPersonToday(students) {
+function soLetMeAskThisPersonToday(list) {
     // for (let i = 0; i < students.length; i++) {
     //     if (students[i].age >= 18) {
     //         console.log(students[i].name);
     //     }
     // }
-    const wylosowanaOfiara = '';
+    const wylosowanaOfiara = list[Math.floor(Math.random() * list.length)].name;
     return wylosowanaOfiara;
 }
 
-soLetMeAskThisPersonToday(codeBrainersStudents);
+console.log(soLetMeAskThisPersonToday(codeBrainersStudents));
