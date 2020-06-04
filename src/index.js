@@ -42,19 +42,7 @@ const codeBrainersStudents = [
     {
         // name: 'Maksym',
         coffees: 2
-    },
-    {
-        name: 'Karolina',
-    },
-    {
-        name: 'Damian',
-    },
-    {
-        name: 'Sabina',
-    },
-    {
-        name: 'Kamila',
-    },
+    }
 
 ];
 
@@ -67,21 +55,19 @@ function drawStudent(students) {
             students.push(codeBrainersStudent);
         }
     }
+
     const randomIndex = Math.floor(Math.random() * students.length);
     const randomStudent = students[randomIndex];
+
     students.splice(randomIndex, 1);
+
     return randomStudent;
 }
-
+console.log('rozmiar tablicy students: ', students.length);
 for (let i = 0; i < codeBrainersStudents.length; i++) {
-<<<<<<< HEAD
-    const student = drawStudent(students);
-    console.log(student.name);
-}
-=======
     if (drawStudent(students) !== undefined) {
         const student = drawStudent(students);
-        console.log(student.name);
+        console.log(student.name, students.length);
     }
 }
->>>>>>> 5837acd2412921759e46fb07c2a9a5ca6a14c27d
+
