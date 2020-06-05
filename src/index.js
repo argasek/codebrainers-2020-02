@@ -158,7 +158,7 @@ const arr_copy = [];
 
         for (let i = 0; i < arr.length; i++) {
             const arr_element= arr[i];
-            console.log(arr_element);
+
             if (object === typeof arr_element) {
                 copyArray(arr_element);
 
@@ -169,3 +169,49 @@ const arr_copy = [];
         }
     }
 }
+
+// task 3
+// Napisz funkcję, która sprawdzi, czy podane do niej 2 argumenty są równe.
+// Przetestuj tę funkcję z następującymi argumentami:
+//
+// 1)
+// const a = { klucz: 'wartosc' };
+// const b = { klucz: 'wartosc' };
+//
+// 2)
+// const a = { klucz: 'wartosc' };
+// const b = a;
+//
+// Niech Twoja funkcja zwraca wartość boolowską, tj. true jeśli obiekty są równe lub false jeśli są różne.
+// Zastanów się (nie szukaj w internetach!) dlaczego otrzymujesz takie wyniki i pomyśl co zrobić aby funkcja
+// działała spójnie.
+
+const a2 = { klucz: 'wartosc' };
+const b2 = { klucz: 'wartosc' };
+const a3 = { klucz: 'wartosc' };
+const b3 = a3;
+
+function equal (a1,b1){
+
+    // let if_equal= false;
+
+    return if_equal = (typeof a1 === typeof b1);
+
+}
+
+function equal1 (a4,b4){
+
+    // let if_equal= false;
+
+    return if_equal = (a4 === b4);
+
+}
+
+
+
+
+console.log("Obiekty sa rowne?  " + equal(a2, b2));
+console.log("Obiekty sa rowne?  " + equal(a3, b3));
+
+console.log("Obiekty sa rowne?  " + equal1(a2, b2));
+console.log("Obiekty sa rowne?  " + equal1(a3, b3));
