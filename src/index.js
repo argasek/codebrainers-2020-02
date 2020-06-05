@@ -24,8 +24,39 @@
 // Zastanów się (nie szukaj w internetach!) dlaczego otrzymujesz takie wyniki i pomyśl co zrobić aby funkcja
 // działała spójnie.
 
+function compareTwoArguments(arg1, arg2) {
+    let equal = false;
+    if (arg1 === arg2) {
+        equal = true;
+    }
+    return equal;
+}
+
+// console.log(compareTwoArguments( 1,1));
+
+const a = { klucz: 'wartosc' };
+const b = { klucz: 'wartosc' };
+
+const c = { klucz: 'wartosc' };
+const d = c;
+
+console.log(compareTwoArguments(a, b));
+// zwraca false, ponieważ są to de facto dwa różne obiekty.
+// "Adresy" wartości w nich przechowywanych są różne,
+// nawet jeśli wartości są takie same.
+
+console.log(compareTwoArguments(c, d));
+// obiekt d jest 'kopią przez referencję' zatem jest tym samym obiektem co obiekt c,
+// dlatego funkcja zwraca true.
+
+
+
+// Task 1
+// Napisz algorytm który będzie kopiował tablicę, która może zawierać tablicę... (Tak aby powstała kopia przez wartość).
+// Skorzystaj z operatora "typeof" i zwróconą przez niego wartość porównaj w instrukcji warunkowej.
+
 let testArray = [1, [1, 2, 3], 6, false, 'abc'];
-console.log(testArray);
+// console.log(testArray);
 
 function copyArray(arrayToCopy) {
 
@@ -44,10 +75,10 @@ function copyArray(arrayToCopy) {
     copiedArray[1][0] = 'bla';
     return copiedArray;
 }
-console.log('After copying:')
-console.log(testArray);
-console.log(typeof testArray[1] === 'object');
-console.log(copyArray(testArray));
+// console.log('After copying:')
+// console.log(testArray);
+// console.log(typeof testArray[1] === 'object');
+// console.log(copyArray(testArray));
 
 // const codeBrainersStudents = [
 //     {
