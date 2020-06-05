@@ -1,7 +1,7 @@
 // Homework
 //
 // Task 1
-// Napisz algorytm który będzie kopiował tablicę, która może zawierać tablicę... (Tak aby powstała kopia przez wartość).
+// Napisz algorytm który będzie kopiował tablicę, która może zawierać tablicę... (Tak aby powstała kopia przez wartość).  -----OKOKOK
 // Skorzystaj z operatora "typeof" i zwróconą przez niego wartość porównaj w instrukcji warunkowej.
 //
 // Task 2*
@@ -9,7 +9,7 @@
 // inne tablice, a one inne tablice... itd. itd.
 //
 // Task 3
-// Napisz funkcję, która sprawdzi, czy podane do niej 2 argumenty są równe.
+// Napisz funkcję, która sprawdzi, czy podane do niej 2 argumenty są równe.  ----OKOKOK
 // Przetestuj tę funkcję z następującymi argumentami:
 //
 // 1)
@@ -23,9 +23,6 @@
 // Niech Twoja funkcja zwraca wartość boolowską, tj. true jeśli obiekty są równe lub false jeśli są różne.
 // Zastanów się (nie szukaj w internetach!) dlaczego otrzymujesz takie wyniki i pomyśl co zrobić aby funkcja
 // działała spójnie.
-
-
-
 
 
 const codeBrainersStudents = [
@@ -115,9 +112,8 @@ for (let i = 0; i < codeBrainersStudents.length; i++) {
 
 console.log("--------------------")
 
-const fibonacciArray = [[1, 1, 2, 3, 5, 8], 13, 21, 34, 55, 89, 144, 233, 377, 610, 987];
-const fibonacciArrayCloned = [];
-
+const fibonacciArray = [[1, 1, 2, 3, [5, 8]], 13, 21, 34, 55, 89, 144, 233, 377, 610, 987];
+let fibonacciArrayCloned = [];
 
 function cloneArrayByValue(source, target) {
     copy = [];
@@ -130,20 +126,8 @@ function cloneArrayByValue(source, target) {
 
 cloneArrayByValue(fibonacciArray, fibonacciArrayCloned);
 
-console.log(fibonacciArrayCloned);
-
-fibonacciArrayCloned.splice(0, 1, "bleh");
-
-console.log(fibonacciArrayCloned);
 console.log(fibonacciArray);
-
-console.log("--------------------")
-
-const a = { klucz: 'wartosc' };
-const b = { klucz: 'wartosc' };
-
-const c = { klucz: 'wartosc' };
-const d = c;
+console.log(fibonacciArrayCloned);
 
 function verifyIdentity(alpha, beta) {
     let identityValue;
@@ -153,10 +137,20 @@ function verifyIdentity(alpha, beta) {
     } else {
         identityValue = false;
     }
-    return identityValue;
+    return "Reference identity: " + identityValue;
 }
 
-console.log(verifyIdentity(a, b));
-console.log(verifyIdentity(c, d));
-console.log(verifyIdentity(fibonacciArray[0], fibonacciArrayCloned[0]))
+// reference identity: false
+console.log(verifyIdentity(fibonacciArray, fibonacciArrayCloned))
+// reference identity: true
+console.log(verifyIdentity(fibonacciArray[1], fibonacciArrayCloned[1]))
+fibonacciArrayCloned = fibonacciArray
+// reference identity: true
+console.log(verifyIdentity(fibonacciArray, fibonacciArrayCloned))
 
+
+// funkcja verfyIdentity sprawdza identyczność referencji. Jeżeli nasz obiekt jest sklonowany przez wartości (czyli modyfikowanie sklonowanej tablicy 
+// nie wpłynie na tablicę źródłową), funkcja zwraca wartość FALSE. W odwrotnej sytuacji, kiedy sklonowana tablica nie przyjmuje nowych wartości 
+// a jedynie referencje już istniejącej, funkcja zwraca wartość TRUE. Wtedy oczywiste jest, że modyfikując jedną z tablic, modyfikujemy też drugą. 
+// Trzeba uważać, jeśli nie jest to naszym zamiarem. Funkcja nie jest spójna, ponieważ zwraca 'na ślepo' wartość ogólną. Sprawdzenie powinno odbywać
+// się bardziej szczegółowo, np po zawartości zawartości zawartości...
