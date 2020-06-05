@@ -1,13 +1,3 @@
-// Homework
-//
-// Task 1
-// Napisz algorytm który będzie kopiował tablicę, która może zawierać tablicę... (Tak aby powstała kopia przez wartość).
-// Skorzystaj z operatora "typeof" i zwróconą przez niego wartość porównaj w instrukcji warunkowej.
-//
-// Task 2*
-// Zmodyfikuj powyższe algorytm tak, aby był w stanie skopiować tablicę która może zawierać tablice które mogą zawierać
-// inne tablice, a one inne tablice... itd. itd.
-//
 // Task 3
 // Napisz funkcję, która sprawdzi, czy podane do niej 2 argumenty są równe.
 // Przetestuj tę funkcję z następującymi argumentami:
@@ -34,10 +24,10 @@ function compareTwoArguments(arg1, arg2) {
 
 // console.log(compareTwoArguments( 1,1));
 
-const a = { klucz: 'wartosc' };
-const b = { klucz: 'wartosc' };
+const a = {klucz: 'wartosc'};
+const b = {klucz: 'wartosc'};
 
-const c = { klucz: 'wartosc' };
+const c = {klucz: 'wartosc'};
 const d = c;
 
 console.log(compareTwoArguments(a, b));
@@ -49,14 +39,19 @@ console.log(compareTwoArguments(c, d));
 // obiekt d jest 'kopią przez referencję' zatem jest tym samym obiektem co obiekt c,
 // dlatego funkcja zwraca true.
 
-
-
+// ---------------------------------
 // Task 1
 // Napisz algorytm który będzie kopiował tablicę, która może zawierać tablicę... (Tak aby powstała kopia przez wartość).
 // Skorzystaj z operatora "typeof" i zwróconą przez niego wartość porównaj w instrukcji warunkowej.
 
-let testArray = [1, [1, 2, 3], 6, false, 'abc'];
-// console.log(testArray);
+// po dłuższym namyśle stwierdzam, że 2* zrobiłam chyba przez przypadek.
+//
+// Task 2*
+// Zmodyfikuj powyższe algorytm tak, aby był w stanie skopiować tablicę która może zawierać tablice które mogą zawierać
+// inne tablice, a one inne tablice... itd. itd.
+
+let testArray = [1, [1, 2, [1, 2, 3], 3], 6, false, 'abc'];
+console.log(testArray[1][2][1]);
 
 function copyArray(arrayToCopy) {
 
@@ -71,15 +66,24 @@ function copyArray(arrayToCopy) {
             copiedArray.push(copiedItem);
         }
     }
-    // newArray[1] = 'bla';
-    copiedArray[1][0] = 'bla';
     return copiedArray;
 }
+
+let newArray = copyArray(testArray);
+// newArray[1] = 'bla';
+// newArray[1][0] = 'bla';
+// console.log(newArray[1]);
+// console.log(newArray[1][2]);
+console.log(newArray[1][2][1]);
+newArray[1][2][1] = 'bla';
+console.log(newArray);
+
 // console.log('After copying:')
-// console.log(testArray);
+console.log(testArray);
 // console.log(typeof testArray[1] === 'object');
 // console.log(copyArray(testArray));
 
+// -----------------------------------------------------
 // const codeBrainersStudents = [
 //     {
 //         name: 'Michał K.',
