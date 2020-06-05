@@ -25,46 +25,43 @@
 // działała spójnie.
 
 
-
-
-
 const codeBrainersStudents = [
-    {
-        name: 'Michał K.',
-        coffees: 1
-    },
-    {
-        name: 'Michał M.',
-        coffees: 1
-    },
-    {
-        name: 'Joanna',
-        coffees: 2
-    },
-    {
-        name: 'Karolina',
-        coffees: 3
-    },
-    {
-        name: 'Grzegorz',
-        coffees: 0
-    },
-    {
-        name: 'Damian',
-        coffees: 1
-    },
-    {
-        name: 'Sabina',
-        coffees: 1
-    },
-    {
-        name: 'Kamila',
-        coffees: 0
-    },
-    {
-        // name: 'Maksym',
-        coffees: 2
-    }
+  {
+    name: 'Michał K.',
+    coffees: 1
+  },
+  {
+    name: 'Michał M.',
+    coffees: 1
+  },
+  {
+    name: 'Joanna',
+    coffees: 2
+  },
+  {
+    name: 'Karolina',
+    coffees: 3
+  },
+  {
+    name: 'Grzegorz',
+    coffees: 0
+  },
+  {
+    name: 'Damian',
+    coffees: 1
+  },
+  {
+    name: 'Sabina',
+    coffees: 1
+  },
+  {
+    name: 'Kamila',
+    coffees: 0
+  },
+  {
+    // name: 'Maksym',
+    coffees: 2
+  }
 
 ];
 
@@ -72,45 +69,101 @@ const students = [];
 
 
 function getStudentArray(students) {
-    if (students.length === 0) {
-        for (let i = 0; i < codeBrainersStudents.length; i++) {
-            const codeBrainersStudent = codeBrainersStudents[i];
-            students.push(codeBrainersStudent);
-        }
+  if (students.length === 0) {
+    for (let i = 0; i < codeBrainersStudents.length; i++) {
+      const codeBrainersStudent = codeBrainersStudents[i];
+      students.push(codeBrainersStudent);
     }
+  }
 }
 
 function drawStudentFromArray(students) {
-    const randomIndex = Math.floor(Math.random() * students.length);
+  const randomIndex = Math.floor(Math.random() * students.length);
 
-    return students[randomIndex];
+  return students[randomIndex];
 }
 
 function deleteStudentFromArray(students) {
-    const randomIndex = Math.floor(Math.random() * students.length);
-    const resultArray = students.splice(randomIndex, 1);
-    return resultArray;
+  const randomIndex = Math.floor(Math.random() * students.length);
+  return students.splice(randomIndex, 1);
 }
 
 function drawStudent(students) {
-    getStudentArray(students);
+  getStudentArray(students);
 
-    const randomStudent = drawStudentFromArray(students);
+  const randomStudent = drawStudentFromArray(students);
 
-    const arrayWithDeletedItem = deleteStudentFromArray(students);
+  const arrayWithDeletedItem = deleteStudentFromArray(students);
 
-    return randomStudent;
+  return randomStudent;
 }
 
 
+// // console.log('rozmiar tablicy students: ', students.length);
+// for (let i = 0; i < codeBrainersStudents.length; i++) {
+//   const student = drawStudent(students);
+//   if (student !== undefined) {
+//     console.log(student.name, students.length);
+//   }
+// }
 
-// console.log('rozmiar tablicy students: ', students.length);
-for (let i = 0; i < codeBrainersStudents.length; i++) {
-    const student = drawStudent(students);
-    if (student !== undefined) {
-        console.log(student.name, students.length);
+// -----------------------Task 1
+const sampleArray = [[1, 2, 4], 'asdas', {34234: 'ddddd'}]
+
+function simpleArrayCopy(arr) {
+  const arrCopy = []
+  if (arr.length !== 0) {
+    for (let i = 0; i < arr.length; i++) {
+      if (typeof arr[i] === "object") {
+        const arrayObject = []
+        for (let j = 0; j < arr[i].length; j++) {
+          arrayObject.push(arr[i][j])
+        }
+        arrCopy.push(arrayObject)
+      } else {
+        arrCopy.push(arr[i])
+      }
     }
+  }
+  return arrCopy
 }
 
+// const copiedArray = simpleArrayCopy(sampleArray)
+// copiedArray[0][1] = 'eeeeeeeee'
+// console.log(sampleArray)
+// console.log(copiedArray)
+
+// -----------------------Task 2
+function getArrayCopy(array) {
+  let arrayCopy = []
+  for (let i = 0; i < array.length; i++) {
+    console.log(typeof array[i])
+    if (typeof array[i] === "object") {
+      arrayCopy[i] = getArrayCopy(array[i])
+    } else {
+      arrayCopy.push(array[i])
+    }
+  }
+  return arrayCopy
+}
+
+//
+// const copiedArray = getArrayCopy(sampleArray)
+// copiedArray[0][1] = 'eeeeeeeee'
+// console.log(sampleArray)
+// console.log(copiedArray)
 
 
+// -----------------------Task 3
+function checkEquality(a, b) {
+  return a === b
+}
+
+const arg1 = {klucz: 'wartosc'};
+const arg2 = arg1;
+
+const arg3 = {klucz: 'wartosc'};
+const arg4 = {klucz: 'wartosc'};
+
+// console.log('arg2=arg1 => ', checkEquality(arg1, arg2));
+// console.log('defined with the same value => ', checkEquality(arg3, arg4));
