@@ -76,6 +76,7 @@ function getStudentArray(students) {
         for (let i = 0; i < codeBrainersStudents.length; i++) {
             const codeBrainersStudent = codeBrainersStudents[i];
             students.push(codeBrainersStudent);
+
         }
     }
 }
@@ -89,7 +90,7 @@ function drawStudentFromArray(students) {
 function deleteStudentFromArray(students) {
     const randomIndex = Math.floor(Math.random() * students.length);
     const resultArray = students.splice(randomIndex, 1);
-    return resultArray;
+
 }
 
 function drawStudent(students) {
@@ -113,4 +114,33 @@ for (let i = 0; i < codeBrainersStudents.length; i++) {
 }
 
 
+// Task 1
+// Napisz algorytm który będzie kopiował tablicę, która może zawierać tablicę... (Tak aby powstała kopia przez wartość).
+// Skorzystaj z operatora "typeof" i zwróconą przez niego wartość porównaj w instrukcji warunkowej.
+
+
+const arr_copy = [];
+const arr= [1,2,3,[1,2,3]];
+
+function copyArray(arr_copy) {
+
+    if (arr_copy.length === 0) {
+
+        for (let i = 0; i < arr.length; i++) {
+            const arr_element= arr[i];
+            console.log(arr_element);
+            if (object === typeof arr_element) {
+                const arr_sec_copy = [];
+                for (let j = 0; j < arr_element.length; j++) {
+                    const arr_sec_element = arr_element[j];
+                    arr_sec_copy.push(arr_sec_element);
+                }
+
+            }
+
+            arr_copy.push(arr_element);
+
+        }
+    }
+}
 
