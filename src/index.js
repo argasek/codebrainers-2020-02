@@ -26,6 +26,25 @@
 
 
 
+// Task 3 - Solution
+// Otrzymane wyniki są spowodowane referencją. Nie odnosimy się do wartości, tylko do jej miejsca w pamięci komputera.
+// Żeby funkcja działa spójnie, należy przekonwertować na inny typ danych... chyba
+
+const a = { liczba: 'jeden' };
+const b = a;
+
+function checkArgumentsEquality(a, b) {
+    if (a === b) {
+        return true;  //console.log('obiekty są równe');
+    } else {
+        return false;  //console.log('obiekty są nierówne');
+    }
+}
+
+checkArgumentsEquality(a, b)
+
+
+
 
 
 const codeBrainersStudents = [
@@ -111,6 +130,3 @@ for (let i = 0; i < codeBrainersStudents.length; i++) {
         console.log(student.name, students.length);
     }
 }
-
-
-
