@@ -113,4 +113,50 @@ for (let i = 0; i < codeBrainersStudents.length; i++) {
 }
 
 
+console.log("--------------------")
+
+const fibonacciArray = [[1, 1, 2, 3, 5, 8], 13, 21, 34, 55, 89, 144, 233, 377, 610, 987];
+const fibonacciArrayCloned = [];
+
+
+function cloneArrayByValue(source, target) {
+    copy = [];
+    for (i = 0; i < source.length; i++) {
+        copy[i] = source[i];
+        target.push(copy[i]);
+    }
+    return target;
+}
+
+cloneArrayByValue(fibonacciArray, fibonacciArrayCloned);
+
+console.log(fibonacciArrayCloned);
+
+fibonacciArrayCloned.splice(0, 1, "bleh");
+
+console.log(fibonacciArrayCloned);
+console.log(fibonacciArray);
+
+console.log("--------------------")
+
+const a = { klucz: 'wartosc' };
+const b = { klucz: 'wartosc' };
+
+const c = { klucz: 'wartosc' };
+const d = c;
+
+function verifyIdentity(alpha, beta) {
+    let identityValue;
+
+    if (alpha === beta) {
+        identityValue = true;
+    } else {
+        identityValue = false;
+    }
+    return identityValue;
+}
+
+console.log(verifyIdentity(a, b));
+console.log(verifyIdentity(c, d));
+console.log(verifyIdentity(fibonacciArray[0], fibonacciArrayCloned[0]))
 
