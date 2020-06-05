@@ -143,4 +143,29 @@ function copyArray(arr_copy) {
         }
     }
 }
+// Task 2*
+// Zmodyfikuj powyższe algorytm tak, aby był w stanie skopiować tablicę która może zawierać tablice które mogą zawierać
+// inne tablice, a one inne tablice... itd. itd.
 
+
+
+const arr1= [1,2,3,[1,2,3]];
+
+
+function copyArray(arr) {
+const arr_copy = [];
+    if (arr_copy.length === 0) {
+
+        for (let i = 0; i < arr.length; i++) {
+            const arr_element= arr[i];
+            console.log(arr_element);
+            if (object === typeof arr_element) {
+                copyArray(arr_element);
+
+            }
+
+            arr_copy.push(arr_element);
+
+        }
+    }
+}
