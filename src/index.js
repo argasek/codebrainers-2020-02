@@ -115,16 +115,50 @@ console.log("--------------------")
 const fibonacciArray = [[1, 1, 2, 3, [5, 8]], 13, 21, 34, 55, 89, 144, 233, 377, 610, 987];
 let fibonacciArrayCloned = [];
 
+const mathematicalConstants = [
+
+    { fi: [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89,] },
+    { pi: "3.1415926535" },
+    { numbers: ['primary', [2, 3, 5, 7, 11, 13, 17, 19, 23, 29], 'complex', [4, 6, 8, 9, 10, 12, 14, 15, 16, 18,]] },
+
+]
+
+let mathematicalConstantsCloned
+
+// SIMPLE CLONING FUNCTION - NO SUPPORT FOR NESTED OBJECTS
+
+// function cloneArrayByValue(source, target) {
+//     copy = [];
+//     for (i = 0; i < source.length; i++) {
+//         copy[i] = source[i];
+//         target.push(copy[i]);
+//     }
+//     return target;
+// }
+
+// CLONING FUNCTION SUPPORTING FIRST LEVEL NESTED OBJECTS - pewno się da zrobić to w nieskończoność...
+
 function cloneArrayByValue(source, target) {
     copy = [];
     for (i = 0; i < source.length; i++) {
-        copy[i] = source[i];
-        target.push(copy[i]);
+        if (typeof source[i] == 'object') {
+            for (i = 0; i < source[i].length; i++) {
+                copy[i] = source[i];
+                target.push(copy[i]);
+            }
+
+        } else {
+            copy[i] = source[i];
+            target.push(copy[i]);
+        }
     }
     return target;
 }
 
+
 cloneArrayByValue(fibonacciArray, fibonacciArrayCloned);
+
+// cloneArrayByValue(mathematicalConstants, mathematicalConstantsCloned)
 
 console.log(fibonacciArray);
 console.log(fibonacciArrayCloned);
@@ -140,13 +174,14 @@ function verifyIdentity(alpha, beta) {
     return "Reference identity: " + identityValue;
 }
 
+
 // reference identity: false
-console.log(verifyIdentity(fibonacciArray, fibonacciArrayCloned))
-// reference identity: true
-console.log(verifyIdentity(fibonacciArray[1], fibonacciArrayCloned[1]))
+console.log(verifyIdentity(fibonacciArray, fibonacciArrayCloned));
+// reference identity: true - niedobrze EDIT: po zaktualizowaniu funkcji klonującej jest false - czyli fajnie.
+console.log(verifyIdentity(fibonacciArray[1], fibonacciArrayCloned[1]));
 fibonacciArrayCloned = fibonacciArray
 // reference identity: true
-console.log(verifyIdentity(fibonacciArray, fibonacciArrayCloned))
+console.log(verifyIdentity(fibonacciArray, fibonacciArrayCloned));
 
 
 // funkcja verfyIdentity sprawdza identyczność referencji. Jeżeli nasz obiekt jest sklonowany przez wartości (czyli modyfikowanie sklonowanej tablicy 
@@ -154,3 +189,7 @@ console.log(verifyIdentity(fibonacciArray, fibonacciArrayCloned))
 // a jedynie referencje już istniejącej, funkcja zwraca wartość TRUE. Wtedy oczywiste jest, że modyfikując jedną z tablic, modyfikujemy też drugą. 
 // Trzeba uważać, jeśli nie jest to naszym zamiarem. Funkcja nie jest spójna, ponieważ zwraca 'na ślepo' wartość ogólną. Sprawdzenie powinno odbywać
 // się bardziej szczegółowo, np po zawartości zawartości zawartości...
+
+console.log(verifyIdentity(mathematicalConstants, mathematicalConstantsCloned));
+
+console.log(typeof mathematicalConstants[2].numbers[1]);
