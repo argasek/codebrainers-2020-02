@@ -7,5 +7,12 @@ function print(value, index, items) {
     }
 }
 
-const table = [false, true, 665, "false", ["a", "b", 1, [1, 2, 3, 4]], 555];
-table.forEach(print);
+const table = [8, 18, 27, 36, 738, 555];
+// table.forEach(print);
+function square(value) {
+    return value * value;
+}
+
+const newArray = table.map(square);
+console.log(table);
+console.log(newArray);
