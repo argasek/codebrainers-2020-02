@@ -56,3 +56,8 @@ console.log(typeof b);const arr = [false, true, 665, "false", ["a", "b", 1, [1, 
 //
 // arr.forEach(print);
 
+// Passing anonymous function to filter
+const table = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const newArray = table.filter(function (value) {
+  return value > 3;
+});
