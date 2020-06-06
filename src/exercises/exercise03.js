@@ -82,15 +82,16 @@ const codeBrainersStudents = [
     coffees: 1
   },
   {
+    // Jedna kawka od Michałów i Damiana!
     name: 'Sabina',
-    coffees: 1
+    coffees: 2
   },
   {
     name: 'Kamila',
     coffees: 0
   },
   {
-    // name: 'Maksym',
+    name: 'Maksym',
     coffees: 2
   }
 
