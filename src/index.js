@@ -1,4 +1,24 @@
-const studentGrades = [2, 8, 4, 2, 2, 4, 2];
+const studentGrades = [1, 2, 1, 3, 3, 3, 1];
+
+function areSomeEven(arr) {
+        let result = 0;
+
+    arr.forEach(function (value, index, items) {
+
+        if (value % 2 === 0) {
+            result++;
+        }
+
+    });
+    if (result > 0) {
+        return true;
+    } else {
+        return false;
+    }
+
+}
+
+console.log(areSomeEven(studentGrades))
 
 /**
  * Checks if all items in arr are even.
@@ -16,4 +36,4 @@ function areAllEven(arr) {
 
 }
 
-console.log(areAllEven(studentGrades))
+// console.log(areAllEven(studentGrades))
