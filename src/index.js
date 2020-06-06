@@ -28,89 +28,122 @@
 
 
 
-const codeBrainersStudents = [
-    {
-        name: 'Michał K.',
-        coffees: 1
-    },
-    {
-        name: 'Michał M.',
-        coffees: 1
-    },
-    {
-        name: 'Joanna',
-        coffees: 2
-    },
-    {
-        name: 'Karolina',
-        coffees: 3
-    },
-    {
-        name: 'Grzegorz',
-        coffees: 0
-    },
-    {
-        name: 'Damian',
-        coffees: 1
-    },
-    {
-        name: 'Sabina',
-        coffees: 1
-    },
-    {
-        name: 'Kamila',
-        coffees: 0
-    },
-    {
-        // name: 'Maksym',
-        coffees: 2
-    }
+// const codeBrainersStudents = [
+//     {
+//         name: 'Michał K.',
+//         coffees: 1
+//     },
+//     {
+//         name: 'Michał M.',
+//         coffees: 1
+//     },
+//     {
+//         name: 'Joanna',
+//         coffees: 2
+//     },
+//     {
+//         name: 'Karolina',
+//         coffees: 3
+//     },
+//     {
+//         name: 'Grzegorz',
+//         coffees: 0
+//     },
+//     {
+//         name: 'Damian',
+//         coffees: 1
+//     },
+//     {
+//         name: 'Sabina',
+//         coffees: 1
+//     },
+//     {
+//         name: 'Kamila',
+//         coffees: 0
+//     },
+//     {
+//         // name: 'Maksym',
+//         coffees: 2
+//     }
 
-];
+// ];
 
-const students = [];
+// const students = [];
 
 
-function getStudentArray(students) {
-    if (students.length === 0) {
-        for (let i = 0; i < codeBrainersStudents.length; i++) {
-            const codeBrainersStudent = codeBrainersStudents[i];
-            students.push(codeBrainersStudent);
+// function getStudentArray(students) {
+//     if (students.length === 0) {
+//         for (let i = 0; i < codeBrainersStudents.length; i++) {
+//             const codeBrainersStudent = codeBrainersStudents[i];
+//             students.push(codeBrainersStudent);
+//         }
+//     }
+// }
+
+// function drawStudentFromArray(students) {
+//     const randomIndex = Math.floor(Math.random() * students.length);
+
+//     return students[randomIndex];
+// }
+
+// function deleteStudentFromArray(students) {
+//     const randomIndex = Math.floor(Math.random() * students.length);
+//     const resultArray = students.splice(randomIndex, 1);
+//     return resultArray;
+// }
+
+// function drawStudent(students) {
+//     getStudentArray(students);
+
+//     const randomStudent = drawStudentFromArray(students);
+
+//     const arrayWithDeletedItem = deleteStudentFromArray(students);
+
+//     return randomStudent;
+// }
+
+
+
+// // console.log('rozmiar tablicy students: ', students.length);
+// for (let i = 0; i < codeBrainersStudents.length; i++) {
+//     const student = drawStudent(students);
+//     if (student !== undefined) {
+//         console.log(student.name, students.length);
+//     }
+// }
+
+
+// Task 1
+let obj = [1, 2, 3, [4, 5],]
+
+function copyArray(array) {
+    newArray = []
+    for (let i = 0; i < array.length; i++) {
+        if (typeof newArray[i] === "object") {
+            for (let k = 0; k < array.length; k++) {
+                newArray[i].push(newArray[i][k])
+            }
         }
+        newArray.push(array[i]);
     }
+    return newArray;
+}
+obj2 = copyArray(obj);
+obj2.push(4);
+console.log(obj);
+console.log(copyArray(obj2));
+
+//task 3
+
+// const a = { klucz: 'wartosc' };
+// const b = { klucz: 'wartosc' };
+
+const a = { klucz: 'wartosc' };
+const b = a;
+
+function equealityCheck(x, y) {
+    let c = x.toString() === y.toString()
+    return c
 }
 
-function drawStudentFromArray(students) {
-    const randomIndex = Math.floor(Math.random() * students.length);
-
-    return students[randomIndex];
-}
-
-function deleteStudentFromArray(students) {
-    const randomIndex = Math.floor(Math.random() * students.length);
-    const resultArray = students.splice(randomIndex, 1);
-    return resultArray;
-}
-
-function drawStudent(students) {
-    getStudentArray(students);
-
-    const randomStudent = drawStudentFromArray(students);
-
-    const arrayWithDeletedItem = deleteStudentFromArray(students);
-
-    return randomStudent;
-}
-
-
-
-// console.log('rozmiar tablicy students: ', students.length);
-for (let i = 0; i < codeBrainersStudents.length; i++) {
-    const student = drawStudent(students);
-    if (student !== undefined) {
-        console.log(student.name, students.length);
-    }
-}
-
-
-
+console.log(equealityCheck(a, b))
