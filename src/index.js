@@ -7,12 +7,17 @@ function print(value, index, items) {
     }
 }
 
-const table = [8, 18, 27, 36, 738, 555];
+const table = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 // table.forEach(print);
-function square(value) {
-    return value * value;
+function dividedByThree(value) {
+    if (value % 3 === 0) {
+        return true;
+    } else {
+        return false;
+    }
+
 }
 
-const newArray = table.map(square);
+const newArray = table.filter(dividedByThree);
 console.log(table);
 console.log(newArray);
