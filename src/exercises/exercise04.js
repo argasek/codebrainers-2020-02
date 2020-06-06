@@ -39,3 +39,20 @@ const studentGradesSquared = studentGrades.map(function (grade) { return grade *
 
 console.log(passedStudentsGrades);
 console.log(studentGradesSquared);
+
+
+const isEven = function(value) { return value % 2 === 0; };
+const isOdd = function(grade) { return grade % 2 !== 0; };
+
+const areAnyEvenGrades = studentGrades.some(isEven);
+const areAnyOddGrades = studentGrades.some(isOdd);
+const areAllEvenGrades = studentGrades.every(isEven);
+const areAllOddGrades = studentGrades.every(isOdd);
+
+console.log(studentGrades);
+
+console.log('Are there any even grades?', areAnyEvenGrades);
+console.log('Are there any odd grades?', areAnyOddGrades);
+console.log('Are all even grades?', areAllEvenGrades);
+console.log('Are all odd grades?', areAllOddGrades);
+

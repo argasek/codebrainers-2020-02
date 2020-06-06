@@ -1,39 +1,21 @@
-const studentGrades = [1, 2, 1, 3, 3, 3, 1];
+const car = {
+  maximumSpeed: 300,
+  isEngineRunning: false,
+  hasRadio: true,
+  isRadioBroken: true,
+  numberOfWheels: 4,
+  gearBox: 'automatic' // 'manual'
+};
 
-function areSomeEven(arr) {
-        let result = 0;
+function filterOnlyBooleanFields(o) {
+  const result = {};
 
-    arr.forEach(function (value, index, items) {
+  for (let key in car) {
+    const value = car[key];
+    console.log(key, ':', value);
+  }
 
-        if (value % 2 === 0) {
-            result++;
-        }
+  // …
 
-    });
-    if (result > 0) {
-        return true;
-    } else {
-        return false;
-    }
-
+  return result;
 }
-
-console.log(areSomeEven(studentGrades))
-
-/**
- * Checks if all items in arr are even.
- * @param arr
- */
-function areAllEven(arr) {
-    let result = 0;
-
-    arr.forEach(function (value, index, items) {
-        if (value % 2 === 0) {
-            result++;
-        }
-    });
-    return result === arr.length;
-
-}
-
-// console.log(areAllEven(studentGrades))
