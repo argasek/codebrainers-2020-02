@@ -20,4 +20,15 @@ function filterOnlyBooleanFields(o) {
     return result;
 }
 
+function objectValues(o){
+    const result=[];
+
+    for (let key in o){
+        const value = o[key];
+        result.push(value);
+    }
+    return result;
+}
+
 console.log(filterOnlyBooleanFields(car));
+console.log(objectValues(car));
