@@ -119,14 +119,15 @@ let obj = [1, 2, 3, [4, 5],]
 function copyArray(array) {
     newArray = []
     for (let i = 0; i < array.length; i++) {
-        if (typeof newArray[i] === "object") {
+        if (typeof array[i] === "object") {
             for (let k = 0; k < array.length; k++) {
-                newArray[i].push(newArray[i][k])
+                newArray[i].push(array[i][k])
             }
         }
         newArray.push(array[i]);
     }
     return newArray;
+
 }
 obj2 = copyArray(obj);
 obj2.push(4);
@@ -147,3 +148,4 @@ function equealityCheck(x, y) {
 }
 
 console.log(equealityCheck(a, b))
+
