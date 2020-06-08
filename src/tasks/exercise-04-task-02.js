@@ -51,6 +51,7 @@ function keysIdentityCheck(objectA, objectB) {
     }
     return keysIdentity;
 }
+
 console.log(keysIdentityCheck(car1, car2));
 
 /**
@@ -61,7 +62,7 @@ console.log(keysIdentityCheck(car1, car2));
  */
 function compareCars(carA, carB) {
     let carIdentity = false;
-    if (keysIdentityCheck(carA, carB)){
+    if (keysIdentityCheck(carA, carB)) {
         for (let key in carA) {
             if (carA[key] !== carB[key]) {
                 carIdentity = false;
@@ -73,14 +74,16 @@ function compareCars(carA, carB) {
     }
     return carIdentity;
 }
+
 console.log(compareCars(car1, car2));
 
+console.log('--------------------------------\nTask 2/2:\n ');
 // 2) Implement function which given array of car objects (like the above), sorts this array according to car speed
 // from slowest to fastest. If maximumSpeed information is missing or incorrect, do not include this car in a new array.
 //
 // Example:
 
-const input = [
+const givenCars = [
     {
         gearBox: 'manual', // 'manual'
         hasRadio: false,
@@ -110,38 +113,70 @@ const input = [
     }
 ];
 
-function sortCarsBySpeed(cars) {
-    // ...
+function alphaSort(a, b) {
+    if (a < b) {
+        return -1;
+    } else if (a > b) {
+        return 1;
+    } else {
+        return 0;
+    }
 }
 
-const output = sortCarsBySpeed(input);
+function sortKeyArray(cars, key) {
+    let keyArray = [];
+    for (let i = 0; i < cars.length; i++) {
+        if (cars[i][key]) {
+            keyArray.push(cars[i][key]);
+        }
+    }
+    const sortedKeyArray = keyArray.sort(alphaSort);
+    // console.log(sortedKeyArray);
+    return sortedKeyArray;
+}
+
+function sortCarsByKeyValue(cars, key) {
+    let sortedCars = [];
+    const sortedKeyArray = sortKeyArray(cars, key);
+    for (let item in sortedKeyArray) {
+        for (let j = 0; j < cars.length; j++) {
+            if (cars[j][key] === sortedKeyArray[item]) {
+                sortedCars.push(cars[j]);
+            }
+        }
+    }
+    return sortedCars;
+}
+
+console.log(sortCarsByKeyValue(givenCars, 'maximumSpeed'));
+// console.log(sortCarsByKeyValue(givenCars, 'numberOfWheels'));
 
 // Expected result:
-const result = [
-    {
-        gearBox: 'automatic', // 'manual'
-        hasRadio: true,
-        isEngineRunning: false,
-        isRadioBroken: true,
-        maximumSpeed: 50,
-        numberOfWheels: 4,
-    },
-    {
-        gearBox: 'manual', // 'manual'
-        hasRadio: false,
-        isEngineRunning: false,
-        isRadioBroken: true,
-        maximumSpeed: 178,
-        numberOfWheels: 3,
-    },
-    {
-        gearBox: 'automatic', // 'manual'
-        hasRadio: true,
-        isEngineRunning: false,
-        isRadioBroken: true,
-        maximumSpeed: 345,
-        numberOfWheels: 2,
-    }
-];
+// const result = [
+//     {
+//         gearBox: 'automatic', // 'manual'
+//         hasRadio: true,
+//         isEngineRunning: false,
+//         isRadioBroken: true,
+//         maximumSpeed: 50,
+//         numberOfWheels: 4,
+//     },
+//     {
+//         gearBox: 'manual', // 'manual'
+//         hasRadio: false,
+//         isEngineRunning: false,
+//         isRadioBroken: true,
+//         maximumSpeed: 178,
+//         numberOfWheels: 3,
+//     },
+//     {
+//         gearBox: 'automatic', // 'manual'
+//         hasRadio: true,
+//         isEngineRunning: false,
+//         isRadioBroken: true,
+//         maximumSpeed: 345,
+//         numberOfWheels: 2,
+//     }
+// ];
 
 
