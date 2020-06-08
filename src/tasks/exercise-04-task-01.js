@@ -9,13 +9,13 @@
 //    7 + 5 = 12
 
 function drawNumber(scale) {
-  return Math.floor(Math.random() * scale);
+    return Math.floor(Math.random() * scale);
 }
 
 function drawOperator() {
-  const operators = [ '+', '-', '*', '/' ];
-  const index = drawNumber(operators.length);
-  return operators[index];
+    const operators = ['+', '-', '*', '/'];
+    const index = drawNumber(operators.length);
+    return operators[index];
 }
 
 /**
@@ -24,7 +24,7 @@ function drawOperator() {
  * @return {number}
  */
 const add = function (a, b) {
-  return a + b;
+    return a + b;
 };
 
 /**
@@ -33,7 +33,7 @@ const add = function (a, b) {
  * @return {number}
  */
 const subtract = function (a, b) {
-  return a - b;
+    return a - b;
 };
 
 /**
@@ -42,7 +42,7 @@ const subtract = function (a, b) {
  * @return {number}
  */
 const multiply = function (a, b) {
-  return a * b;
+    return a * b;
 };
 
 /**
@@ -51,12 +51,12 @@ const multiply = function (a, b) {
  * @return {number}
  */
 const divide = function (a, b) {
-  if (b !== 0) {
-    return a / b;
-  } else {
-    console.error('Cannot divide by 0!');
-    return 0;
-  }
+    if (b !== 0) {
+        return a / b;
+    } else {
+        console.error('Cannot divide by 0!');
+        return 0;
+    }
 };
 
 /**
@@ -67,26 +67,34 @@ const divide = function (a, b) {
  * @return {number}
  */
 function calculate(a, b, operator) {
-  const operations = {
-    '+': add,
-    '-': subtract,
-    '*': multiply,
-    '/': divide
-  };
+    const operations = {
+        '+': add,
+        '-': subtract,
+        '*': multiply,
+        '/': divide
+    };
 
-  const operation = operations[operator];
-  return operation(a, b);
+    const operation = operations[operator];
+    return operation(a, b);
 }
 
 function calculateRandomThings(questionCount) {
-  for (let i = 0; i < questionCount; i++) {
-    const a = drawNumber(10);
-    const b = drawNumber(10);
-    const operator = drawOperator();
-    const result = calculate(a, b, operator).toFixed(2);
-    console.log(`${a} ${operator} ${b} = ${result}`);
-  }
+    for (let i = 0; i < questionCount; i++) {
+        const a = drawNumber(10);
+        const b = drawNumber(10);
+        const operator = drawOperator();
+        const result = calculate(a, b, operator);
+        // console.log(result);
+        if ((operator === '/') && (b === 0)) {
+            console.log('Impossible operation');
+        } else {
+            if (result === Math.floor(result)) {
+                console.log(`${a} ${operator} ${b} = ${result}`);
+            } else {
+                console.log(`${a} ${operator} ${b} = ${result.toFixed([3])}`);
+            }
+        }
+    }
 }
-
 
 calculateRandomThings(5);
