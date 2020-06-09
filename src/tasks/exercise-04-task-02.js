@@ -50,6 +50,7 @@ const carsArray = [
   }
 ];
 
+// 'key' is using so-called default argument
 function sortCars(cars, key = 'maximumSpeed') {
   const filteredCars = cars.filter(function(car) { return car[key] !== undefined });
   return filteredCars.sort(function(a, b) { return a[key] - b[key] });
