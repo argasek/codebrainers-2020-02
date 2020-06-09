@@ -170,4 +170,109 @@ const result = [
 function compareCars(carA, carB) {
 
 }
+// ---------------------------------
+const input = [
+    {
+        gearBox: 'manual', // 'manual'
+        hasRadio: false,
+        isEngineRunning: false,
+        isRadioBroken: true,
+        maximumSpeed: 178,
+        numberOfWheels: 3,
+    },
+    {
+        gearBox: 'manual', // 'manual'
+    },
+    {
+        gearBox: 'automatic', // 'manual'
+        hasRadio: true,
+        isEngineRunning: false,
+        isRadioBroken: true,
+        maximumSpeed: 50,
+        numberOfWheels: 4,
+    },
+    {
+        gearBox: 'automatic', // 'manual'
+        hasRadio: true,
+        isEngineRunning: false,
+        isRadioBroken: true,
+        maximumSpeed: 345,
+        numberOfWheels: 2,
+    }
+];
 
+function onlySpeedFields(arro) {
+    const result = [];
+
+    for (let i in arro) {
+        console.log(arro[i]);
+        for (key in arro[i]) {
+            const value = arro[i][key];
+            if (key === "maximumSpeed") {
+                result.push(value);
+            }
+        }
+
+    }
+
+    return result;
+}
+const keysarray = onlySpeedFields(input);
+function numSort(a, b) {
+    if (a < b) {
+        return -1;
+    } else if (a > b) {
+        return 1;
+    } else {
+        return 0
+    }
+}
+
+
+function newObject(arro, keysort) {
+    const result = [];
+
+
+    for (let i in arro) {
+
+        for (key in arro[i]) {
+            const value = arro[i][key];
+            for (let j in keysort) {
+                if (value === keysort[j]) {
+                    result.push(arro[i]);
+                }
+            }
+        }
+
+    }
+
+    return result;
+}
+
+
+function newObject2(arro, keysort) {
+    const result = [];
+
+    for (let orderkey in keysort) {
+        for (let arrayind in arro) {
+            for (let objkeyindex in arro[arrayind]) {
+                // console.log(arro[i][j]);
+                const value = arro[arrayind][objkeyindex];
+                if (value === keysort[orderkey]) {
+                    result.push(arro[arrayind]);
+                }
+            }
+        }
+    }
+    return result;
+}
+const keysorted = keysarray.sort(numSort);
+
+
+
+
+
+console.log(onlySpeedFields(input));
+console.log(keysorted);
+console.log(newObject(input, keysorted));
+console.log(newObject2(input, keysorted));
