@@ -13,7 +13,7 @@ function drawNumber(scale) {
 }
 
 function drawOperator() {
-  const operators = [ '+', '-', '*', '/' ];
+  const operators = ['+', '-', '*', '/'];
   const index = drawNumber(operators.length);
   return operators[index];
 }
@@ -52,6 +52,9 @@ const multiply = function (a, b) {
  */
 const divide = function (a, b) {
   if (b !== 0) {
+    if ((a / b) % 2 !== 0) {
+      return (a / b).toFixed(3);
+    }
     return a / b;
   } else {
     console.error('Cannot divide by 0!');
@@ -83,7 +86,7 @@ function calculateRandomThings(questionCount) {
     const a = drawNumber(10);
     const b = drawNumber(10);
     const operator = drawOperator();
-    const result = calculate(a, b, operator).toFixed(2);
+    const result = calculate(a, b, operator);
     console.log(`${a} ${operator} ${b} = ${result}`);
   }
 }
