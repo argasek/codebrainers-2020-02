@@ -7,7 +7,16 @@
 // example below:
 
 const car = {
-  gearBox: 'automatic', // 'manual'
+  gearBox: 'manual', // 'manual'
+  hasRadio: true,
+  isEngineRunning: false,
+  isRadioBroken: true,
+  maximumSpeed: 300,
+  numberOfWheels: 4,
+};
+
+const car2 = {
+  gearBox: 'manual',
   hasRadio: true,
   isEngineRunning: false,
   isRadioBroken: true,
@@ -92,6 +101,10 @@ const result = [
  * @return {boolean}
  */
 function compareCars(carA, carB) {
-
+  for (let key in carA) {
+    return (carA[key] === carB[key]);
+  }
 }
 
+
+console.log(compareCars(car, car2))
