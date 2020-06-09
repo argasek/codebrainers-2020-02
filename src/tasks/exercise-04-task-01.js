@@ -83,10 +83,13 @@ function calculateRandomThings(questionCount) {
     const a = drawNumber(10);
     const b = drawNumber(10);
     const operator = drawOperator();
-    const result = calculate(a, b, operator).toFixed(2);
-    console.log(`${a} ${operator} ${b} = ${result}`);
+    if (operator === '/') {
+      const result = calculate(a, b, operator).toFixed(3);
+      console.log(`${a} ${operator} ${b} = ${result}`);
+    } else {
+      const result = calculate(a, b, operator).toFixed(0);
+      console.log(`${a} ${operator} ${b} = ${result}`);
+    }
   }
 }
-
-
 calculateRandomThings(5);
