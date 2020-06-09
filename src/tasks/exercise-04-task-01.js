@@ -84,11 +84,8 @@ function calculateRandomThings(questionCount) {
     const b = drawNumber(10);
     const operator = drawOperator();
     const result = calculate(a, b, operator);
-    if (Number.isInteger(result)) {
-      console.log(result);
-    } else { console.log(result.toFixed(3)) };
-    console.log(`${a} ${operator} ${b} = ${result}`);
-
+    const resultAsString = result % 1 === 0 ? result : result.toFixed(3);
+    console.log(`${a} ${operator} ${b} = ${resultAsString}`);
   }
 }
 

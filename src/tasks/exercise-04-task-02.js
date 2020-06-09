@@ -20,7 +20,7 @@ const car = {
 //
 // Example:
 
-const input = [
+const carsArray = [
   {
     gearBox: 'manual', // 'manual'
     hasRadio: false,
@@ -50,14 +50,15 @@ const input = [
   }
 ];
 
-function sortCarsBySpeed(cars) {
-  // ...
+function sortCars(cars, key = 'maximumSpeed') {
+  const filteredCars = cars.filter(function(car) { return car[key] !== undefined });
+  return filteredCars.sort(function(a, b) { return a[key] - b[key] });
 }
 
-const output = sortCarsBySpeed(input);
+const actualResult = sortCars(carsArray);
 
 // Expected result:
-const result = [
+const expectedResult = [
   {
     gearBox: 'automatic', // 'manual'
     hasRadio: true,
@@ -83,7 +84,6 @@ const result = [
     numberOfWheels: 2,
   }
 ];
-
 
 /**
  *
@@ -92,6 +92,28 @@ const result = [
  * @return {boolean}
  */
 function compareCars(carA, carB) {
+  if (typeof carA !== "object" || typeof carB !== "object") {
+    console.log(`Not equal: carA is ${typeof carA}, carB is ${typeof carB}`);
+    return false;
+  }
 
+  const keys = Object.keys(carA);
+  if (keys.length === Object.keys(carB).length) {
+    return keys.every(function (key) {
+      console.log(key, carA[key], carB[key]);
+      return carA[key] === carB[key];
+    })
+  }
+
+  return false;
 }
+
+
+function compareExpectedToActual() {
+  return expectedResult.every(function(item, index) {
+    return compareCars(item, actualResult[index]);
+  });
+}
+
+console.log('Is sortCarsByKey() working as expected?', compareExpectedToActual());
 
