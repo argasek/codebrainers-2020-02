@@ -18,6 +18,13 @@ class Student {
     }
 }
 
+class Department {
+    constructor(name) {
+        this.students = [];
+        this.name = name;
+    }
+}
+
 
 const student = new Student();
 const bankAccount = new BankAccount(23498237492734);
