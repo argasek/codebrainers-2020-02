@@ -13,7 +13,7 @@ function drawNumber(scale) {
 }
 
 function drawOperator() {
-  const operators = [ '+', '-', '*', '/' ];
+  const operators = ['+', '-', '*', '/'];
   const index = drawNumber(operators.length);
   return operators[index];
 }
@@ -83,10 +83,14 @@ function calculateRandomThings(questionCount) {
     const a = drawNumber(10);
     const b = drawNumber(10);
     const operator = drawOperator();
-    const result = calculate(a, b, operator).toFixed(2);
+    const result = calculate(a, b, operator);
+    if (Number.isInteger(result)) {
+      console.log(result);
+    } else { console.log(result.toFixed(3)) };
     console.log(`${a} ${operator} ${b} = ${result}`);
+
   }
 }
 
 
-calculateRandomThings(5);
+(calculateRandomThings(5));
