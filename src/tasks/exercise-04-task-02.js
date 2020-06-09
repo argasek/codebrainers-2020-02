@@ -51,11 +51,19 @@ const input = [
 ];
 
 function sortCarsBySpeed(cars) {
-  // ...
+  let sortedCars = []
+  for (let car in cars) {
+    if (cars[car].maximumSpeed) {
+      sortedCars.push(cars[car]);
+    }
+  }
+  return sortedCars.sort(
+    function (a, b) { return a.maximumSpeed - b.maximumSpeed }
+  )
 }
 
-const output = sortCarsBySpeed(input);
 
+console.log(sortCarsBySpeed(input))
 // Expected result:
 const result = [
   {
@@ -92,6 +100,39 @@ const result = [
  * @return {boolean}
  */
 function compareCars(carA, carB) {
-
+  carAstring = ''
+  carBstring = ''
+  for (let key in carA) {
+    value = carA[key]
+    carAstring += key
+    carAstring += value
+  }
+  for (let key in carB) {
+    value = carB[key]
+    carBstring += key
+    carBstring += value
+  }
+  if (carAstring === carBstring) {
+    return true
+  } else {
+    return false
+  }
+}
+carA = {
+  gearBox: 'automatic', // 'manual'
+  hasRadio: true,
+  isEngineRunning: false,
+  isRadioBroken: true,
+  maximumSpeed: 50,
+  numberOfWheels: 4,
 }
 
+carB = {
+  gearBox: 'automatic', // 'manual'
+  hasRadio: true,
+  isEngineRunning: false,
+  isRadioBroken: true,
+  maximumSpeed: 50,
+  numberOfWheels: 4,
+}
+console.log(compareCars(carA, carB))
