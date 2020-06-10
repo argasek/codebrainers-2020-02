@@ -29,5 +29,9 @@ const students = [
 ];
 
 
-const totalCoffees = students.reduce(/*...*/);
+let initialValue = 0
+const totalCoffees = students.reduce(function(accumulator, currentValue, currentIndex, array) {
+  return accumulator + currentValue.coffees
+}, initialValue);
+
 console.log(totalCoffees);
