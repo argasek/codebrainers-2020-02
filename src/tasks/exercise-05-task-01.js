@@ -60,4 +60,42 @@ codebrainersBootcamp.students = [ ...studentsA ];
 const otherBootcamp = new Department('Some Other Bootcamp');
 otherBootcamp.students = [ ...studentsB ];
 
+function checkStudent (bootcamp1, bootcamp2) {
+  result = [];
+  for (student in bootcamp1) {
+    for (student1 in bootcamp2) {
+      if (student.name === student1.name) {
+        result.push(student.name);
+      }
+    }
+  }
+  return result;
+}
 
+
+console.log(checkStudent(studentsA,studentsB));
+studentsB.forEach(function(student) {console.log (student.name);});
+
+function all (studentsA,studentsB){
+  let result1=[];
+  let result2=[];
+  let result3=[];
+studentsB.forEach(function(student) {
+  result2.push(student.name);
+})
+  studentsA.forEach(function(student) {
+  result1.push(student.name);
+})
+
+  for (i in result1 ) {
+    console.log(result1[i]);
+  for (j in result2){
+  if (result1[i]===result2[j]) {
+  result3.push(result1[i]);
+  }
+  }
+  }
+  return result3;
+}
+
+console.log(all(studentsA,studentsB));

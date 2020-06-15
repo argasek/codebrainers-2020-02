@@ -29,5 +29,15 @@ const students = [
 ];
 
 
-const totalCoffees = students.reduce(/*...*/);
+const totalCoffees = students.reduce(function (a, b){
+   return a.coffees + b.coffees;
+})
+;
+
+// const allnames = students.forEach(function (student){
+//   return student.name;
+//     }
+// );
 console.log(totalCoffees);
+// console.log(allnames);
+
