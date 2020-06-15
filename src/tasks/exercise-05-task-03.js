@@ -28,6 +28,14 @@ const students = [
   new Student('Maksym', 2)
 ];
 
+// need to specify the initial value so the proper type is defined in the function reduce, hence: [, 0]
+// const totalCoffees = students.reduce(function (a, b) {
+//     return a + b.coffees;
+// }, 0);
+// -----------------------------------------------
 
-const totalCoffees = students.reduce(/*...*/);
+// different way of implementing reduce function's argument - reducer:
+const reducer = (sum, currentValue) => sum + currentValue.coffees;
+
+const totalCoffees = students.reduce(reducer, 0);
 console.log(totalCoffees);
