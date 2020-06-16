@@ -5,6 +5,7 @@
 // If so, how to do it.
 // If no, why we cannot do it.
 
+
 class BankAccount {
   constructor(accountNumber) {
     this.accountNumber = accountNumber;
@@ -34,8 +35,9 @@ class Department {
 
 const anonymousStudent = new Student('Sabina', 2);
 anonymousStudent.comment = 'Jedna kawka od Michałów i Damiana!';
-
+let nika = new Student('Nika', 3)
 const studentsA = [
+  nika,
   new Student('Karolina', 3),
   new Student('Michał K.', 1),
   new Student('Joanna', 2),
@@ -47,6 +49,7 @@ const studentsA = [
 ];
 
 const studentsB = [
+  nika,
   new Student('Michał K.', 1),
   new Student('Karolina', 3),
   new Student('Damian', 1),
@@ -55,9 +58,23 @@ const studentsB = [
 ];
 
 const codebrainersBootcamp = new Department('Codebrainers Bootcamp');
-codebrainersBootcamp.students = [ ...studentsA ];
+codebrainersBootcamp.students = [...studentsA];
 
 const otherBootcamp = new Department('Some Other Bootcamp');
-otherBootcamp.students = [ ...studentsB ];
+otherBootcamp.students = [...studentsB];
 
+function studentInTwoBootCamps(dep1, dep2) {
+  for (let i = 0; i < dep1.students.length; i++) {
+    for (let j = 0; j < dep2.students.length; j++) {
+      if (dep1.students[i] === dep2.students[j]) {
+        return 'Student ' + dep1.students[i].name + ' is in two BootCamps'
+      }
 
+    }
+  }
+  return 'No students studying in two BootCamps'
+}
+
+console.log(studentInTwoBootCamps(codebrainersBootcamp, otherBootcamp))
+
+// the answer is 'yes'.
