@@ -28,6 +28,8 @@ const students = [
   new Student('Maksym', 2)
 ];
 
-
-const totalCoffees = students.reduce(/*...*/);
+function reducer(acc, cur) {
+  return acc + cur.coffees
+}
+const totalCoffees = students.reduce(reducer, 0);
 console.log(totalCoffees);
