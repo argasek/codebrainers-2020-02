@@ -97,21 +97,19 @@ function compareObjects(itemA, itemB) {
     return false;
 }
 
-console.log(compareObjects(student1, student2));
+// console.log(compareObjects(student1, student2));
 
 function checkCommonItem(arr1, arr2) {
     arr1.forEach(function (value1) {
-        let commonItem = false;
-        // console.log(value1);
+        let arg1 = value1;
 
-        arr2.forEach(function (value2) {
-            if (compareObjects(value2, value1)) {
-                commonItem = true;
+        arr2.some(function (value2) {
+            let arg2 = value2;
+            if (compareObjects(arg1, arg2)) {
+                console.log('Common student for both groups is: ', arg2.name);
             }
         });
-        return commonItem;
     });
-
 }
 
-console.log(checkCommonItem(studentsA, studentsB));
+checkCommonItem(studentsA, studentsB);
