@@ -99,3 +99,19 @@ function compareObjects(itemA, itemB) {
 
 console.log(compareObjects(student1, student2));
 
+function checkCommonItem(arr1, arr2) {
+    arr1.forEach(function (value1) {
+        let commonItem = false;
+        // console.log(value1);
+
+        arr2.forEach(function (value2) {
+            if (compareObjects(value2, value1)) {
+                commonItem = true;
+            }
+        });
+        return commonItem;
+    });
+
+}
+
+console.log(checkCommonItem(studentsA, studentsB));
