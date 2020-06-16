@@ -57,3 +57,18 @@ function countCommonNumbers(set1, set2) {
 // console.log(countCommonNumbers(actualNumbers, expectedNumbers));
 
 
+function drawingCount() {
+    let drawingCount = 0;
+    let newNumbers = drawNumbers();
+    console.log(newNumbers);
+    console.log(actualNumbers);
+    let count = countCommonNumbers(newNumbers, actualNumbers);
+
+    if (count === 1){
+        return `Needs to draw ${drawingCount} times to get "One"`;
+    }
+
+
+}
+
+console.log(drawingCount());
