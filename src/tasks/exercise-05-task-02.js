@@ -120,7 +120,8 @@ constructor () {
 
     this.last_watered = new datePlanting();
 
-    this.last_fertilized = new datePlanting();}}
+    this.last_fertilized = new datePlanting();
+}}
 
 
 
