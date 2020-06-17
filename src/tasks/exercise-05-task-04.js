@@ -21,7 +21,6 @@ function drawNumbers() {
 
     // console.log(availableNumbersSet);
 
-    let scale = 49;
     let newNumbersSet = [];
     for (let i = 0; i < 6; i++) {
         let newNumberIndex = Math.floor(Math.random() * availableNumbersSet.length);
@@ -37,38 +36,58 @@ function drawNumbers() {
 // console.log(drawNumbers());
 
 
-function countCommonNumbers(set1, set2) {
-    set1.sort(alphaSort);
-    set2.sort(alphaSort);
+function countCommonNumbers(expectedNumber, drawnNumbersSet) {
+    expectedNumber.sort(alphaSort);
+    drawnNumbersSet.sort(alphaSort);
     let commonNumbersCount = 0;
+    let commonValues = [];
 
-    set1.forEach(function (value1) {
-        set2.some(function (value2) {
+    expectedNumber.forEach(function (value1) {
+        drawnNumbersSet.some(function (value2) {
             if (value2 === value1) {
                 commonNumbersCount++;
+                commonValues.push(value2);
                 // console.log(value2);
             }
         })
     })
+    // return [commonNumbersCount, commonValues];
     return commonNumbersCount;
 }
 
-// console.log("How many numbers are matching both sets?");
-// console.log(countCommonNumbers(actualNumbers, expectedNumbers));
+console.log("How many numbers are matching both sets?");
+console.log(countCommonNumbers(actualNumbers, expectedNumbers));
 
 
-function drawingCount() {
+function drawingsCount() {
     let drawingCount = 0;
-    let newNumbers = drawNumbers();
-    console.log(newNumbers);
-    console.log(actualNumbers);
-    let count = countCommonNumbers(newNumbers, actualNumbers);
-
-    if (count === 1){
-        return `Needs to draw ${drawingCount} times to get "One"`;
+    let count = 0;
+    while (count < 1) {
+        let newNumbers = drawNumbers();
+        console.log(newNumbers);
+        console.log(actualNumbers);
+        count = countCommonNumbers(newNumbers, actualNumbers);
+        drawingCount++;
+        console.log(drawingCount);
     }
-
-
+    return `It takes ${drawingCount} times to get '${count}'`;
 }
 
-console.log(drawingCount());
+console.log(drawingsCount());
+
+// function countDrawingsToGetSpecificMatch(matchingNumbers) {
+//     let drawingCount = 0;
+//     let count = 0;
+//     while (count !== matchingNumbers) {
+//         let newNumbers = drawNumbers();
+//         console.log(newNumbers);
+//         console.log(actualNumbers);
+//         count = countCommonNumbers(newNumbers, actualNumbers);
+//         drawingCount++;
+//         console.log(drawingCount);
+//     }
+//     return `It takes ${drawingCount} times to get '${matchingNumbers}'`;
+// }
+//
+// // argument in {1, 2, 3, 4, 5, 6}
+// console.log(countDrawingsToGetSpecificMatch(2));
