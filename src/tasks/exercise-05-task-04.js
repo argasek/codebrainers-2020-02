@@ -59,7 +59,7 @@ console.log("How many numbers are matching both sets?");
 console.log(countCommonNumbers(actualNumbers, expectedNumbers));
 
 
-function drawingsCount() {
+function drawingsToFirstMatchCount() {
     let drawingCount = 0;
     let count = 0;
     while (count < 1) {
@@ -73,7 +73,7 @@ function drawingsCount() {
     return `It takes ${drawingCount} times to get '${count}'`;
 }
 
-console.log(drawingsCount());
+console.log(drawingsToFirstMatchCount());
 
 // function countDrawingsToGetSpecificMatch(matchingNumbers) {
 //     let drawingCount = 0;
