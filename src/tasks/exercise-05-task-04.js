@@ -59,26 +59,10 @@ console.log("How many numbers are matching both sets?");
 console.log(countCommonNumbers(actualNumbers, expectedNumbers));
 
 
-function drawingsToFirstMatchCount() {
-    let drawingCount = 0;
-    let count = 0;
-    while (count < 1) {
-        let newNumbers = drawNumbers();
-        console.log(newNumbers);
-        console.log(actualNumbers);
-        count = countCommonNumbers(newNumbers, actualNumbers);
-        drawingCount++;
-        console.log(drawingCount);
-    }
-    return `It takes ${drawingCount} times to get '${count}'`;
-}
-
-console.log(drawingsToFirstMatchCount());
-
-// function countDrawingsToGetSpecificMatch(matchingNumbers) {
+// function drawingsToFirstMatchCount() {
 //     let drawingCount = 0;
 //     let count = 0;
-//     while (count !== matchingNumbers) {
+//     while (count < 1) {
 //         let newNumbers = drawNumbers();
 //         console.log(newNumbers);
 //         console.log(actualNumbers);
@@ -86,8 +70,24 @@ console.log(drawingsToFirstMatchCount());
 //         drawingCount++;
 //         console.log(drawingCount);
 //     }
-//     return `It takes ${drawingCount} times to get '${matchingNumbers}'`;
+//     return `It takes ${drawingCount} times to get '${count}'`;
 // }
 //
-// // argument in {1, 2, 3, 4, 5, 6}
-// console.log(countDrawingsToGetSpecificMatch(2));
+// console.log(drawingsToFirstMatchCount());
+
+function countDrawingsToGetSpecificMatch(matchingNumbers) {
+    let drawingCount = 0;
+    let count = 0;
+    while (count !== matchingNumbers) {
+        let newNumbers = drawNumbers();
+        console.log(newNumbers);
+        console.log(actualNumbers);
+        count = countCommonNumbers(newNumbers, actualNumbers);
+        drawingCount++;
+        console.log(drawingCount);
+    }
+    return `It takes ${drawingCount} times to get '${matchingNumbers}'`;
+}
+
+// argument in {1, 2, 3, 4, 5, 6}
+console.log(countDrawingsToGetSpecificMatch(6));
