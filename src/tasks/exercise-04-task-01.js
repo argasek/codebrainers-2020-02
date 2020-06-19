@@ -13,7 +13,7 @@ function drawNumber(scale) {
 }
 
 function drawOperator() {
-  const operators = [ '+', '-', '*', '/' ];
+  const operators = ['+', '-', '*', '/'];
   const index = drawNumber(operators.length);
   return operators[index];
 }
@@ -90,4 +90,4 @@ function calculateRandomThings(questionCount) {
 }
 
 
-calculateRandomThings(5);
+(calculateRandomThings(5));
