@@ -3,9 +3,10 @@ import codeBrainersStudents from '../../models/Students';
 import Student from 'components/student/Student';
 import './StudentList.css';
 
-const sortStudents = (studentsArray, key) => {
+const sortStudents = (studentsArray, key, direction) => {
+  const counter = direction === "desc" ? -1 : 1;
   return studentsArray.sort(function (a, b) {
-    if (a[key]< b[key]) {
+    if (a[key] < b[key]) {
       return -1;
     } else if (a[key] === b[key]) {
       return 0;
@@ -27,7 +28,7 @@ const StudentList = () => {
       </thead>
       <tbody>
         {
-          sortStudents(codeBrainersStudents, "coffees").map(student =>
+          sortStudents(codeBrainersStudents, "coffees", "desc").map(student =>
             <Student
               key={student.id}
               student={student}
