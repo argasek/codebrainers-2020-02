@@ -1,31 +1,17 @@
 import React from 'react';
 import codeBrainersStudents from '../../models/Students';
-import Student from 'components/student-list/Student';
+import Student from 'components/student/Student';
+import './StudentList.css';
 
 const StudentList = () => {
 
     return (
-        /*
-                <table>
-                    <thead>
-                        <tr>
-                            <th colSpan="2">The table header</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>The table body</td>
-                            <td>with two columns</td>
-                        </tr>
-                    </tbody>
-                </table>
-        */
 
-        <table>
+        <table className='student-list-table'>
             <thead>
             <tr>
-                <th>Name</th>
-                <th>Coffees</th>
+                <th className='student-header student-cell-padding'>Name</th>
+                <th  className='student-header student-cell-padding'>Coffees</th>
             </tr>
             </thead>
             <tbody>

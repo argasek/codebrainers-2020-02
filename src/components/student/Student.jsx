@@ -20,14 +20,16 @@ const Student = (props) => {
 
   const className = 'student' + ' ' + getCoffeeClassName(coffees);
 
+
+
   return (
-    <tr>
-      <td>
+    <tr className='student-row'>
+      <td className='student-cell student-cell-padding'>
         <div className={ className } >
           { studentName }
         </div>
       </td>
-      <td>{ coffees }</td>
+      <td className='student-cell student-cell-padding student-cell-center'>{ coffees }</td>
     </tr>
   );
 };
