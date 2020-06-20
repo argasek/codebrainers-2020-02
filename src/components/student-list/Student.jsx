@@ -8,6 +8,7 @@ const Student = (props) => {
     const coffees = props.studentCoffees;
     const divStyle = {
       paddingLeft: coffees * 5 + 'em',
+        backgroundColor: coffees===0 ? 'red':'grey'
     };
 
     return (
