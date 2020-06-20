@@ -2,8 +2,8 @@ import React from 'react';
 import './Student.css';
 
 const Student = (props) => {
-  const studentName = props.studentName;
-  const coffees = props.studentCoffees;
+  const studentName = props.student.name;
+  const coffees = props.student.coffees;
 
   function limitRange(x, min, max) {
     return Math.min(Math.max(Math.round(x), min), max)
@@ -18,7 +18,7 @@ const Student = (props) => {
     return 'coffee' + coffees;
   }
 
-  const className = 'student' + ' ' + getCoffeeClassName(coffees);
+  const className = 'student ' + getCoffeeClassName(coffees);
 
 
 

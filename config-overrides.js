@@ -27,5 +27,5 @@ const enableStyleSourceMaps = ({ use: [ , css, postcss, resolve, processor ] }) 
 module.exports = override(
   addDecoratorsLegacy(),
   // useEvalSourceMap(),
-  // adjustStyleLoaders(enableStyleSourceMaps)
+  adjustStyleLoaders(enableStyleSourceMaps)
 );

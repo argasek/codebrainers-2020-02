@@ -19,8 +19,7 @@ const StudentList = () => {
                     codeBrainersStudents.map(student =>
                         <Student
                             key={student.id}
-                            studentName={student.name}
-                            studentCoffees={student.coffees}
+                            student={student}
                         />
                     )
                 }
