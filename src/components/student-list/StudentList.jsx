@@ -2,19 +2,14 @@ import React from 'react';
 import codeBrainersStudents from '../../models/Students';
 
 const StudentList = () => {
-  const test = codeBrainersStudents[0].name;
-  // arr.forEach(callback[, thisArg])
 
-  const studentNames = codeBrainersStudents.map(student => { return student.name; });
-
-
-
+  const studentNames = codeBrainersStudents.map(student => student.name);
 
 
   return (
-    <div>
-      <p>{studentNames}</p>
-    </div>
+    <ul>
+      {studentNames.map(studentName => <li>{studentName}</li>)}
+    </ul>
   );
 };
 
