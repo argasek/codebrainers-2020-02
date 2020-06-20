@@ -1,9 +1,13 @@
 import React from 'react';
 import codeBrainersStudents from '../../models/Students';
 
-
 const StudentList = () => {
-    return null;
+    const test = 'Testowy string';
+    return (
+      <div>
+          <p>{ test }</p>
+      </div>
+    );
 };
 
-export default StudentList
+export default StudentList;
