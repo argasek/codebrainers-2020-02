@@ -24,12 +24,12 @@ const Student = (props) => {
 
   return (
     <tr className='student-row'>
+      <td className='student-cell student-cell-padding student-cell-center'>{ coffees }</td>
       <td className='student-cell student-cell-padding'>
         <div className={ className } >
           { studentName }
         </div>
       </td>
-      <td className='student-cell student-cell-padding student-cell-center'>{ coffees }</td>
     </tr>
   );
 };

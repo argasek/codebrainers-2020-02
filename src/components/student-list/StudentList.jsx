@@ -3,38 +3,37 @@ import codeBrainersStudents from '../../models/Students';
 import Student from 'components/student/Student';
 import './StudentList.css';
 
-const sortStudents = (studentsArray, key, direction) => {
-  const counter = direction === "desc" ? -1 : 1;
-  return studentsArray.sort(function (a, b) {
-    if (a[key] < b[key]) {
-      return -1 * counter;
-    } else if (a[key] === b[key]) {
-      return 0;
-    } else if (a[key] > b[key]) {
-      return 1 * counter;
-    }
-  });
-}
+const comparator = ({ key, direction }) => (a, b) => a[key] === b[key] ? 0 : [ a[key] < b[key], direction === "desc" ].map(x => x ? -1 : 1).reduce((p, n) => p * n, 1);
+const sort = (criteria) => (a, b) => criteria.map(criterion => comparator(criterion)(a, b)).reduce((previous, next) => previous ? previous : next, 0);
+const sortStudents = (items, criteria) => items.sort(sort(criteria));
+
 const StudentList = () => {
+
+  const sortCriteria = [
+    { key: "coffees", direction: "asc" },
+    { key: "name", direction: "desc" },
+  ];
+
+  const students = sortStudents(codeBrainersStudents, sortCriteria);
 
   return (
 
     <table className='student-list-table'>
       <thead>
-        <tr>
-          <th className='student-header student-cell-padding'>Student name</th>
-          <th className='student-header student-cell-padding'>☕</th>
-        </tr>
+      <tr>
+        <th className='student-header student-cell-padding'><span>☕</span></th>
+        <th className='student-header student-cell-padding'>Student name</th>
+      </tr>
       </thead>
       <tbody>
-        {
-          sortStudents(codeBrainersStudents, "coffees", "asc").map(student =>
-            <Student
-              key={student.id}
-              student={student}
-            />
-          )
-        }
+      {
+        students.map(student =>
+          <Student
+            key={ student.id }
+            student={ student }
+          />
+        )
+      }
       </tbody>
     </table>
   );

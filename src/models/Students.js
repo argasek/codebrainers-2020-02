@@ -1,12 +1,12 @@
 const codeBrainersStudents = [
     {
         id: 1,
-        name: 'Michał K.',
-        coffees: 1
+        name: 'Michał',
+        coffees: 17
     },
     {
         id: 2,
-        name: 'Michał M.',
+        name: 'Michał',
         coffees: 1
     },
     {
