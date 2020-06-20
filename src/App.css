@@ -1,7 +1,15 @@
 .app {
-    padding: 4em;
+  padding-left: 4em;
+  background: aliceblue;
 }
-h1{
-    padding: 4em;
-    font-size: inherit;
+
+h1 {
+  padding-left: 4em;
+  background: teal;
+}
+
+h1.small {
+  padding-left: 4em;
+  font-size: inherit;
+  background: green;
 }
