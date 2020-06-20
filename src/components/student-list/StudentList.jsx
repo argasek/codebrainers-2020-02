@@ -5,27 +5,27 @@ import './StudentList.css';
 
 const StudentList = () => {
 
-    return (
+  return (
 
-        <table className='student-list-table'>
-            <thead>
-            <tr>
-                <th className='student-header student-cell-padding'>Name</th>
-                <th  className='student-header student-cell-padding'>Coffees</th>
-            </tr>
-            </thead>
-            <tbody>
-                {
-                    codeBrainersStudents.map(student =>
-                        <Student
-                            key={student.id}
-                            student={student}
-                        />
-                    )
-                }
-            </tbody>
-        </table>
-    );
+    <table className='student-list-table'>
+      <thead>
+      <tr>
+        <th className='student-header student-cell-padding'>Name</th>
+        <th className='student-header student-cell-padding'>Coffees</th>
+      </tr>
+      </thead>
+      <tbody>
+      {
+        codeBrainersStudents.map(student =>
+          <Student
+            key={ student.id }
+            student={ student }
+          />
+        )
+      }
+      </tbody>
+    </table>
+  );
 };
 
 export default StudentList;

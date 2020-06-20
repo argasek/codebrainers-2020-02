@@ -2,11 +2,33 @@
   padding-left: 4em;
 }
 
+.button {
+  padding: 0.5em 1em;
+}
+
+.p-1 {
+  padding-top: 0.5em;
+}
+
+.d-flex {
+  display: flex;
+}
+
 h1 {
   padding-left: 4em;
   &.small {
     padding-left: 4em;
     font-size: inherit;
+  }
+}
+
+.student-actions {
+  padding-left: 2em;
+}
+
+.student-lists-container {
+  .student-list-table + .student-list-table {
+    margin-left: 2em;
   }
 }
 

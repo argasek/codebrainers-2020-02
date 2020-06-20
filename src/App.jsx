@@ -1,14 +1,28 @@
 import React from 'react';
 import 'App.scss';
 import StudentList from 'components/student-list/StudentList';
+import StudentListRandomizeButton from 'components/student-list-randomize-button/StudentListRandomizeButton';
+import StudentListSortButton from 'components/student-list-sort-button/StudentListSortButton';
 
 function App() {
   return (
     <div className="app">
-      <h1>m Hello world!</h1>
-      <h1 className="small">m Hello world!</h1>
-      <p>m</p>
-      <StudentList />
+      <div className="d-flex">
+        <div>
+          <h3>List of students:</h3>
+          <div className="d-flex student-lists-container">
+            <StudentList />
+            <StudentList />
+          </div>
+        </div>
+        <div className="student-actions">
+          <h3>Actions to perform: </h3>
+          <div className="student-list-buttons">
+            <StudentListSortButton />
+            <StudentListRandomizeButton />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
