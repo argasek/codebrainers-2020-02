@@ -2,3 +2,23 @@
   background-color: burlywood;
   padding-left: 2rem;
 }
+
+.student.coffee1 {
+  background-color: rgb(128, 32, 0);
+}
+
+.student.coffee2 {
+  background-color: rgb(144, 144, 144);
+}
+
+.student.coffee3 {
+  background-color: rgb(180, 180, 180);
+}
+
+.student.coffee7 {
+  background-color: rgb(220, 220, 220);
+}
+
+.student.coffee10 {
+  background-color: rgb(0, 127, 250);
+}
