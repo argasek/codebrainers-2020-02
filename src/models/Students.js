@@ -12,22 +12,22 @@ const codeBrainersStudents = [
     {
         id: 3,
         name: 'Joanna',
-        coffees: 2
+        coffees: 2,
     },
     {
         id: 4,
         name: 'Karolina',
-        coffees: 3
+        coffees: 1
     },
     {
         id: 5,
         name: 'Grzegorz',
-        coffees: 0
+        coffees: 2
     },
     {
         id: 6,
         name: 'Damian',
-        coffees: 1
+        coffees: 2
     },
     {
         id: 7,
@@ -38,11 +38,16 @@ const codeBrainersStudents = [
     {
         id: 8,
         name: 'Kamila',
-        coffees: 0
+        coffees: 2
     },
     {
         id: 9,
         name: 'Maksym',
+        coffees: 2
+    },
+    {
+        id: 10,
+        name: 'maksym',
         coffees: 2
     }
 

@@ -21,6 +21,18 @@ const randomizeStudents = (studentsArray) => {
   return studentsArray.sort(() => Math.random() - 0.5);
 }
 
+const sortStudentsByTwoColumns = (studentsArray, key1, direction1, key2, direction2) => {
+  const key1SortDirection = direction1 === "desc" ? -1 : 1;
+  const key2SortDirection = direction2 === "desc" ? -1 : 1;
+  return studentsArray.sort(function (a, b) {
+    if (a[key1] < b[key1]) return -1 * key1SortDirection;
+    if (a[key1] > b[key1]) return 1 * key1SortDirection;
+    if (a[key2].toLowerCase() < b[key2].toLowerCase()) return -1 * key2SortDirection;
+    if (a[key2].toLowerCase() > b[key2].toLowerCase()) return 1 * key2SortDirection;
+    return 0;
+  });
+}
+
 const StudentListOriginal = () => {
 
   return (
@@ -61,12 +73,18 @@ export const StudentListRearranged = () => {
       </thead>
       <tbody>
       {
-        randomizeStudents(codeBrainersStudents).map(student =>
+        sortStudentsByTwoColumns(codeBrainersStudents, "coffees", "asc", "name", "desc").map(student =>
           <Student
             key={student.id}
             student={student}
           />
         )
+        // randomizeStudents(codeBrainersStudents).map(student =>
+        //   <Student
+        //     key={student.id}
+        //     student={student}
+        //   />
+        // )
         // sortStudents(codeBrainersStudents, "coffees", "desc").map(student =>
         //   <Student
         //     key={student.id}
