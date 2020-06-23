@@ -5,16 +5,9 @@ import './StudentList.css';
 
 const sortStudents = (studentsArray, key, direction) => {
   const counter = direction === "desc" ? -1 : 1;
-  return studentsArray.sort(function (a, b) {
-    if (a[key] < b[key]) {
-      return -1 * counter;
-    } else if (a[key] === b[key]) {
-      return 0;
-    } else if (a[key] > b[key]) {
-      return 1 * counter;
-    }
-  });
+  return studentsArray.sort(function (a, b) { return a[key] !== b[key] ? a[key] < b[key] ? -1 * counter : 1 * counter : 0 });
 }
+
 const StudentList = () => {
 
   return (
