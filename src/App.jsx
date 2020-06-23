@@ -3,7 +3,8 @@ import 'App.scss';
 import StudentList from 'components/student-list/StudentList';
 import StudentListRandomizeButton from 'components/student-list-randomize-button/StudentListRandomizeButton';
 import StudentListSortButton from 'components/student-list-sort-button/StudentListSortButton';
-import { codeBrainersStudents, sortStudents } from 'models/Students';
+import Students from 'models/Students';
+import Student from 'models/Student';
 
 function App() {
 
@@ -12,9 +13,28 @@ function App() {
     { key: "name", direction: "desc" },
   ];
 
-  const students = [ ...codeBrainersStudents ];
-  const sortedStudents = sortStudents(codeBrainersStudents, sortCriteria);
+  const students = new Students();
 
+  const specialStudent = new Student('Sabina', 2);
+
+  specialStudent.setComment('Jedna kawka od Michałów i Damiana!');
+
+  students.push(new Student('Michał K.', 1));
+  students.push(new Student('Michał M.', 1));
+  students.push(new Student('Joanna', 3));
+  students.push(new Student('Karolina', 4));
+  students.push(new Student('Grzegorz', 1));
+  students.push(new Student('Damian', 1));
+  students.push(specialStudent);
+  students.push(new Student('Kamila', 0));
+  students.push(new Student('Maksym', 3));
+
+
+  const studentLists = [
+    students.students,
+    students.getShuffledStudents(),
+    students.getSortedStudents(sortCriteria),
+  ];
 
   return (
     <div className="app">
@@ -22,8 +42,14 @@ function App() {
         <div>
           <h3>List of students:</h3>
           <div className="d-flex student-lists-container">
-            <StudentList students={students} />
-            <StudentList students={sortedStudents}/>
+            {
+              studentLists.map((students, index) =>
+                <StudentList
+                  key={index}
+                  students={students}
+                />
+              )
+            }
           </div>
         </div>
         <div className="student-actions">
