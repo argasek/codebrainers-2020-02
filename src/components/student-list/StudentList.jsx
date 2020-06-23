@@ -91,11 +91,14 @@ export const StudentListRearranged = () => {
         //     student={student}
         //   />
         // )
+        // codeBrainersStudents.map(student =>
+        //   <Student
+        //     key={student.id}
+        //     student={student}
+        //   />
+        // )
       }
       </tbody>
     </table>
   );
 };
-
-
-
