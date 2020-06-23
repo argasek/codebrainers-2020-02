@@ -35,8 +35,12 @@ function App() {
     students.getSortedStudents(sortCriteria),
   ];
 
+
   const shuffleStudents = () => {
-    studentLists[1] = students.getShuffledStudents();
+    // studentLists[1] = students.getShuffledStudents();
+    let a = students.getShuffledStudents();
+    console.log(a);
+    studentLists[1] = a;
   };
 
   const onClick = function (message) {
