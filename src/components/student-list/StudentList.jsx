@@ -1,6 +1,7 @@
 import React from 'react';
-import Student from 'components/student/Student';
 import './StudentList.css';
+import ClassBasedStudent from 'components/class-based-student/ClassBasedStudent';
+import Student from 'components/student/Student';
 
 
 const StudentList = ({ students }) => {

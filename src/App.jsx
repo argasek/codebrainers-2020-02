@@ -43,13 +43,16 @@ function App() {
     studentLists[1] = a;
   };
 
-  const onClick = function (message) {
-    alert(message);
-  };
+  let zmienna = 'Cześć!' + ' ' + 'Jestem kodem w React!';
 
+  const onClick = function () {
+    zmienna = 'Siemaneczko';
+    console.log(zmienna);
+  };
 
   return (
     <div className="app">
+      <h1>{zmienna}</h1>
       <div className="d-flex">
         <div>
           <h3>List of students:</h3>
@@ -67,7 +70,7 @@ function App() {
         <div className="student-actions">
           <h3>Actions to perform: </h3>
           <div className="student-list-buttons">
-            <StudentListSortButton onClick={() => onClick('Sorted students!')} />
+            <StudentListSortButton onClick={() => onClick()} />
             <StudentListRandomizeButton onClick={shuffleStudents} />
           </div>
         </div>
