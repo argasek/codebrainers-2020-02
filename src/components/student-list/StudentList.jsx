@@ -8,6 +8,16 @@ const sortStudents = (studentsArray, key, direction) => {
   return studentsArray.sort(function (a, b) { return a[key] !== b[key] ? a[key] < b[key] ? -1 * counter : 1 * counter : 0 });
 }
 
+const randomizeStudents = (studentsArray) => {
+  for (let i = studentsArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * i)
+    const temp = studentsArray[i]
+    studentsArray[i] = studentsArray[j]
+    studentsArray[j] = temp
+  }
+  return studentsArray
+}
+
 const StudentList = () => {
 
   return (
@@ -21,7 +31,7 @@ const StudentList = () => {
       </thead>
       <tbody>
         {
-          sortStudents(codeBrainersStudents, "coffees", "asc").map(student =>
+          randomizeStudents(codeBrainersStudents).map(student =>
             <Student
               key={student.id}
               student={student}
