@@ -36,8 +36,8 @@ function App() {
   ];
 
   const shuffleStudents = () => {
-    console.log(students.getShuffledStudents());
-  }
+    studentLists[1] = students.getShuffledStudents();
+  };
 
   const onClick = function (message) {
     alert(message);
@@ -63,8 +63,8 @@ function App() {
         <div className="student-actions">
           <h3>Actions to perform: </h3>
           <div className="student-list-buttons">
-            <StudentListSortButton onClick={() => onClick('Sorted students!')}/>
-            <StudentListRandomizeButton onClick={shuffleStudents}/>
+            <StudentListSortButton onClick={() => onClick('Sorted students!')} />
+            <StudentListRandomizeButton onClick={shuffleStudents} />
           </div>
         </div>
       </div>
