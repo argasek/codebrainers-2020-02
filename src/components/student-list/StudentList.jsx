@@ -9,16 +9,36 @@ const sortStudents = (studentsArray, key, direction) => {
 }
 
 const randomizeStudents = (studentsArray) => {
-  for (let i = studentsArray.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * i)
-    const temp = studentsArray[i]
-    studentsArray[i] = studentsArray[j]
-    studentsArray[j] = temp
+  let newStudentsArray = [];
+  for (let i = 0; i < studentsArray.length; i++) {
+    newStudentsArray.push(studentsArray[i]);
   }
-  return studentsArray
+  for (let i = newStudentsArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * i)
+    const temp = newStudentsArray[i]
+    newStudentsArray[i] = newStudentsArray[j]
+    newStudentsArray[j] = temp
+  }
+  return newStudentsArray.map(
+    student =>
+      <Student
+        key={student.id}
+        student={student}
+      />
+  )
 }
 
-const StudentList = () => {
+const originalStudentList = (studentsArray) => {
+  return studentsArray.map(
+    student =>
+      <Student
+        key={student.id}
+        student={student}
+      />)
+}
+
+const StudentList = (props) => {
+
 
   return (
 
@@ -31,18 +51,13 @@ const StudentList = () => {
       </thead>
       <tbody>
         {
-          randomizeStudents(codeBrainersStudents).map(student =>
-            <Student
-              key={student.id}
-              student={student}
-            />
-          )
+          props.function === 'randomize' ? randomizeStudents(codeBrainersStudents) : originalStudentList(codeBrainersStudents)
         }
       </tbody>
     </table>
   );
 };
 
-export default StudentList;
+export { StudentList, randomizeStudents }
 
 
