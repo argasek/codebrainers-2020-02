@@ -1,4 +1,3 @@
-import Student from 'models/Student';
 import { drawRandomIndex } from 'utils';
 
 class Students {

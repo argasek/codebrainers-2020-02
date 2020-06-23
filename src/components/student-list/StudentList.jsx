@@ -10,7 +10,7 @@ const StudentList = ({ students }) => {
     <table className='student-list-table'>
       <thead>
       <tr>
-        <th className='student-header student-cell-padding'><span>☕</span></th>
+        <th className='student-header student-cell-padding'><span role="img" aria-label="Coffee">☕</span></th>
         <th className='student-header student-cell-padding'>Student name</th>
       </tr>
       </thead>

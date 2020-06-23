@@ -1,9 +1,9 @@
 import React from 'react';
 
-const StudentListRandomizeButton = ({}) => {
+const StudentListRandomizeButton = ({ onClick }) => {
   return (
     <div className="p-1">
-      <button className="button">Randomize students</button>
+      <button className="button" onClick={onClick}>Randomize students</button>
     </div>
   );
 };
