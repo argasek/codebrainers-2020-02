@@ -28,6 +28,14 @@ ZAD. 2 (proste)
 
 Uprość funkcję sortStudents() tak aby była krótsza niż 9 wierszy.
 
+const sortStudents = (studentsArray, key, direction) => {
+  const counter = direction === "desc" ? -1 : 1;
+  return studentsArray.sort((a, b) =>
+     return (a[key] < b[key]) ? -1 * counter  :
+            (a[key] === b[key])  ? 0 :
+            (a[key] > b[key]) ? 1*counter;)
+}
+
 ZAD. 3 (proste)
 ======================================================================
 
