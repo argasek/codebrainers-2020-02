@@ -1,10 +1,14 @@
+// Task 1. Fix App.jsx so clicking on "Fix students" button doesn't make the app explode.
+// As a result, "Tajemnicza studentka" should be changed to "Joanna"
+// Task 2. Fix fixStudents() function so "Joanna" name appears only on shuffledStudents array and not
+// the others.
+
 import React from 'react';
 import 'App.scss';
 import StudentList from 'components/student-list/StudentList';
-import StudentListRandomizeButton from 'components/student-list-randomize-button/StudentListRandomizeButton';
-import StudentListSortButton from 'components/student-list-sort-button/StudentListSortButton';
 import Students from 'models/Students';
 import Student from 'models/Student';
+import StudentButton from 'components/student-button/StudentButton';
 
 class App extends React.Component {
   constructor(props) {
@@ -75,9 +79,9 @@ class App extends React.Component {
           <div className="student-actions">
             <h3>Actions to perform: </h3>
             <div className="student-list-buttons">
-              <StudentListSortButton onClick={sortStudents} />
-              <StudentListRandomizeButton onClick={shuffleStudents} />
-              <StudentListFixButton onClick={fixStudents} />
+              <StudentButton onClick={sortStudents} label="Sort students" />
+              <StudentButton onClick={shuffleStudents} label="Shuffle students" />
+              <StudentButton onClick={fixStudents} label="Fix students" />
             </div>
           </div>
         </div>
