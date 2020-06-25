@@ -22,7 +22,7 @@ class App extends React.Component {
     const specialStudent = new Student('Sabina', 2);
     specialStudent.setComment('Jedna kawka od Michałów i Damiana!');
     this.students.push(new Student('Michał M.', 1));
-    this.students.push(new Student('Joanna', 3));
+    this.students.push(new Student('Tajemnicza studentka', 3));
     this.students.push(new Student('Karolina', 4));
     this.students.push(new Student('Michał K.', 1));
     this.students.push(new Student('Grzegorz', 1));
