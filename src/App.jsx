@@ -9,10 +9,25 @@ import Student from 'models/Student';
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.initStudents();
     this.state = {
       field: 'Cześć! Jestem kodem w React!',
-      shuffledStudents: [],
+      shuffledStudents: this.students.getShuffledStudents(),
     };
+  }
+  initStudents() {
+    this.students = new Students();
+    const specialStudent = new Student('Sabina', 2);
+    specialStudent.setComment('Jedna kawka od Michałów i Damiana!');
+    this.students.push(new Student('Michał M.', 1));
+    this.students.push(new Student('Joanna', 3));
+    this.students.push(new Student('Karolina', 4));
+    this.students.push(new Student('Michał K.', 1));
+    this.students.push(new Student('Grzegorz', 1));
+    this.students.push(new Student('Damian', 1));
+    this.students.push(specialStudent);
+    this.students.push(new Student('Kamila', 0));
+    this.students.push(new Student('Maksym', 3));
   }
 
   render() {
@@ -68,9 +83,9 @@ class App extends React.Component {
           <div>
             <h3>List of students:</h3>
             <div className="d-flex student-lists-container">
-              <StudentList students={students.students}/>
-              <StudentList students={this.state.shuffledStudents}/>
-              <StudentList students={students.getSortedStudents(sortCriteria)}/>
+              <StudentList students={students.students} />
+              <StudentList students={this.state.shuffledStudents} />
+              <StudentList students={students.getSortedStudents(sortCriteria)} />
             </div>
           </div>
           <div className="student-actions">
