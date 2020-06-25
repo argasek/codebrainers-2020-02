@@ -33,37 +33,29 @@ class App extends React.Component {
   }
 
   render() {
-    const students = new Students();
-
-    const specialStudent = new Student('Sabina', 2);
-
-    specialStudent.setComment('Jedna kawka od Michałów i Damiana!');
-
-    students.push(new Student('Michał K.', 1));
-    students.push(new Student('Michał M.', 1));
-    students.push(new Student('Joanna', 3));
-    students.push(new Student('Karolina', 4));
-    students.push(new Student('Grzegorz', 1));
-    students.push(new Student('Damian', 1));
-    students.push(specialStudent);
-    students.push(new Student('Kamila', 0));
-    students.push(new Student('Maksym', 3));
-
     const sortStudents = () => {
       const sortCriteria = [
         {key: "coffees", direction: "asc"},
         {key: "name", direction: "desc"},
       ];
       this.setState({
-        sortedStudents: students.getSortedStudents(sortCriteria)
+        sortedStudents: this.students.getSortedStudents(sortCriteria)
       });
     }
 
     const shuffleStudents = () => {
       this.setState({
-        shuffledStudents: students.getShuffledStudents()
+        shuffledStudents: this.students.getShuffledStudents()
       });
     };
+
+    const fixStudents = () => {
+      this.state.shuffledStudents.findIndex( (student) => student.name==="Tajemnicza studentka");
+      this.setState({
+
+        shuffledStudents: shuffledStudents
+      })
+    }
 
     return (
       <div className="app">
@@ -72,7 +64,7 @@ class App extends React.Component {
           <div>
             <h3>List of students:</h3>
             <div className="d-flex student-lists-container">
-              <StudentList students={students.students}/>
+              <StudentList students={this.students.students}/>
               <StudentList students={this.state.shuffledStudents}/>
               <StudentList students={this.state.sortedStudents}/>
             </div>
@@ -82,6 +74,7 @@ class App extends React.Component {
             <div className="student-list-buttons">
               <StudentListSortButton onClick={sortStudents}/>
               <StudentListRandomizeButton onClick={shuffleStudents}/>
+              <StudentListFixButton onClick={fixStudents}/>
             </div>
           </div>
         </div>
