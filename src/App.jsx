@@ -50,11 +50,12 @@ class App extends React.Component {
     };
 
     const fixStudents = () => {
-      this.state.shuffledStudents.findIndex( (student) => student.name==="Tajemnicza studentka");
-      this.setState({
-
-        shuffledStudents: shuffledStudents
-      })
+      const index = this.state.shuffledStudents.findIndex((student) => student.name === "Tajemnicza studentka");
+      if (index !== -1) {
+        this.setState({
+          shuffledStudents: shuffledStudents
+        });
+      }
     }
 
     return (
