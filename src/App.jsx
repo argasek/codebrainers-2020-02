@@ -9,6 +9,7 @@ import StudentList from 'components/student-list/StudentList';
 import Students from 'models/Students';
 import Student from 'models/Student';
 import StudentButton from 'components/student-button/StudentButton';
+import { deepCopyFunction } from 'utils';
 
 class App extends React.Component {
   constructor(props) {
@@ -55,15 +56,14 @@ class App extends React.Component {
 
     const fixStudents = () => {
       const index = this.state.shuffledStudents.findIndex((student) => student.name === "Tajemnicza studentka");
-      const shuffledStudents = [...this.state.shuffledStudents];
+      const shuffledStudents = deepCopyFunction(this.state.shuffledStudents);
       if (index !== -1) {
-        shuffleStudents[index].name = 'Joanna';
+        shuffledStudents[index].name = 'Joanna';
         this.setState({
           shuffledStudents: shuffledStudents
         });
       }
     }
-
     return (
       <div className="app">
         <h1>{this.state.field}</h1>
