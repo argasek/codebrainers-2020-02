@@ -11,6 +11,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       field: 'Cześć! Jestem kodem w React!',
+      shuffledStudents: [],
     };
   }
 
@@ -46,6 +47,9 @@ class App extends React.Component {
     const shuffleStudents = () => {
       // studentLists[1] = students.getShuffledStudents();
       let a = students.getShuffledStudents();
+      this.setState({
+        shuffledStudents: a
+      });
       console.log(a);
       studentLists[1] = a;
     };
@@ -64,14 +68,9 @@ class App extends React.Component {
           <div>
             <h3>List of students:</h3>
             <div className="d-flex student-lists-container">
-              {
-                studentLists.map((students, index) =>
-                  <StudentList
-                    key={index}
-                    students={students}
-                  />
-                )
-              }
+              <StudentList students={students.students}/>
+              <StudentList students={this.state.shuffledStudents}/>
+              <StudentList students={students.getSortedStudents(sortCriteria)}/>
             </div>
           </div>
           <div className="student-actions">
