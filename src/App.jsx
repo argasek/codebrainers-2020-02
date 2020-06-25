@@ -35,8 +35,8 @@ class App extends React.Component {
   render() {
     const sortStudents = () => {
       const sortCriteria = [
-        {key: "coffees", direction: "asc"},
-        {key: "name", direction: "desc"},
+        { key: "coffees", direction: "asc" },
+        { key: "name", direction: "desc" },
       ];
       this.setState({
         sortedStudents: this.students.getSortedStudents(sortCriteria)
@@ -51,7 +51,9 @@ class App extends React.Component {
 
     const fixStudents = () => {
       const index = this.state.shuffledStudents.findIndex((student) => student.name === "Tajemnicza studentka");
+      const shuffledStudents = [...this.state.shuffledStudents];
       if (index !== -1) {
+        shuffleStudents[index].name = 'Joanna';
         this.setState({
           shuffledStudents: shuffledStudents
         });
@@ -65,17 +67,17 @@ class App extends React.Component {
           <div>
             <h3>List of students:</h3>
             <div className="d-flex student-lists-container">
-              <StudentList students={this.students.students}/>
-              <StudentList students={this.state.shuffledStudents}/>
-              <StudentList students={this.state.sortedStudents}/>
+              <StudentList students={this.students.students} />
+              <StudentList students={this.state.shuffledStudents} />
+              <StudentList students={this.state.sortedStudents} />
             </div>
           </div>
           <div className="student-actions">
             <h3>Actions to perform: </h3>
             <div className="student-list-buttons">
-              <StudentListSortButton onClick={sortStudents}/>
-              <StudentListRandomizeButton onClick={shuffleStudents}/>
-              <StudentListFixButton onClick={fixStudents}/>
+              <StudentListSortButton onClick={sortStudents} />
+              <StudentListRandomizeButton onClick={shuffleStudents} />
+              <StudentListFixButton onClick={fixStudents} />
             </div>
           </div>
         </div>
