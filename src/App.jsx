@@ -18,6 +18,7 @@ class App extends React.Component {
       field: 'Cześć! Jestem kodem w React!',
       shuffledStudents: this.students.getShuffledStudents(),
       sortedStudents: this.students.students,
+      fixStudents: this.students.students,
     };
   }
 
@@ -57,7 +58,7 @@ class App extends React.Component {
       const index = this.state.shuffledStudents.findIndex((student) => student.name === "Tajemnicza studentka");
       const shuffledStudents = [...this.state.shuffledStudents];
       if (index !== -1) {
-        shuffleStudents[index].name = 'Joanna';
+        shuffledStudents[index].name = 'Joanna';
         this.setState({
           shuffledStudents: shuffledStudents
         });
