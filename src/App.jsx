@@ -2,6 +2,7 @@
 // As a result, "Tajemnicza studentka" should be changed to "Joanna"
 // Task 2. Fix fixStudents() function so "Joanna" name appears only on shuffledStudents array and not
 // the others.
+// Task 2 answer: "Joanna" is being changed in all the arrays, because as an object, it is given (copied) by reference to them.
 
 import React from 'react';
 import 'App.scss';
@@ -9,6 +10,7 @@ import StudentList from 'components/student-list/StudentList';
 import Students from 'models/Students';
 import Student from 'models/Student';
 import StudentButton from 'components/student-button/StudentButton';
+import {copyListOfObjects} from "./utils";
 
 class App extends React.Component {
   constructor(props) {
@@ -55,7 +57,7 @@ class App extends React.Component {
 
     const fixStudents = () => {
       const index = this.state.shuffledStudents.findIndex((student) => student.name === "Tajemnicza studentka");
-      const shuffledStudents = [...this.state.shuffledStudents];
+      const shuffledStudents = copyListOfObjects(this.state.shuffledStudents); //  need to copy items of array via value not via reference
       if (index !== -1) {
         shuffledStudents[index].name = 'Joanna';
         this.setState({
