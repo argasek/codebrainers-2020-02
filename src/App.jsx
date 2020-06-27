@@ -28,10 +28,10 @@ class App extends React.Component {
     this.students = new Students();
     const specialStudent = new Student('Sabina', 2);
     specialStudent.setComment('Jedna kawka od Michałów i Damiana!');
-    this.students.push(new Student('Michał M.', 1));
+    this.students.push(new Student('Michał', 1));
     this.students.push(new Student('Tajemnicza studentka', 3));
     this.students.push(new Student('Karolina', 5));
-    this.students.push(new Student('Michał K.', 1));
+    this.students.push(new Student('Michał', 1));
     this.students.push(new Student('Grzegorz', 1));
     this.students.push(new Student('Damian', 1));
     this.students.push(specialStudent);
@@ -80,6 +80,19 @@ class App extends React.Component {
     }
   }
 
+  removeStudent = () => {
+    const fullName = this.fullName.trim();
+    const index = this.state.shuffledStudents.findIndex((student) => student.name === fullName);
+    //['słoń', 33, false]
+    //array.splice(start, deleteCount[, item1[, item2[, ...]]])
+
+    if (index !== -1) {
+      const shuffledStudents = this.students.copy(this.state.shuffledStudents);
+      shuffledStudents.splice(index, 1);
+      this.setState({shuffledStudents});
+    }
+  }
+
   render() {
 
     return (
@@ -104,6 +117,7 @@ class App extends React.Component {
                 onChange={this.onFullNameChange}
               />
               <StudentButton onClick={this.updateStudent} label={"Update"}/>
+              <StudentButton onClick={this.removeStudent} label={"Remove"}/>
             </div>
           </div>
         </div>
