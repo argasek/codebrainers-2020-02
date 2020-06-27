@@ -9,6 +9,7 @@ import StudentList from 'components/student-list/StudentList';
 import Students from 'models/Students';
 import Student from 'models/Student';
 import StudentButton from 'components/student-button/StudentButton';
+import StudentNameInput from 'components/student-name-input/StudentNameInput';
 
 class App extends React.Component {
   constructor(props) {
@@ -34,6 +35,12 @@ class App extends React.Component {
     this.students.push(specialStudent);
     this.students.push(new Student('Kamila', 0));
     this.students.push(new Student('Maksym', 4));
+  }
+
+  handleInputChange() {
+    this.setState({
+      field: Date.now()
+    });
   }
 
   render() {
@@ -72,8 +79,8 @@ class App extends React.Component {
             <h3>List of students:</h3>
             <div className="d-flex student-lists-container">
               <StudentList students={this.students.students} />
-              <StudentList students={this.state.shuffledStudents} />
-              <StudentList students={this.state.sortedStudents} />
+              {/*<StudentList students={this.state.shuffledStudents} />*/}
+              {/*<StudentList students={this.state.sortedStudents} />*/}
             </div>
           </div>
           <div className="student-actions">
@@ -82,6 +89,10 @@ class App extends React.Component {
               <StudentButton onClick={sortStudents} label="Sort students" />
               <StudentButton onClick={shuffleStudents} label="Shuffle students" />
               <StudentButton onClick={fixStudents} label="Fix students" />
+              <StudentNameInput
+                exampleField={this.state.field}
+                onChange={this.handleInputChange}
+              />
             </div>
           </div>
         </div>
