@@ -16,6 +16,7 @@ class App extends React.Component {
     super(props);
     this.initStudents();
     this.index = -1;
+    this.fullName = "";
     this.state = {
       fullName: '',
       shuffledStudents: this.students.getShuffledStudents(),
@@ -39,13 +40,13 @@ class App extends React.Component {
   }
 
   handleInputChange = (event) => {
-    this.setState({ fullName: event.currentTarget.value });
+    this.setState({fullName: event.currentTarget.value});
   }
 
   sortStudents = () => {
     const sortCriteria = [
-      { key: "coffees", direction: "asc" },
-      { key: "name", direction: "desc" },
+      {key: "coffees", direction: "asc"},
+      {key: "name", direction: "desc"},
     ];
     this.setState({
       sortedStudents: this.students.getSortedStudents(sortCriteria)
@@ -59,21 +60,22 @@ class App extends React.Component {
   }
 
 
-  fixStudents = (event) => {
-    const shuffledStudents = this.state.shuffledStudents.map((student) => { return student.copy(); });
-
+  onFullNameChange = (event) => {
     if (this.index === -1) {
       this.index = this.state.shuffledStudents.findIndex((student) => student.name === 'Tajemnicza studentka');
     }
-
     this.handleInputChange(event);
 
     if (this.index !== -1) {
-      shuffledStudents[this.index].name = event.currentTarget.value;
-      this.setState({
-        shuffledStudents: shuffledStudents
-      });
+      this.fullName = event.currentTarget.value;
     }
+  }
+
+  updateStudent = () => {
+    const shuffledStudents = this.students.copy(this.state.shuffledStudents);
+    shuffledStudents[this.index].name = this.fullName;
+
+    this.setState({ shuffledStudents });
   }
 
   render() {
@@ -85,21 +87,21 @@ class App extends React.Component {
           <div>
             <h3>List of students:</h3>
             <div className="d-flex student-lists-container">
-              <StudentList students={this.students.students} />
-              <StudentList students={this.state.shuffledStudents} />
-              <StudentList students={this.state.sortedStudents} />
+              <StudentList students={this.students.students}/>
+              <StudentList students={this.state.shuffledStudents}/>
+              <StudentList students={this.state.sortedStudents}/>
             </div>
           </div>
           <div className="student-actions">
             <h3>Actions to perform: </h3>
             <div className="student-list-buttons">
-              <StudentButton onClick={this.sortStudents} label="Sort students" />
-              <StudentButton onClick={this.shuffleStudents} label="Shuffle students" />
-              <StudentButton onClick={this.fixStudents} label="Fix students" />
+              <StudentButton onClick={this.sortStudents} label="Sort students"/>
+              <StudentButton onClick={this.shuffleStudents} label="Shuffle students"/>
               <StudentNameInput
                 exampleField={this.state.fullName}
-                onChange={this.fixStudents}
+                onChange={this.onFullNameChange}
               />
+              <StudentButton onClick={this.updateStudent} label={"Update"}/>
             </div>
           </div>
         </div>
