@@ -57,11 +57,18 @@ class App extends React.Component {
     });
   }
 
-  fixStudents = () => {
-    const index = this.state.shuffledStudents.findIndex((student) => student.name === "Tajemnicza studentka");
+  // const index = this.state.shuffledStudents.findIndex((student) => student.name === ?);
+
+
+  fixStudents = (event) => {
+
+    debugger;
     const shuffledStudents = this.state.shuffledStudents.map((student) => { return student.copy(); });
+
+    this.handleInputChange(event);
+
     if (index !== -1) {
-      shuffledStudents[index].name = 'Joanna';
+      shuffledStudents[index].name = event.currentTarget.value;
       this.setState({
         shuffledStudents: shuffledStudents
       });
