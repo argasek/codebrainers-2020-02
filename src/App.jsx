@@ -16,7 +16,7 @@ class App extends React.Component {
     super(props);
     this.initStudents();
     this.state = {
-      field: 'Cześć! Jestem kodem w React!',
+      fullName: '',
       shuffledStudents: this.students.getShuffledStudents(),
       sortedStudents: this.students.students,
     };
@@ -38,7 +38,7 @@ class App extends React.Component {
   }
 
   handleInputChange = (event) => {
-    this.setState({ field: event.currentTarget.value });
+    this.setState({ fullName: event.currentTarget.value });
   }
 
   sortStudents = () => {
@@ -89,7 +89,7 @@ class App extends React.Component {
               <StudentButton onClick={this.shuffleStudents} label="Shuffle students" />
               <StudentButton onClick={this.fixStudents} label="Fix students" />
               <StudentNameInput
-                exampleField={this.state.field}
+                exampleField={this.state.fullName}
                 onChange={this.fixStudents}
               />
             </div>
