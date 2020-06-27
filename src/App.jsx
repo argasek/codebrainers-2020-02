@@ -27,13 +27,13 @@ class App extends React.Component {
     specialStudent.setComment('Jedna kawka od Michałów i Damiana!');
     this.students.push(new Student('Michał M.', 1));
     this.students.push(new Student('Tajemnicza studentka', 3));
-    this.students.push(new Student('Karolina', 4));
+    this.students.push(new Student('Karolina', 5));
     this.students.push(new Student('Michał K.', 1));
     this.students.push(new Student('Grzegorz', 1));
     this.students.push(new Student('Damian', 1));
     this.students.push(specialStudent);
     this.students.push(new Student('Kamila', 0));
-    this.students.push(new Student('Maksym', 3));
+    this.students.push(new Student('Maksym', 4));
   }
 
   render() {
@@ -57,7 +57,7 @@ class App extends React.Component {
       const index = this.state.shuffledStudents.findIndex((student) => student.name === "Tajemnicza studentka");
       const shuffledStudents = [...this.state.shuffledStudents];
       if (index !== -1) {
-        shuffleStudents[index].name = 'Joanna';
+        shuffledStudents[index].name = 'Joanna';
         this.setState({
           shuffledStudents: shuffledStudents
         });
