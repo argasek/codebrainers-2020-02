@@ -59,7 +59,7 @@ class App extends React.Component {
 
   fixStudents = () => {
     const index = this.state.shuffledStudents.findIndex((student) => student.name === "Tajemnicza studentka");
-    const shuffledStudents = [...this.state.shuffledStudents];
+    const shuffledStudents = this.state.shuffledStudents.map((student) => { return student.copy(); });
     if (index !== -1) {
       shuffledStudents[index].name = 'Joanna';
       this.setState({
@@ -78,8 +78,8 @@ class App extends React.Component {
             <h3>List of students:</h3>
             <div className="d-flex student-lists-container">
               <StudentList students={this.students.students} />
-              {/*<StudentList students={this.state.shuffledStudents} />*/}
-              {/*<StudentList students={this.state.sortedStudents} />*/}
+              <StudentList students={this.state.shuffledStudents} />
+              <StudentList students={this.state.sortedStudents} />
             </div>
           </div>
           <div className="student-actions">
@@ -90,7 +90,7 @@ class App extends React.Component {
               <StudentButton onClick={this.fixStudents} label="Fix students" />
               <StudentNameInput
                 exampleField={this.state.field}
-                onChange={this.handleInputChange}
+                onChange={this.fixStudents}
               />
             </div>
           </div>

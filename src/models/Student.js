@@ -11,6 +11,17 @@ class Student {
   setComment(comment) {
     this.comment = comment;
   }
+
+  copy() {
+    const studentCopy = new Student();
+    studentCopy.id = this.id;
+    studentCopy.name = this.name;
+    studentCopy.coffees = this.coffees;
+    studentCopy.comment = this.comment;
+    return studentCopy;
+  }
 }
+
+
 
 export default Student;
