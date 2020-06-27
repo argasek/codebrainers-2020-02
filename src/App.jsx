@@ -82,15 +82,9 @@ class App extends React.Component {
 
   removeStudent = () => {
     const fullName = this.fullName.trim();
-    const index = this.state.shuffledStudents.findIndex((student) => student.name === fullName);
-    //['słoń', 33, false]
-    //array.splice(start, deleteCount[, item1[, item2[, ...]]])
-
-    if (index !== -1) {
-      const shuffledStudents = this.students.copy(this.state.shuffledStudents);
-      shuffledStudents.splice(index, 1);
+      const shuffledStudents = this.state.shuffledStudents.filter((student) => student.name !== fullName);
       this.setState({shuffledStudents});
-    }
+
   }
 
   render() {
