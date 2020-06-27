@@ -15,6 +15,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.initStudents();
+    this.index = -1;
     this.state = {
       fullName: '',
       shuffledStudents: this.students.getShuffledStudents(),
@@ -57,18 +58,18 @@ class App extends React.Component {
     });
   }
 
-  // const index = this.state.shuffledStudents.findIndex((student) => student.name === ?);
-
 
   fixStudents = (event) => {
-
-    debugger;
     const shuffledStudents = this.state.shuffledStudents.map((student) => { return student.copy(); });
+
+    if (this.index === -1) {
+      this.index = this.state.shuffledStudents.findIndex((student) => student.name === 'Tajemnicza studentka');
+    }
 
     this.handleInputChange(event);
 
-    if (index !== -1) {
-      shuffledStudents[index].name = event.currentTarget.value;
+    if (this.index !== -1) {
+      shuffledStudents[this.index].name = event.currentTarget.value;
       this.setState({
         shuffledStudents: shuffledStudents
       });
