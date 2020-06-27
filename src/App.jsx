@@ -37,10 +37,8 @@ class App extends React.Component {
     this.students.push(new Student('Maksym', 4));
   }
 
-  handleInputChange = () => {
-    this.setState({
-      field: 'basia'
-    });
+  handleInputChange = (event) => {
+    this.setState({ field: event.currentTarget.value });
   }
 
   sortStudents = () => {

@@ -46,3 +46,39 @@ input[type="text"] {
   font-size: 1.25em;
   width: 100%;
 }
+
+.some-block {
+  box-sizing: content-box;
+  padding: 40px;
+  margin: 10px auto;
+  width: 80%;
+}
+
+
+.b-1 {
+  background-color: #ccc;
+  &:hover {
+    background-color: #cde;
+  }
+}
+
+.b-2 {
+  background-color: #aaa;
+  &:hover {
+    background-color: #abc;
+  }
+}
+
+.b-3 {
+  background-color: #888;
+  &:hover {
+    background-color: #89a;
+  }
+}
+
+.b-4 {
+  background-color: #444;
+  &:hover {
+    background-color: #456;
+  }
+}
