@@ -18,6 +18,7 @@ class App extends React.Component {
     this.index = -1;
     this.fullName = "";
     this.state = {
+      hasClickedRemoveButton: false,
       fullName: '',
       shuffledStudents: this.students.getShuffledStudents(),
       sortedStudents: this.students.students,
@@ -40,13 +41,13 @@ class App extends React.Component {
   }
 
   handleInputChange = (event) => {
-    this.setState({fullName: event.currentTarget.value});
+    this.setState({ fullName: event.currentTarget.value });
   }
 
   sortStudents = () => {
     const sortCriteria = [
-      {key: "coffees", direction: "asc"},
-      {key: "name", direction: "desc"},
+      { key: "coffees", direction: "asc" },
+      { key: "name", direction: "desc" },
     ];
     this.setState({
       sortedStudents: this.students.getSortedStudents(sortCriteria)
@@ -76,14 +77,21 @@ class App extends React.Component {
       const shuffledStudents = this.students.copy(this.state.shuffledStudents);
       shuffledStudents[this.index].name = fullName;
 
-      this.setState({shuffledStudents});
+      this.setState({ shuffledStudents });
     }
   }
 
   removeStudent = () => {
     const fullName = this.fullName.trim();
-      const shuffledStudents = this.state.shuffledStudents.filter((student) => student.name !== fullName);
-      this.setState({shuffledStudents});
+    const shuffledStudents = this.state.shuffledStudents.filter((student) => student.name !== fullName);
+    this.setState({ shuffledStudents });
+
+  }
+
+  confirmRemoval = () => {
+    if (this.fullName.trim() !== '') {
+      this.setState({ hasClickedRemoveButton: true });
+    }
 
   }
 
@@ -96,22 +104,23 @@ class App extends React.Component {
           <div>
             <h3>List of students:</h3>
             <div className="d-flex student-lists-container">
-              <StudentList students={this.students.students}/>
-              <StudentList students={this.state.shuffledStudents}/>
-              <StudentList students={this.state.sortedStudents}/>
+              <StudentList students={this.students.students} />
+              <StudentList students={this.state.shuffledStudents} />
+              <StudentList students={this.state.sortedStudents} />
             </div>
           </div>
           <div className="student-actions">
             <h3>Actions to perform: </h3>
             <div className="student-list-buttons">
-              <StudentButton onClick={this.sortStudents} label="Sort students"/>
-              <StudentButton onClick={this.shuffleStudents} label="Shuffle students"/>
+              <StudentButton onClick={this.sortStudents} label="Sort students" />
+              <StudentButton onClick={this.shuffleStudents} label="Shuffle students" />
               <StudentNameInput
                 exampleField={this.state.fullName}
                 onChange={this.onFullNameChange}
               />
-              <StudentButton onClick={this.updateStudent} label={"Update"}/>
-              <StudentButton onClick={this.removeStudent} label={"Remove"}/>
+              <StudentButton onClick={this.updateStudent} label={"Update"} />
+              <StudentButton onClick={this.confirmRemoval} label={"Remove"} />
+              {this.state.hasClickedRemoveButton && <StudentButton onClick={this.removeStudent} label={"Confirm"} />}
             </div>
           </div>
         </div>
