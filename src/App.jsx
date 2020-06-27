@@ -29,13 +29,13 @@ class App extends React.Component {
     specialStudent.setComment('Jedna kawka od Michałów i Damiana!');
     this.students.push(new Student('Michał M.', 1));
     this.students.push(new Student('Tajemnicza studentka', 3));
-    this.students.push(new Student('Karolina', 4));
+    this.students.push(new Student('Karolina', 5));
     this.students.push(new Student('Michał K.', 1));
     this.students.push(new Student('Grzegorz', 1));
     this.students.push(new Student('Damian', 1));
     this.students.push(specialStudent);
     this.students.push(new Student('Kamila', 0));
-    this.students.push(new Student('Maksym', 3));
+    this.students.push(new Student('Maksym', 4));
   }
 
   render() {
@@ -57,7 +57,10 @@ class App extends React.Component {
 
     const fixStudents = () => {
       const index = this.state.shuffledStudents.findIndex((student) => student.name === "Tajemnicza studentka");
+      console.log(this.state.shuffledStudents[0] instanceof Student);
       const shuffledStudents = copyListOfObjects(this.state.shuffledStudents); //  need to copy items of array via value not via reference
+      console.log(shuffledStudents[0] instanceof Student);
+
       if (index !== -1) {
         shuffledStudents[index].name = 'Joanna';
         this.setState({

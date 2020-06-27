@@ -1,3 +1,5 @@
+import Student from 'models/Student';
+
 function drawRandomIndex(items) {
   return Math.floor(Math.random() * items.length);
 }
@@ -7,15 +9,13 @@ function limitRange(x, min, max) {
 }
 
 function copyObjectByValue(givenObject) {
-  let newObject = {};
+  let newObject = new Student();
 
   for (const key in givenObject) {
     if (givenObject.hasOwnProperty(key)) {
       newObject[key] = givenObject[key];
     }
-
   }
-
   return newObject;
 }
 
