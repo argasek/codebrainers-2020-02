@@ -72,10 +72,13 @@ class App extends React.Component {
   }
 
   updateStudent = () => {
-    const shuffledStudents = this.students.copy(this.state.shuffledStudents);
-    shuffledStudents[this.index].name = this.fullName;
+    const fullName = this.fullName.split("");
+    if ( fullName.some((letter)=>letter!== " ") )  {
+      const shuffledStudents = this.students.copy(this.state.shuffledStudents);
+      shuffledStudents[this.index].name = this.fullName;
 
-    this.setState({ shuffledStudents });
+      this.setState({shuffledStudents});
+    }
   }
 
   render() {
