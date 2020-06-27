@@ -37,39 +37,40 @@ class App extends React.Component {
     this.students.push(new Student('Maksym', 4));
   }
 
-  handleInputChange() {
+  handleInputChange = () => {
     this.setState({
-      field: Date.now()
+      field: 'basia'
     });
   }
 
+  sortStudents = () => {
+    const sortCriteria = [
+      { key: "coffees", direction: "asc" },
+      { key: "name", direction: "desc" },
+    ];
+    this.setState({
+      sortedStudents: this.students.getSortedStudents(sortCriteria)
+    });
+  }
+
+  shuffleStudents = () => {
+    this.setState({
+      shuffledStudents: this.students.getShuffledStudents()
+    });
+  }
+
+  fixStudents = () => {
+    const index = this.state.shuffledStudents.findIndex((student) => student.name === "Tajemnicza studentka");
+    const shuffledStudents = [...this.state.shuffledStudents];
+    if (index !== -1) {
+      shuffledStudents[index].name = 'Joanna';
+      this.setState({
+        shuffledStudents: shuffledStudents
+      });
+    }
+  }
+
   render() {
-    const sortStudents = () => {
-      const sortCriteria = [
-        { key: "coffees", direction: "asc" },
-        { key: "name", direction: "desc" },
-      ];
-      this.setState({
-        sortedStudents: this.students.getSortedStudents(sortCriteria)
-      });
-    }
-
-    const shuffleStudents = () => {
-      this.setState({
-        shuffledStudents: this.students.getShuffledStudents()
-      });
-    };
-
-    const fixStudents = () => {
-      const index = this.state.shuffledStudents.findIndex((student) => student.name === "Tajemnicza studentka");
-      const shuffledStudents = [...this.state.shuffledStudents];
-      if (index !== -1) {
-        shuffledStudents[index].name = 'Joanna';
-        this.setState({
-          shuffledStudents: shuffledStudents
-        });
-      }
-    }
 
     return (
       <div className="app">
@@ -86,9 +87,9 @@ class App extends React.Component {
           <div className="student-actions">
             <h3>Actions to perform: </h3>
             <div className="student-list-buttons">
-              <StudentButton onClick={sortStudents} label="Sort students" />
-              <StudentButton onClick={shuffleStudents} label="Shuffle students" />
-              <StudentButton onClick={fixStudents} label="Fix students" />
+              <StudentButton onClick={this.sortStudents} label="Sort students" />
+              <StudentButton onClick={this.shuffleStudents} label="Shuffle students" />
+              <StudentButton onClick={this.fixStudents} label="Fix students" />
               <StudentNameInput
                 exampleField={this.state.field}
                 onChange={this.handleInputChange}
