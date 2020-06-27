@@ -59,7 +59,6 @@ class App extends React.Component {
     });
   }
 
-
   onFullNameChange = (event) => {
     if (this.index === -1) {
       this.index = this.state.shuffledStudents.findIndex((student) => student.name === 'Tajemnicza studentka');
@@ -72,10 +71,10 @@ class App extends React.Component {
   }
 
   updateStudent = () => {
-    const fullName = this.fullName.split("");
-    if ( fullName.some((letter)=>letter!== " ") )  {
+    const fullName = this.fullName.trim();
+    if (fullName) {
       const shuffledStudents = this.students.copy(this.state.shuffledStudents);
-      shuffledStudents[this.index].name = this.fullName;
+      shuffledStudents[this.index].name = fullName;
 
       this.setState({shuffledStudents});
     }
