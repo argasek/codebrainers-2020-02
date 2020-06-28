@@ -2,6 +2,10 @@
 // Protip: go Google.
 // Protip 2: use keywords contained in the task description ;-)
 
+// Answer: using css styling:
+// white-space: pre; || pre-wrap;
+
+
 // Task 2.
 // Create separate components for Plants, Rooms and Categories. I.e. Plants component would contain this JSX:
 //
