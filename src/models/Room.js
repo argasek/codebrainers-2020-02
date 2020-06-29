@@ -9,3 +9,4 @@ class Room {
     this.drafty = undefined;
   }
 }
+export default Room;

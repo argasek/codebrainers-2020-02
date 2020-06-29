@@ -1,10 +1,20 @@
 import React from 'react';
 
-const Plants = ({ onPlantCreate }) => {
+const Plants = ({plants}) => {
+
   return (
-    <React.Fragment>
-      <p onClick={onPlantCreate}>Klik</p>
-    </React.Fragment>
+    <div>
+      <h1>Plants</h1>
+      <div>
+        {plants.map((item) => <div>{item}</div>)}
+        <input type="text"/>
+      </div>
+    </div>
+    // <React.Fragment>
+    //   <h2>Plants</h2>
+    //   <Plant name='Plant1'/>
+    //   <p onClick={onPlantCreate}>Klik</p>
+    // </React.Fragment>
   );
 };
 

@@ -2,6 +2,7 @@ import React from 'react';
 import 'App.scss';
 import Chance from 'chance';
 import Plants from 'components/Plants';
+import Categories from "./components/Categories";
 
 const chance = new Chance();
 
@@ -13,21 +14,34 @@ class App extends React.Component {
     this.initPlants();
     this.initCategories();
     this.initRooms();
+    this.initUserPlants();
     this.state = {
       plants: [],
       categories: [],
       rooms: [],
+      userplants: [],
     };
   }
 
   initPlants() {
     const plants = [];
     this.plants = plants;
+    this.plants.push(chance.name());
+    this.plants.push(chance.name());
+    this.plants.push(chance.name());
+    this.plants.push(chance.name());
+    this.plants.push(chance.name());
+    this.plants.push(chance.name());
+    console.log(plants);
   }
+
 
   initCategories() {
     const categories = [];
     this.categories = categories;
+    this.categories.push('Cat1');
+    this.categories.push('Cat2');
+    this.categories.push('Cat3');
   }
 
   initRooms() {
@@ -35,56 +49,60 @@ class App extends React.Component {
     this.rooms = rooms;
   }
 
-  handleInputChange = (event) => {
-    this.setState({fullName: event.currentTarget.value});
+  initUserPlants() {
+    const userPlants = [];
+    this.userPlants = userPlants;
   }
 
-  sortStudents = () => {
-    const sortCriteria = [
-      {key: "coffees", direction: "asc"},
-      {key: "name", direction: "desc"},
-    ];
-    this.setState({
-      sortedStudents: this.students.getSortedStudents(sortCriteria)
-    });
-  }
+  // handleInputChange = (event) => {
+  //   this.setState({fullName: event.currentTarget.value});
+  // }
 
-  shuffleStudents = () => {
-    this.setState({
-      shuffledStudents: this.students.getShuffledStudents()
-    });
-  }
+  // sortStudents = () => {
+  //   const sortCriteria = [
+  //     {key: "coffees", direction: "asc"},
+  //     {key: "name", direction: "desc"},
+  //   ];
+  //   this.setState({
+  //     sortedStudents: this.students.getSortedStudents(sortCriteria)
+  //   });
+  // }
 
-  onFullNameChange = (event) => {
-    if (this.index === -1) {
-      this.index = this.state.shuffledStudents.findIndex((student) => student.name === 'Tajemnicza studentka');
-    }
-    this.handleInputChange(event);
-
-    if (this.index !== -1) {
-      this.fullName = event.currentTarget.value;
-    }
-  }
-
-  updateStudent = () => {
-    const fullName = this.fullName.trim();
-    if (fullName) {
-      const shuffledStudents = this.students.copy(this.state.shuffledStudents);
-      shuffledStudents[this.index].name = fullName;
-
-      this.setState({shuffledStudents});
-    }
-  }
-
-  removeStudent = () => {
-    const fullName = this.fullName.trim();
-      const shuffledStudents = this.state.shuffledStudents.filter((student) => student.name !== fullName);
-      this.setState({shuffledStudents});
-
-  }
+  // shuffleStudents = () => {
+  //   this.setState({
+  //     shuffledStudents: this.students.getShuffledStudents()
+  //   });
+  // }
+  //
+  // onFullNameChange = (event) => {
+  //   if (this.index === -1) {
+  //     this.index = this.state.shuffledStudents.findIndex((student) => student.name === 'Tajemnicza studentka');
+  //   }
+  //   this.handleInputChange(event);
+  //
+  //   if (this.index !== -1) {
+  //     this.fullName = event.currentTarget.value;
+  //   }
+  // }
+  //
+  // updateStudent = () => {
+  //   const fullName = this.fullName.trim();
+  //   if (fullName) {
+  //     const shuffledStudents = this.students.copy(this.state.shuffledStudents);
+  //     shuffledStudents[this.index].name = fullName;
+  //
+  //     this.setState({shuffledStudents});
+  //   }
+  // }
+  //
+  // removeStudent = () => {
+  //   const fullName = this.fullName.trim();
+  //     const shuffledStudents = this.state.shuffledStudents.filter((student) => student.name !== fullName);
+  //     this.setState({shuffledStudents});
+  //
+  // }
 
   onPlantCreate() {
-
     console.log(chance.name());
   }
 
@@ -92,31 +110,36 @@ class App extends React.Component {
     const {
       plants,
       categories,
-      rooms
+      rooms,
+      userPlants
     } = this.state;
 
     return (
       <div className="app">
         <Plants
-          plants={plants}
-          onPlantCreate={this.onPlantCreate}
+          plants={this.plants}
+          // onPlantCreate={this.onPlantCreate}
         />
 
-        <h1>Categories</h1>
-        <div>
-          { plants.map((item) => <div>{item}</div>) }
-          <input type="text" />
-        </div>
+        <Categories
+          categories={this.categories}
+        />
+
 
         <h1>Rooms</h1>
         <div>
-          { plants.map((item) => <div>{item}</div>) }
-          <input type="text" />
+          {plants.map((item) => <div>{item}</div>)}
+          <input type="text"/>
+        </div>
+
+        <h1>User Plants</h1>
+        <div>
+          {plants.map((item) => <div>{item}</div>)}
+          <input type="text"/>
         </div>
       </div>
     );
   }
-
 }
 
 export default App;

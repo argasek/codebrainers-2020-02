@@ -13,3 +13,4 @@ class UserPlant {
         this.lastFertilized = undefined;
     }
 }
+export default UserPlant;
