@@ -2,6 +2,19 @@ import React from 'react';
 import 'App.scss';
 import Chance from 'chance';
 import Plants from 'components/Plants';
+import Rooms from 'components/Rooms';
+import Categories from 'components/Categories';
+import Plantslist from 'models/Plantslist';
+import Categorieslist from 'models/Categorieslist';
+import Roomslist from 'models/Roomslist';
+import Plant from 'models/Plant';
+import Room from 'models/Room';
+import Category from 'models/Category';
+import Categoriesinput from "./components/Categoriesinput";
+import Roomsinput from "./components/Roomsinput";
+import Plantsinput from "./components/Plantsinput";
+
+
 
 const chance = new Chance();
 
@@ -10,83 +23,60 @@ const chance = new Chance();
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.initPlants();
-    this.initCategories();
-    this.initRooms();
+    // this.onPlantCreate();
+    // this.plantName = this.onPlantCreate();
+    // this.initPlants(this.plantName);
+    this.initCategories("kwiat młodzieży");
+    this.initRooms("kwiat młodzieży");
     this.state = {
-      plants: [],
-      categories: [],
-      rooms: [],
+      plants: new Plantslist(),
+      categories: new Categorieslist(),
+      rooms: new Roomslist(),
+      FullName:'',
+      SampleName:'Type here please :)',
+
+
     };
   }
 
-  initPlants() {
-    const plants = [];
-    this.plants = plants;
+
+// onPlantCreate() {
+//
+//     return chance.name();
+//   }
+//
+//
+//   initPlants(plantName) {
+//
+//     this.plants = new Plantslist();
+//     this.plants.push(new Plant(plantName));
+//   }
+
+  initCategories(inputValue) {
+   this.categories = new Categorieslist();
+   this.categories.push(new Category(inputValue));
   }
 
-  initCategories() {
-    const categories = [];
-    this.categories = categories;
+  initRooms(inputValue) {
+
+   this.rooms = new Roomslist();
+   this.rooms.push(new Room(inputValue));
   }
 
-  initRooms() {
-    const rooms = [];
-    this.rooms = rooms;
-  }
+  // handleInputChange = (event) => {
+  //   this.setState({fullName: event.currentTarget.value});
+  // }
+// this.initPlants('sialala')
+// ...
+// initPlants(zmienna) {
+// ...
 
-  handleInputChange = (event) => {
-    this.setState({fullName: event.currentTarget.value});
-  }
+handleInputChange= (event) =>{  this.setState({FullName: event.currentTarget.value});
+}
 
-  sortStudents = () => {
-    const sortCriteria = [
-      {key: "coffees", direction: "asc"},
-      {key: "name", direction: "desc"},
-    ];
-    this.setState({
-      sortedStudents: this.students.getSortedStudents(sortCriteria)
-    });
-  }
 
-  shuffleStudents = () => {
-    this.setState({
-      shuffledStudents: this.students.getShuffledStudents()
-    });
-  }
+  // onCategorieCreate = () => { this.initPlants()}
 
-  onFullNameChange = (event) => {
-    if (this.index === -1) {
-      this.index = this.state.shuffledStudents.findIndex((student) => student.name === 'Tajemnicza studentka');
-    }
-    this.handleInputChange(event);
-
-    if (this.index !== -1) {
-      this.fullName = event.currentTarget.value;
-    }
-  }
-
-  updateStudent = () => {
-    const fullName = this.fullName.trim();
-    if (fullName) {
-      const shuffledStudents = this.students.copy(this.state.shuffledStudents);
-      shuffledStudents[this.index].name = fullName;
-
-      this.setState({shuffledStudents});
-    }
-  }
-
-  removeStudent = () => {
-    const fullName = this.fullName.trim();
-      const shuffledStudents = this.state.shuffledStudents.filter((student) => student.name !== fullName);
-      this.setState({shuffledStudents});
-
-  }
-
-  onPlantCreate() {
-
-    console.log(chance.name());
-  }
 
   render() {
     const {
@@ -101,6 +91,17 @@ class App extends React.Component {
           plants={plants}
           onPlantCreate={this.onPlantCreate}
         />
+        <Rooms
+          rooms={rooms}
+          onPlantCreate={this.onRoomCreate}
+        />
+
+        <Categories
+          categories={categories}
+          onCategorieCreate={this.onCategorieCreate}
+        />
+
+
 
         <h1>Categories</h1>
         <div>
@@ -110,9 +111,28 @@ class App extends React.Component {
 
         <h1>Rooms</h1>
         <div>
+          { rooms.map((item) => <div>{item}</div>) }
+          <input type="text" />
+        </div>
+
+         <h1>Plants</h1>
+        <div>
           { plants.map((item) => <div>{item}</div>) }
           <input type="text" />
         </div>
+        <div className="plants-input">
+          <Categoriesinput
+            sampleField = {this.state.FullName}
+            onChange = {this.handleInputChange}/>
+          <Plantsinput
+            sampleField = {this.state.FullName}
+            onChange = {this.handleInputChange}/>
+          <Roomsinput
+            sampleField = {this.state.FullName}
+            onChange = {this.handleInputChange}/>
+
+        </div>
+
       </div>
     );
   }
