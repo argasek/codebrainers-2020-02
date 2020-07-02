@@ -6,16 +6,19 @@ class Plant extends React.PureComponent {
 
   render() {
     return (
-      <div>
-        <p>{ this.props.name }</p>
-      </div>
+      <tr>
+        <th scope="row">{this.props.index + 1}</th>
+        <td>{this.props.plant.name}</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
     )
   }
 
 }
 
 Plant.propTypes = {
-  name: PropTypes.string.isRequired
+  plant: PropTypes.object.isRequired
 };
 
 export default Plant;

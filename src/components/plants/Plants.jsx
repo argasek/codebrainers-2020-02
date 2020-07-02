@@ -32,7 +32,7 @@ class Plants extends React.PureComponent {
         .get(requestUrl)
         .then((response) => {
           const data = response.data;
-          const plants = data.map((item) => item.name);
+          const plants = data.map((item) => item);
           const successPlants = true;
           this.setState({plants, successPlants});
           resolve();
@@ -65,12 +65,7 @@ class Plants extends React.PureComponent {
               <tbody>
 
               {plants.map((plant, index, arr) => (
-                <tr>
-                  <th scope="row">1</th>
-                  <td>{plant}</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
+                <Plant plant={plant} index={index}/>
 
               ))}
               </tbody>
