@@ -1,15 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import 'core-js/proposals/reflect-metadata';
-import './index.css';
+import './bootstrap-custom.sass';
+import 'bootstrap/scss/bootstrap.scss';
+import './index.scss';
+import App from './App';
 import * as serviceWorker from './serviceWorker';
-import App from 'App';
 
-// HTML, CSS, JavaScript
-// Separation of concerns
-
-// XML
-// JSX = JavaScript as XML
 ReactDOM.render(<App />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

@@ -1,47 +1,18 @@
-# Codebrainers Plantastic
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-This project was created as educational material for [Codebrainers Fullstack Bootcamp](https://codebrainers.pl/).
+## Plantastic 
 
-## Setup
+In the project directory, you can run:
 
-In order to customize the application use [.env files provided by CRA](https://create-react-app.dev/docs/adding-custom-environment-variables/#what-other-env-files-can-be-used).
-You can customize following environmental variables: 
-* `PORT` – frontend application HTTP port
+### Zadania domowe
 
-So, example `.env.local` file might look like this:
-```dotenv
-PORT=1337
-```
-    
-## Running
+2020.04.15
 
-Install dependencies first:
-```shell script
-npm install
-```
-  
-Then run the application:
-```shell script
-npm start
-```
+1. Analogicznie jak w przypadku `ROUTE_CATEGORIES`, dodaj pozostałe dwie stałe dla `ROUTE_PLANTS` i `ROUTE_ROOMS`, oraz użyje je w kodzie w tagach `<Route>`.
+2. Na podobnej zasadzie jak zrobiliśmy to z `PlantasticNavItem`, zrefaktoruj jako osobne komponenty:
+a) blok `<Navbar>` (wraz tagiem Navbar)
+b) blok `<Container>` (wraz tagiem Container)
+c) trzy osobne komponenty, zawierające to, co leży **wewnątrz** każdego taga `<Route>`
+3*. Przerób kod w taki sposób, aby kategorie wczytywały się po każdej nawigacji do `/categories` (obecnie wczytują się one tylko gdy uruchamiana jest aplikacja po raz 1.)   
 
-## Homework and notes
 
-All homework tasks will [reside here](HOMEWORK.md).
-
-### First React application
-
-```javascript
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-
-ReactDOM.render(<App />, document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
-```
