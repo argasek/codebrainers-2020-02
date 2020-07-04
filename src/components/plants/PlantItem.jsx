@@ -2,18 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Plant.scss';
 
-class Plant extends React.PureComponent {
+class PlantItem extends React.PureComponent {
 
   render() {
     const {plant} = this.props;
-    const {name, difficulty, room, category_slug} = plant;
+    const {name, difficulty, room, categorySlug, lastWatered} = plant;
     return (
       <tr>
         <th scope="row">{this.props.index + 1}</th>
         <td>{name}</td>
-        <td>{category_slug}</td>
+        <td>{categorySlug}</td>
         <td>{difficulty}</td>
         <td>{room}</td>
+        <td>{lastWatered}</td>
       </tr>
     )
   }
@@ -36,8 +37,8 @@ class Plant extends React.PureComponent {
 
 }
 
-Plant.propTypes = {
+PlantItem.propTypes = {
   plant: PropTypes.object.isRequired
 };
 
-export default Plant;
+export default PlantItem;

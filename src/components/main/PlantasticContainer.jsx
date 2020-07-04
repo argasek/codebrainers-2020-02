@@ -1,7 +1,7 @@
 import React from "react";
-import { Container } from "reactstrap";
-import { Route, Switch } from "react-router-dom";
-import { ROUTE_CATEGORIES, ROUTE_PLANTS, ROUTE_ROOMS } from "constants/Routes";
+import {Container} from "reactstrap";
+import {Route, Switch} from "react-router-dom";
+import {ROUTE_CATEGORIES, ROUTE_PLANTS, ROUTE_ROOMS} from "constants/Routes";
 import Plants from "components/plants/Plants";
 import Categories from "components/categories/Categories";
 import Rooms from "components/rooms/Rooms";

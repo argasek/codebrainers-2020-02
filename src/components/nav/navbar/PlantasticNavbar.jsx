@@ -10,9 +10,9 @@ import {
   UncontrolledDropdown
 } from "reactstrap";
 import PlantasticNavItem from "components/nav/nav-item/PlantasticNavItem";
-import { ROUTE_CATEGORIES, ROUTE_PLANTS, ROUTE_ROOMS } from "constants/Routes";
-import { faCog, faHome, faLeaf, faSeedling } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {ROUTE_CATEGORIES, ROUTE_PLANTS, ROUTE_ROOMS} from "constants/Routes";
+import {faCog, faHome, faLeaf, faSeedling} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import React from "react";
 
 class PlantasticNavbar extends React.PureComponent {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormFeedback, Input } from "reactstrap";
+import {FormFeedback, Input} from "reactstrap";
 
 const PlantasticInput = React.memo(({ field, form: { touched, errors }, ...props }) => (
   <React.Fragment>

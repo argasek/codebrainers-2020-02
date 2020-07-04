@@ -1,9 +1,8 @@
-import { Button, Form, Col, FormGroup, Input, Label, Row } from "reactstrap";
+import {Button, Col, Form, FormGroup, Input, Label, Row} from "reactstrap";
 import Select from "components/shared/Select";
-import { someArray, someOtherArray } from "constants/PlantConstants";
+import {someArray, someOtherArray} from "constants/PlantConstants";
 import React from "react";
 import PropTypes from 'prop-types';
-
 
 
 class PlantForm extends React.PureComponent {

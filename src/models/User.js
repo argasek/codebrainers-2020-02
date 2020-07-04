@@ -1,4 +1,4 @@
-import { Levels } from "./Levels";
+import {Levels} from "./Levels";
 
 class User {
 

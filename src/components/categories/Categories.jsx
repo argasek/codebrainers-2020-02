@@ -1,4 +1,4 @@
-import { Card, CardBody, ListGroup } from "reactstrap";
+import {Card, CardBody, ListGroup} from "reactstrap";
 import React from "react";
 import CategoryItem from "components/categories/CategoryItem";
 import InProgress from "components/shared/InProgress";

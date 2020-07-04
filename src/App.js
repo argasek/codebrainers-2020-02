@@ -1,9 +1,8 @@
 import React from 'react';
 import './App.scss';
-import axios from 'axios';
-import { BrowserRouter as Router } from 'react-router-dom';
+import {BrowserRouter as Router} from 'react-router-dom';
 import PlantasticNavbar from "components/nav/navbar/PlantasticNavbar";
-import { someOtherArray } from "constants/PlantConstants";
+import {someOtherArray} from "constants/PlantConstants";
 import PlantasticContainer from "components/main/PlantasticContainer";
 
 const CATEGORIES_FETCH_DELAY = 500;

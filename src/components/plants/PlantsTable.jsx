@@ -1,6 +1,6 @@
 import React from "react";
-import Plant from "components/plants/Plant";
-import { Table } from 'reactstrap';
+import PlantItem from "components/plants/PlantItem";
+import {Table} from 'reactstrap';
 
 
 const PlantsTable = (props) => {
@@ -16,12 +16,13 @@ const PlantsTable = (props) => {
           <th>Category</th>
           <th>Difficulty</th>
           <th>Room</th>
+          <th>Last Watered</th>
         </tr>
       </thead>
       <tbody>
 
         {plants.map((plant, index, arr) => (
-          <Plant plant={plant} index={index} />
+          <PlantItem plant={plant} index={index} />
 
         ))}
       </tbody>

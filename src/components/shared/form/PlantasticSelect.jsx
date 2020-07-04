@@ -1,5 +1,5 @@
 import React from 'react';
-import { CustomInput, FormFeedback } from "reactstrap";
+import {CustomInput, FormFeedback} from "reactstrap";
 
 const PlantasticSelect = React.memo(({ field, form: { touched, errors }, ...props }) => {
   return (

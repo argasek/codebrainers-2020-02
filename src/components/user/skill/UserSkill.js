@@ -1,6 +1,6 @@
 import React from 'react';
 import propTypes from 'prop-types';
-import { Level, Levels } from "../../../models/Levels";
+import {Level, Levels} from "../../../models/Levels";
 import skillBeginnerIcon from '../../../images/skill-beginner.jpg';
 import skillExperiencedIcon from '../../../images/skill-experienced.jpg';
 import skillHopelessIcon from '../../../images/skill-hopeless.jpg';

@@ -2,9 +2,9 @@ import {Card, CardBody} from "reactstrap";
 import React from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
-import Plant from "components/plants/Plant";
 import InProgress from "components/shared/InProgress";
-import {Table} from 'reactstrap';
+import PlantsTable from "./PlantsTable";
+import Plant from "models/Plant";
 
 const PLANTS_FETCH_DELAY = 250;
 
@@ -32,7 +32,11 @@ class Plants extends React.PureComponent {
         .get(requestUrl)
         .then((response) => {
           const data = response.data;
-          const plants = data.map((item) => item);
+          const plants = data.map((item) => {
+            const plant = new Plant();
+            plant.fromPlain(item);
+            return plant;
+          });
           const successPlants = true;
           this.setState({plants, successPlants});
           resolve();
@@ -53,25 +57,7 @@ class Plants extends React.PureComponent {
           <InProgress inProgress={inProgress}/>
           {successPlants === false && <p>Nie udało się pobrać Kwiatow</p>}
           {successPlants && (
-            <Table striped>
-              <thead>
-              <tr>
-                <th>#</th>
-                <th>Plant Name</th>
-                <th>Category</th>
-                <th>Difficulty</th>
-                <th>Room</th>
-              </tr>
-              </thead>
-              <tbody>
-
-              {plants.map((plant, index, arr) => (
-                <Plant plant={plant} index={index}/>
-
-              ))}
-              </tbody>
-
-            </Table>
+            <PlantsTable plants={plants}/>
           )}
         </CardBody>
       </Card>
