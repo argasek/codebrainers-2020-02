@@ -58,8 +58,9 @@ class Plants extends React.PureComponent {
               <tr>
                 <th>#</th>
                 <th>Plant Name</th>
-                <th>Last Name</th>
-                <th>Username</th>
+                <th>Category</th>
+                <th>Difficulty</th>
+                <th>Room</th>
               </tr>
               </thead>
               <tbody>
