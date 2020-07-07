@@ -3,14 +3,15 @@ import PlantForm from './plant-form/PlantForm';
 import { Card, CardBody, CardHeader } from 'reactstrap';
 
 const PlantCreate = (props) => {
+  const [plantName, setPlantName] = useState('');
   return (
     <Card className="mb-4" color="light">
       <CardHeader>
-        Create Plant:
+        Create Plant: {plantName}
       </CardHeader>
       <CardBody>
         <h3 className="mb-4">Create plant</h3>
-        <PlantForm { ...props } onFormikStateUpdate={(formik) => console.log(formik.values.name)}/>
+        <PlantForm { ...props } onFormikStateUpdate={(formik) => setPlantName(formik.values.name)}/>
       </CardBody>
     </Card>
   );
