@@ -48,7 +48,7 @@ class PlantForm extends React.PureComponent {
       <Formik initialValues={ initialValues } onSubmit={ onSubmit }>
         { ({ isValid }) => (
           <Form className="plant-form" >
-            <Effect onChange={this.props.abc}/>
+            <Effect onChange={this.props.onFormikStateUpdate}/>
             <PlantFormInformation />
             <PlantFormCultivation />
             <PlantFormMaintenance />
