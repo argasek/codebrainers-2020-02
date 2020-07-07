@@ -10,7 +10,7 @@ const PlantCreate = (props) => {
       </CardHeader>
       <CardBody>
         <h3 className="mb-4">Create plant</h3>
-        <PlantForm { ...props } />
+        <PlantForm { ...props } abc={(abc) => console.log(abc)}/>
       </CardBody>
     </Card>
   );
