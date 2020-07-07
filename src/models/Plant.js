@@ -1,31 +1,69 @@
-class Plant{
-  constructor() {
-    this.name = '';
-    this.id = undefined;
-    this.categorySlug = '';
-    this.difficulty = undefined;
-    this.room = undefined;
-    this.url = '';
-    this.lastWatered = '';
-  }
-  fromPlain(item) {
-    this.name = item.name;
-    this.id = item.id;
-    this.categorySlug = item.category_slug;
-    this.difficulty = item.difficulty;
-    this.room = item.room;
-    this.url = item.url;
-    this.lastWatered = item.last_watered;
-  }
+import { JsonConverter, JsonObject, JsonProperty, JsonType } from 'ta-json';
+import MomentSerializer from 'serializers/MomentSerializer';
+
+@JsonObject()
+class Plant {
+  @JsonType(Boolean)
+  @JsonProperty()
+  blooming = false;
+
+  @JsonType(Number)
+  @JsonProperty()
+  category = undefined;
+
+  @JsonType(String)
+  @JsonProperty()
+  categorySlug = '';
+
+  @JsonType(Number)
+  @JsonProperty()
+  difficulty = 1;
+
+  @JsonType(Number)
+  @JsonProperty()
+  fertilizingInterval = 0;
+
+  @JsonType(Number)
+  @JsonProperty()
+  id = undefined;
+
+  @JsonProperty()
+  @JsonConverter(new MomentSerializer())
+  @JsonType(String)
+  lastFertilized = undefined;
+
+  @JsonProperty()
+  @JsonConverter(new MomentSerializer())
+  @JsonType(String)
+  lastWatered = undefined;
+
+  @JsonType(String)
+  @JsonProperty()
+  name = '';
+
+  @JsonType(String)
+  @JsonProperty()
+  requiredExposure = '';
+
+  @JsonType(String)
+  @JsonProperty()
+  requiredHumidity = '';
+
+  @JsonType(String)
+  @JsonProperty()
+  requiredTemperature = '';
+
+  @JsonType(Number)
+  @JsonProperty()
+  room = undefined;
+
+  @JsonType(String)
+  @JsonProperty()
+  url = '';
+
+  @JsonType(Number)
+  @JsonProperty()
+  wateringInterval = 0;
 }
 
 export default Plant;
-
-
-
-// category_slug: "green-plants"
-// difficulty: 4
-// id: 10
-// name: "Licuala grandis"
-// room: 1
-// url: "http://gentle-tor-07382.herokuapp.com/plants/10/"

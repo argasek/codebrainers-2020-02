@@ -1,10 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './bootstrap-custom.sass';
-import 'bootstrap/scss/bootstrap.scss';
+import 'core-js/proposals/reflect-metadata';
+import 'bootstrap-pre-custom.sass';
+import 'bootstrap-post-custom.sass';
 import './index.scss';
-import App from './App';
+import App from 'App';
 import * as serviceWorker from './serviceWorker';
+import axios from 'axios';
+import Api from 'constants/Api';
+
+axios.defaults.baseURL = Api.baseUrl;
+axios.defaults.timeout = 2000;
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
