@@ -4,25 +4,27 @@ import TopHeaderWithActionButton from 'components/shared/TopHeaderWithActionButt
 import {Field, Form, Formik} from 'formik';
 import PlantasticInput from 'components/shared/form/PlantasticInput';
 import {connect} from "react-redux";
+import {decrementNewsletter, incrementNewsletter} from "./ducks/actions";
 
-const AccountPage = (props) => {
+const AccountPage = ({newsletterDays, dispatch}) => {
 
   const initialValues = {
-    newsletterDays: 14
+    newsletterDays
   };
 
   const onClickPlusButton = () => {
-    console.log('Plus!');
+    dispatch (incrementNewsletter() );
   };
 
   const onClickMinusButton = () => {
-    console.log('Minus!');
+    dispatch (decrementNewsletter() );
   };
 
   debugger;
   return (
     <Card>
       <CardBody>
+        {newsletterDays}
         <TopHeaderWithActionButton title="Account preferences"></TopHeaderWithActionButton>
         <Row>
           <Col xl={6}>
