@@ -9,7 +9,6 @@ import { API_ERRORS, API_NON_FIELD_ERRORS, ApiErrors, ApiErrorTypes } from 'serv
  */
 const getErrorMessageFromStatus = function (status) {
   const httpStatusCode = status.code;
-
   switch (httpStatusCode) {
     case HttpStatus.IM_A_TEAPOT:
       return 'Unable to connect, network is offline';

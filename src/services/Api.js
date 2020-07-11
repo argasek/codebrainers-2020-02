@@ -47,7 +47,6 @@ class Api {
     const request = error.request;
 
     const status = new ApiErrorStatus();
-
     if (response) {
       status.type = ApiErrorTypes.SERVER;
       status.code = get(response, 'status', HttpStatus.IM_A_TEAPOT);
@@ -64,7 +63,7 @@ class Api {
       if (connectionAborted && messageHasTimeout) {
         status.code = ApiClientStatus.ETIMEDOUT;
       } else {
-        status.code = error.code;
+        status.code = HttpStatus.IM_A_TEAPOT;
       }
       return status;
     }
