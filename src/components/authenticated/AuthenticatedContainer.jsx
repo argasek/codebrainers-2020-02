@@ -10,6 +10,7 @@ import NotFound from 'pages/errors/NotFound';
 import HelmetRoute from 'components/shared/HelmetRoute';
 import {Helmet, HelmetProvider} from 'react-helmet-async';
 import AuthenticatedBreadcrumbs from 'components/authenticated/AuthenticatedBreadcrumbs';
+import AccountPage from "../account/AccountPage";
 
 const AuthenticatedContainer = function () {
 
@@ -23,7 +24,7 @@ const AuthenticatedContainer = function () {
           <HelmetRoute path={Routes.PLANTS} render={() => <PlantsPage/>} title="Plants"/>
           <HelmetRoute path={Routes.ROOMS} render={() => <RoomsPage/>} title="Rooms"/>
           <HelmetRoute path={Routes.NOT_FOUND} render={() => <NotFound/>} title="Page not found"/>
-          <HelmetRoute path={Routes.ACCOUNT} render={() => <Dashboard/>} title="Account"/>
+          <HelmetRoute path={Routes.ACCOUNT} render={() => <AccountPage/>} title="Account"/>
           <HelmetRoute exact path={Routes.ROOT} render={() => <Dashboard/>} title="Dashboard"/>
 
           <Redirect to={Routes.NOT_FOUND}/>
