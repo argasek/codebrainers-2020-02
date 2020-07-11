@@ -1,10 +1,11 @@
 import React from "react";
-import { Button, Card, CardBody, Col, FormGroup, InputGroup, InputGroupAddon, Label, Row } from 'reactstrap';
+import {Button, Card, CardBody, Col, FormGroup, InputGroup, InputGroupAddon, Label, Row} from 'reactstrap';
 import TopHeaderWithActionButton from 'components/shared/TopHeaderWithActionButton';
-import { Field, Form, Formik } from 'formik';
+import {Field, Form, Formik} from 'formik';
 import PlantasticInput from 'components/shared/form/PlantasticInput';
+import {connect} from "react-redux";
 
-const AccountPage = () => {
+const AccountPage = (props) => {
 
   const initialValues = {
     newsletterDays: 14
@@ -18,14 +19,15 @@ const AccountPage = () => {
     console.log('Minus!');
   };
 
+  debugger;
   return (
     <Card>
       <CardBody>
         <TopHeaderWithActionButton title="Account preferences"></TopHeaderWithActionButton>
         <Row>
-          <Col xl={ 6 }>
-            <Formik initialValues={ initialValues }>
-              { ({ isValid }) => (
+          <Col xl={6}>
+            <Formik initialValues={initialValues}>
+              {({isValid}) => (
                 <Form>
                   <FormGroup className="required">
                     <Label htmlFor="newsletterDays>">How frequently you want to get newsletter:</Label>
@@ -38,7 +40,7 @@ const AccountPage = () => {
                         name="newsletterDays"
                         type="text"
                         placeholder="14…"
-                        component={ PlantasticInput }
+                        component={PlantasticInput}
                       />
                       <InputGroupAddon addonType="append">
                         <Button onClick={onClickMinusButton}>–</Button>
@@ -46,11 +48,11 @@ const AccountPage = () => {
                     </InputGroup>
                   </FormGroup>
                 </Form>
-              ) }
+              )}
             </Formik>
 
           </Col>
-          <Col xl={ 6 }></Col>
+          <Col xl={6}></Col>
         </Row>
 
       </CardBody>
@@ -61,4 +63,10 @@ const AccountPage = () => {
 
 };
 
-export default AccountPage;
+const mapStateToProps = (state) => {
+  return {
+    newsletterDays: state.newsletter
+  };
+};
+
+export default connect(mapStateToProps)(AccountPage);
