@@ -16,6 +16,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import navbarItems from 'components/navbar/constants/NavbarItems';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class AuthenticatedNavbar extends React.PureComponent {
   constructor(props) {
@@ -60,7 +61,9 @@ class AuthenticatedNavbar extends React.PureComponent {
               </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>
-                  Preferences…
+                  <Link to={Routes.ACCOUNT}>
+                    Preferences…
+                  </Link>
                 </DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem onClick={ onLogout }>
