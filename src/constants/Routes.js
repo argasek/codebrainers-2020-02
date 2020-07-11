@@ -7,6 +7,7 @@ class Routes {
   static PLANT = Routes.PLANTS + '/:plantId';
   static PLANT_EDIT = Routes.PLANT + '/edit';
   static ROOMS = '/rooms';
+  static ACCOUNT = '/account';
 }
 
 export default Routes;
