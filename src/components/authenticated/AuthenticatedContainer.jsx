@@ -1,39 +1,37 @@
 import React from 'react';
 import { Container } from 'reactstrap';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Switch } from 'react-router-dom';
 import Routes from 'constants/Routes';
-import PlantsContainer from 'components/plants/PlantsContainer';
-import CategoriesContainer from 'components/categories/CategoriesContainer';
-import RoomsContainer from 'components/rooms/RoomsContainer';
-import PlantCreate from 'components/plants/PlantCreate';
-import AuthenticatedDashboard from 'components/authenticated/AuthenticatedDashboard';
+import CategoriesPage from 'components/categories/CategoriesPage';
+import RoomsPage from 'components/rooms/RoomsPage';
+import Dashboard from 'components/dashboard/Dashboard';
+import PlantsPage from 'pages/plants/PlantsPage';
+import NotFound from 'pages/errors/NotFound';
+import HelmetRoute from 'components/shared/HelmetRoute';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+import AuthenticatedBreadcrumbs from 'components/authenticated/AuthenticatedBreadcrumbs';
 
-class AuthenticatedContainer extends React.PureComponent {
+const AuthenticatedContainer = function () {
 
-  render() {
-
-    return (
+  return (
+    <HelmetProvider>
       <Container>
+        <Helmet titleTemplate="%s – Plantastic" defaultTitle="Plantastic" />
+        <AuthenticatedBreadcrumbs />
         <Switch>
-          <Route exact path={ Routes.ROOT }>
-            <AuthenticatedDashboard />
-          </Route>
-          <Route path={ Routes.PLANTS }>
-            <PlantsContainer />
-            <PlantCreate />
-          </Route>
-          <Route path={ Routes.CATEGORIES }>
-            <CategoriesContainer />
-          </Route>
-          <Route path={ Routes.ROOMS }>
-            <RoomsContainer />
-          </Route>
+          <HelmetRoute path={ Routes.CATEGORIES } render={ () => <CategoriesPage /> } title="Categories" />
+          <HelmetRoute path={ Routes.PLANTS } render={ () => <PlantsPage /> } title="Plants" />
+          <HelmetRoute path={ Routes.ROOMS } render={ () => <RoomsPage /> } title="Rooms" />
+          <HelmetRoute path={ Routes.NOT_FOUND } render={ () => <NotFound /> } title="Page not found" />
+          <HelmetRoute exact path={ Routes.ROOT } render={ () => <Dashboard /> } title="Dashboard" />
+          <Redirect to={ Routes.NOT_FOUND } />
         </Switch>
       </Container>
-    );
-  }
-}
+    </HelmetProvider>
+  );
+};
+
+AuthenticatedContainer.propTypes = {};
 
 export default AuthenticatedContainer;
 
-AuthenticatedContainer.propTypes = {};

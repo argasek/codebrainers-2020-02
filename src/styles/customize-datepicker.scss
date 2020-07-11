@@ -1,0 +1,36 @@
+@import "src/styles/variables-pre-custom";
+
+// Datepicker
+
+.react-datepicker {
+  font-size: $font-size-base;
+}
+
+.react-datepicker-popper {
+  // This way an arrow is not covered by input focus outline
+  z-index: 3;
+}
+
+.react-datepicker-wrapper {
+  display: initial;
+}
+
+.react-datepicker__day {
+  width: 1.85rem;
+}
+
+//.react-datepicker-popper[data-placement^="top"] {
+//  margin-bottom: 2px;
+//}
+
+.date {
+  &.form-group {
+    .input-group-addon {
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}

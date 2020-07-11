@@ -1,5 +1,5 @@
 import React from 'react';
-import {CustomInput, FormFeedback} from 'reactstrap';
+import { CustomInput, FormFeedback } from 'reactstrap';
 
 const PlantasticRadio = React.memo(({ field, form: { touched, errors, values, setFieldValue }, ...props }) => {
   return (

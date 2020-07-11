@@ -1,21 +1,21 @@
-import React from "react";
-import { Label } from "reactstrap";
-import { Field } from "formik";
-import PlantasticInput from 'components/shared/form/PlantasticInput';
+import React from 'react';
+import { FormGroup, Label } from 'reactstrap';
+import { PlantFormFields } from 'components/plants/plant-form/constants/PlantFormFields';
+import PlantasticDatePicker from 'components/shared/form/PlantasticDatePicker';
 
 const PlantFormLastFertilized = (props) => {
-  const plantLastFertilizedId = "plantLastFertilized";
+  const id = "plantLastFertilized";
   return (
-    <React.Fragment>
-      <Label for={ plantLastFertilizedId }>Last fertilized at:</Label>
-      <Field
-        id={ plantLastFertilizedId }
-        name="lastFertilized"
-        type="text"
-        placeholder="YYYY-MM-DD"
-        component={ PlantasticInput }
+    <FormGroup>
+      <Label for={ id }>Last fertilized at:</Label>
+      <PlantasticDatePicker
+        id={ id }
+        name={ PlantFormFields.LAST_FERTILIZED }
+        dateFormat="yyyy-MM-dd"
+        placeholderText="YYYY-MM-DD"
+        className="form-control"
       />
-    </React.Fragment>
+    </FormGroup>
   );
 };
 
