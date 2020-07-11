@@ -16,12 +16,13 @@ const LoginPage = ({onTokenObtained}) => {
    * @return
    */
   const onSignIn = (credentials, onSubmitError) => {
-    setLoginInProgress(true);
+
 
     const onSignInErrorFn = (error) => onSignInError(error, onSubmitError);
     const online = window.navigator.onLine;
     // debugger;
     if (online === true) {
+      setLoginInProgress(true);
       return axios.post(Api.AUTH_TOKEN, credentials)
         .then(onSignInSuccess)
         .catch(onSignInErrorFn)
